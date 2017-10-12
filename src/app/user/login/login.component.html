@@ -1,3 +1,36 @@
-<p>
-  login works!
-</p>
+<form>
+  <div class="weui-cells__title" style="text-align:center; font-size:25px;">登录</div>
+  <div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">email</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="email" name="email" required [(ngModel)] = "user.email" placeholder="email" />
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">password</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" type="password"  name="password"  [(ngModel)] = "user.password" required placeholder="password" />
+      </div>
+    </div>
+  </div>
+
+  <label for="weuiAgree" class="weui-agree">
+    <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox">
+    <span class="weui-agree__text">
+        阅读并同意<a href="javascript:void(0);">《相关条款》</a>
+    </span>
+</label>
+
+  <div class="weui-btn-area">
+    <button class="weui-btn weui-btn_primary"  type="text"  [routerLink]="['/userList']" id="showTooltips">确定</button>
+    <!-- <button class="weui-btn weui-btn_primary" (click) = "login()" id="showTooltips">确定</button> -->
+  </div>
+</form>
+
+<div class="weui-footer weui-footer_fixed-bottom">
+  <p class="weui-footer__links">
+    <a href="javascript:home();" class="weui-footer__link">中美版权所有</a>
+  </p>
+  <p class="weui-footer__text">Copyright &copy; 2017-2017 ava.io</p>
+
