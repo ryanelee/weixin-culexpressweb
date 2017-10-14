@@ -5,10 +5,12 @@ import { HttpModule } from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { BaseCodePipe } from './shared/base-code.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BaseCodePipe
   ],
   imports: [
     BrowserModule,
