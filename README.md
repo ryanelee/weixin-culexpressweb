@@ -26,6 +26,13 @@ ng serve
 
 
 
+warning: I  have same problem when install node_module by cnpm, so I suggest set proxy for taobao.
+```
+npm config set registry https://registry.npm.taobao.org 
+```
+
+
+
 
 ## Development server
 
