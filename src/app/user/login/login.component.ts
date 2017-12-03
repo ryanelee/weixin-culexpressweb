@@ -13,14 +13,28 @@ declare var weui: any;
 
 export class LoginComponent implements OnInit {
   user: any = {
-    email: "",
-    password: ""
+    username: "",
+    password: "",
+    agree:false
   }
+
+  submitbtnStatus:boolean = true;
 
   constructor(private router: Router) { }
   ngOnInit() {
   }
-  login() {
 
+  login() {
+   
+  }
+
+  check(){
+    console.log("user",this.user)
+   if(this.user.username && this.user.password && this.user.agree){
+     this.submitbtnStatus = false;
+   }else{
+    this.submitbtnStatus = true;
+   }
+    // if(this.user)
   }
 }

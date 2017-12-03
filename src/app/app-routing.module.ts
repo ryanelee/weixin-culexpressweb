@@ -8,7 +8,7 @@ const routes: Routes = [
         loadChildren:'./user/user.module#UserModule'
     },
     {
-        path:'/order',
+        path:'order',
         loadChildren:'./order/order.module#OrderModule'
     }
 ];

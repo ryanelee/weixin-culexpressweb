@@ -2,28 +2,28 @@
   <div class="weui-cells__title" style="text-align:center; font-size:25px;">登录</div>
   <div class="weui-cells weui-cells_form">
     <div class="weui-cell">
-      <div class="weui-cell__hd"><label class="weui-label">email</label></div>
+      <div class="weui-cell__hd"><label class="weui-label">用户名</label></div>
       <div class="weui-cell__bd">
-        <input class="weui-input" type="email" name="email" required [(ngModel)] = "user.email" placeholder="email" />
+        <input class="weui-input" type="text" name="username" required [(ngModel)] = "user.username" placeholder="用户名/邮箱" />
       </div>
     </div>
     <div class="weui-cell">
-      <div class="weui-cell__hd"><label class="weui-label">password</label></div>
+      <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
       <div class="weui-cell__bd">
-        <input class="weui-input" type="password"  name="password"  [(ngModel)] = "user.password" required placeholder="password" />
+        <input class="weui-input" type="password"  name="password" (keyup)="check(user)"  [(ngModel)] = "user.password" required placeholder="密码" />
       </div>
     </div>
   </div>
 
   <label for="weuiAgree" class="weui-agree">
-    <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox">
+    <input id="weuiAgree" (click)="check()" name="agree" type="checkbox"  [(ngModel)] = "user.agree"  class="weui-agree__checkbox">
     <span class="weui-agree__text">
         阅读并同意<a href="javascript:void(0);">《相关条款》</a>
     </span>
 </label>
 
   <div class="weui-btn-area">
-    <button class="weui-btn weui-btn_primary"  type="text"  [routerLink]="['/userList']" id="showTooltips">确定</button>
+    <button class="weui-btn weui-btn_primary"  type="text" (click)="login()"  [disabled]="submitbtnStatus" [ngClass]="{'weui-btn_disabled':submitbtnStatus}"  id="showTooltips">确定</button>
     <!-- <button class="weui-btn weui-btn_primary" (click) = "login()" id="showTooltips">确定</button> -->
   </div>
 </form>
