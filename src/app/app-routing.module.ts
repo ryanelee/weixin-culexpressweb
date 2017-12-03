@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
     {
-        path:'',
-        loadChildren:'./user/user.module#UserModule'
+        path: '',
+        loadChildren: './user/user.module#UserModule'
     },
     {
         path:'order',
