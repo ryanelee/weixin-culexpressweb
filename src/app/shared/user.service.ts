@@ -33,7 +33,7 @@ export class UserService {
   };
 
   login(data) {
-    return this.http.post(environment.api + '/login', data).map((res: Response) => {
+    return this.http.post(environment.api + '/user/login', data).map((res: Response) => {
       return this.toResult(res);
     })
   }

@@ -1,3 +1,4 @@
+import { UserService } from '../../shared/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
@@ -13,28 +14,30 @@ declare var weui: any;
 
 export class LoginComponent implements OnInit {
   user: any = {
-    username: "",
+    emailAddress: "",
     password: "",
-    agree:false
+    agree: false
   }
 
-  submitbtnStatus:boolean = true;
+  submitbtnStatus: boolean = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
   ngOnInit() {
   }
 
   login() {
-   
+    this.userService.login(this.user).subscribe(function (result) {
+
+    })
   }
 
-  check(){
-    console.log("user",this.user)
-   if(this.user.username && this.user.password && this.user.agree){
-     this.submitbtnStatus = false;
-   }else{
-    this.submitbtnStatus = true;
-   }
+  check() {
+    console.log("user", this.user)
+    if (this.user.emailAddress && this.user.password && !this.user.agree) {
+      this.submitbtnStatus = false;
+    } else {
+      this.submitbtnStatus = true;
+    }
     // if(this.user)
   }
 }
