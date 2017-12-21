@@ -8,15 +8,15 @@ const routes: Routes = [
         loadChildren: './user/user.module#UserModule'
     },
     {
-        path:'order',
-        loadChildren:'./order/order.module#OrderModule'
+        path: 'order',
+        loadChildren: './order/order.module#OrderModule'
     }
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],
-    providers:    [  ],
+    providers: [],
 })
 
-export class AppRoutingModule{}
+export class AppRoutingModule { }
