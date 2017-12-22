@@ -1,0 +1,111 @@
+// Ascending
+// Used to evaluate Sass maps like our grid breakpoints.
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+  @each $key, $num in $map {
+    @if $prev-num == null {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+// Starts at zero
+// Another grid mixin that ensures the min-width of the lowest breakpoint starts at 0.
+@mixin _assert-starts-at-zero($map) {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+  @if $first-value != 0 {
+    @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+  }
+}
+
+@mixin border-radius-all($radius) {
+	-webkit-border-radius: ($radius);
+	-moz-border-radius: ($radius);
+	border-radius: ($radius);
+}
+
+@mixin border-radius-sides($leftTop, $rightTop, $rightBottom, $leftBottom ) {
+	-webkit-border-radius: $leftTop $rightTop $rightBottom $leftBottom;
+	-moz-border-radius: $leftTop $rightTop $rightBottom $leftBottom;
+	border-radius: $leftTop $rightTop $rightBottom $leftBottom;
+}
+
+@mixin background-size($value) {
+	-webkit-background-size: $value;
+	-moz-background-size: $value;
+	-o-background-size: $value;
+	background-size: $value;
+}
+
+@mixin box-shadow($horizontalOffset, $verticalOffset, $blur, $spreadRadius, $color) {
+	-webkit-box-shadow: $horizontalOffset $verticalOffset $blur $spreadRadius $color;
+	-moz-box-shadow: $horizontalOffset $verticalOffset $blur $spreadRadius $color;
+	-o-box-shadow: $horizontalOffset $verticalOffset $blur $spreadRadius $color;
+	box-shadow: $horizontalOffset $verticalOffset $blur $spreadRadius $color;
+}
+
+@mixin shadow-inset($val1, $val2, $blur, $color) {
+	-moz-box-shadow: inset $val1 $val2 $blur $color;
+	-webkit-box-shadow: inset $val1 $val2 $blur $color;
+	box-shadow: inset $val1 $val2 $blur $color;
+}
+
+@mixin transformY($val) {
+	transform: translateY($val);
+	-webkit-transform: translateY($val);
+	-ms-transform: translateY($val);
+	-o-transform: translateY($val);
+	-moz-transform: translateY($val);
+	}
+
+@mixin transformX($val) {
+	transform: translateX($val);
+	-webkit-transform: translateX($val);
+	-ms-transform: translateX($val);
+	-o-transform: translateX($val);
+	-moz-transform: translateX($val);
+}
+
+@mixin shadow($shadow) {
+  -webkit-box-shadow: #{$shadow}; // iOS <4.3 & Android <4.1
+  -moz-box-shadow: #{$shadow};
+  box-shadow: #{$shadow};
+}
+
+@mixin transform($degree) {
+	-webkit-transform: #{$degree};
+	-moz-transform:#{ $degree};
+	-ms-transform: #{$degree};
+	-o-transform: #{$degree};
+	transform: #{$degree};
+}
+
+@mixin border-radius($radius, $important: '') {
+	-webkit-border-radius: $radius#{$important};
+	-moz-border-radius: $radius#{$important};
+	-ms-border-radius: $radius#{$important};
+	-o-border-radius: $radius#{$important};
+	border-radius: $radius#{$important};
+}
+
+@mixin single-line-elipsis() {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin multi-line-elipsis($line: 2) {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
