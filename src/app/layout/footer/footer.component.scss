@@ -1,0 +1,13 @@
+
+@import '../../theme/variables.scss';
+@import '../../sass/_breakpoint.scss';
+
+footer {
+    position: fixed;
+    bottom: 2%;
+    left: 11%;
+    height: map-get($layout, footer);
+    line-height: map-get($layout, footer);
+    font-size: map-get($font-sizes, p3);
+  }
+  
