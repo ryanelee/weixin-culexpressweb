@@ -1,0 +1,119 @@
+
+@import '../../theme/variables.scss';
+@import '../../sass/_breakpoint.scss';
+
+  
+  .page-logo {
+    font-family: map-get($fonts, georgia);
+    font-size: map-get($font-sizes, h1);
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+  .container {
+    display: block;
+    width: map-get($layout, login);
+    min-height: calc(100vh - #{map-get($layout, footer)});
+  }
+  .mat-form-field-invalid {
+    .mat-form-field-placeholder {
+      color: map-get($colors, dark);
+    }
+    .mat-form-field-ripple {
+      background-color: map-get($colors, dark);
+    }
+  }
+  .mat-tab-label {
+    min-width: 0px;
+    height: 24px;
+    padding: 0;
+    margin-right: 50px;
+    justify-content: flex-start;
+    color: map-get($colors, red);
+    font-size: map-get($font-sizes, p2);
+    font-family: map-get($fonts, default);
+    font-weight: 500;
+    text-align: left;
+    text-transform: uppercase;
+    opacity: 1;
+    &-active {
+      color: map-get($colors, dark);
+    }
+  }
+  .mat-tab-header {
+    margin-bottom: 1.25em;
+  }
+  .mat-form-field {
+    width: map-get($layout, login);
+    height: 48px;
+
+    &.tel-prefix {
+      width: 60px;
+    }
+
+    &.tel-number {
+      width: 200px;
+      float: right;
+    }
+
+    &.code {
+      width: 150px;
+    }
+  }
+  .btn-code {
+    width: 130px;
+    vertical-align: text-bottom;
+    margin-left: 15px;
+    float: right;
+    margin-right: 2px;
+  }
+  .btn-submit {
+    width: map-get($layout, login);
+    height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .mat-error {
+    margin-bottom: 20px;
+  }
+  @media (min-width: map-get($breakpoints, md)) {
+    .page-logo {
+      padding-top: 120px;
+    }
+    .container {
+      width: 500px;
+      font-size: 16px;
+    }
+    .mat-tab-header {
+      margin-bottom: 36px;
+    }
+    .login-group-inline {
+      padding-bottom: 33px;
+    }
+    .mat-tab-label {
+      margin-right: 105px;
+      font-size: 16px;
+      height: 36px;
+    }
+    .mat-form-field {
+      width: 500px;
+      &.tel-prefix {
+        width: 110px;
+      }
+      &.tel-number {
+        width: 350px;
+      }
+      &.code {
+        width: 250px;
+      }
+    }
+    .btn-code {
+      width: 217px;
+      font-size: 16px;
+      height: 45px;
+    }
+    .btn-submit {
+      width: 500px;
+    }
+  }

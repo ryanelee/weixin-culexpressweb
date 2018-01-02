@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import './sass/_container.scss';
-@import './sass/_breakpoint.scss';
-@import './sass/_mixins.scss';
+@import './app/theme/variables.scss';
+@import './app/sass/_login.scss';
+@import './app/sass/_breakpoint.scss';

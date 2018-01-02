@@ -1,0 +1,61 @@
+$color-red-bright: #e51c23;
+$color-red-soft: #f8bbd0;
+$color-green-bright: #00ff7f;
+$color-green-calm: #48b14c;
+$color-green-chatbox: #b2ff59;
+$color-grey-bright: #eeeeee;
+$color-grey-darker: #e0e0e0;
+$color-grey-border: #bdbdbd;
+$color-grey-shadow: #eee;
+$color-grey-hint: #756f75;
+
+$fonts: (
+  default: ("Helvetica Neue", Helvetica, Arial, sans-serif),
+  georgia: "georgia",
+);
+
+$font-sizes: (
+  h1:      48px,
+  h2:      36px,
+  h3:      30px,
+  h4:      24px,
+  h5:      20px,
+  p1:      14px,
+  p2:      12px,
+  p3:      10px,
+);
+
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+p {
+  font-size: 14px;
+}
+
+$colors: (
+  red:    #E0301E,
+  green:  #006652,
+  pink:   #D93954,
+  dark:     #404041,
+  grey-1:   #707071,
+  grey-2:   #CFCFCF,
+  grey-3:   #ECECEC,
+  white:  #FFFFFF,
+);
+
+$layout: (
+  login: 300px,
+  footer: 30px
+)
