@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardService } from 'app/core/service/guards/auth-guard.service';
 
 
 const routes: Routes = [
@@ -9,6 +10,7 @@ const routes: Routes = [
     },
     {
         path: 'order',
+        canLoad: [AuthGuardService],
         loadChildren: './order/order.module#OrderModule'
     }
 ];

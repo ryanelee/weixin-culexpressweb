@@ -13,7 +13,7 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const user = this.storage.get('user');
-    if (user && (user.phone || user.email)) {
+    if (user) {
       return true;
     } else {
       return false;

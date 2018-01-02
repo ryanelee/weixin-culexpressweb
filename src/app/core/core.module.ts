@@ -1,3 +1,4 @@
+import { AuthGuardService } from './service/guards/auth-guard.service';
 import { UserService } from './service/user.service';
 import { StorageService } from './service/storage.service';
 import { AuthService } from './service/auth.service';
@@ -16,7 +17,8 @@ import { HttpModule } from '@angular/http';
   providers: [
     AuthService,
     StorageService,
-    UserService
+    UserService,
+    AuthGuardService
   ]
 })
 export class CoreModule { }
