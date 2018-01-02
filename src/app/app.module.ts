@@ -1,5 +1,5 @@
+import { CoreModule } from './core/core.module';
 import { LoginModule } from './routes/login/login.module';
-import { UserService } from './shared/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -8,13 +8,11 @@ import { HttpModule } from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { BaseCodePipe } from './shared/base-code.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BaseCodePipe
-  ],
+    AppComponent
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -22,9 +20,10 @@ import { BaseCodePipe } from './shared/base-code.pipe';
     HttpModule,
     AppRoutingModule,
     RouterModule,
-    LoginModule
+    LoginModule,
+    CoreModule
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

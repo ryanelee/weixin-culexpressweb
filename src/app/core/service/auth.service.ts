@@ -1,4 +1,4 @@
-import { User } from '../models/user';
+import { User } from '../../models/user';
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 import { Http } from '@angular/http';
