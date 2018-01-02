@@ -7,7 +7,7 @@
             <input matInput placeholder="用户名"  (keyup)="clearMsg()" [(ngModel)]="user.emailAddress">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="密码" (keyup)="clearMsg()" [(ngModel)]="user.password">
+            <input matInput type="password" placeholder="密码" (keyup)="clearMsg()" [(ngModel)]="user.password">
         </mat-form-field>
         <mat-error>
             {{errMeg}}
