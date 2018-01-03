@@ -12,6 +12,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BaseCodePipe } from './shared/base-code.pipe';
 
+import { OrderModule } from './order/order.module';
+import { OrderService } from './order/order.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +29,9 @@ import { BaseCodePipe } from './shared/base-code.pipe';
     RouterModule,
     LayoutModule,
     LoginModule,
-    
+    OrderModule
   ],
-  providers: [UserService],
+  providers: [UserService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
