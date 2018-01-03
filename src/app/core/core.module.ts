@@ -5,6 +5,7 @@ import { AuthService } from './service/auth.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { OrderService } from 'app/core/service/order.service';
 // import { AuthGuard } from './guards/auth.guard';
 
 
@@ -18,7 +19,8 @@ import { HttpModule } from '@angular/http';
     AuthService,
     StorageService,
     UserService,
-    AuthGuardService
+    AuthGuardService,
+    OrderService
   ]
 })
 export class CoreModule { }
