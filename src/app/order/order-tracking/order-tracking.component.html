@@ -1,8 +1,12 @@
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-  <input class="mdl-textfield__input" pattern="[A-Z,a-z,0-9]*" type="text" id="trackingnumber" [(ngModel)]="trackingNumber">
-  <label class="mdl-textfield__label" for="trackingnumber">请输入运单号码或者CUL包裹号...</label>
-  <span class="mdl-textfield__error">只能输入数字或者字母</span>
+<div class="page-white">
+  <div class="ot-search">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" pattern="[A-Z,a-z,0-9]*" type="text" id="trackingnumber" [(ngModel)]="trackingNumber">
+      <label class="mdl-textfield__label" for="trackingnumber">请输入运单号码或者CUL包裹号...</label>
+      <span class="mdl-textfield__error">只能输入数字或者字母</span>
+    </div>
+    <p>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="search(trackingNumber)">查询</button>
+    </p>
+  </div>
 </div>
-<p>
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="search(trackingNumber)">查询</button>
-</p>
