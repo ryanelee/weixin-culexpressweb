@@ -5,13 +5,8 @@
       <label class="mdl-textfield__label" for="trackingnumber">请输入运单号码或者CUL包裹号...</label>
       <span class="mdl-textfield__error">只能输入数字或者字母</span>
     </div> -->
-<<<<<<< HEAD
-    <mat-form-field>
-      <input matInput placeholder="请输入运单号码或者CUL包裹号..." value="" [(ngModel)]="trackingNumber">
-=======
     <mat-form-field class="example-full-width">
       <input matInput name="trackingNumber" placeholder="请输入运单号码或者CUL包裹号..." value="" [(ngModel)]="trackingNumber">
->>>>>>> 23868cf86763d666c15317f8832d3bf592424c5d
     </mat-form-field>
     <div>
       <button type="button" mat-raised-button class="btn-submit" color="warn" (click)="search(trackingNumber)">查询</button>
