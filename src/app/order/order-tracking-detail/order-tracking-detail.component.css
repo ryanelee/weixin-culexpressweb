@@ -145,6 +145,8 @@ body {
     display: flex;
     align-items: center;
     padding: 10px;
+    background-color: #ffffff;
+    margin-bottom: 10px;
   }
   .otd-info img{
     width: 80px;
