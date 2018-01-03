@@ -140,3 +140,23 @@ body {
     display: block;
     text-align: center;
   }
+
+  .otd-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  .otd-info img{
+    width: 80px;
+    padding-right: 10px;
+  }
+  .otd-info p{
+    color: #6dca8c;
+    font-size: 18px;
+    margin: 5px;
+  }
+  .otd-info span{
+    color: #999999;
+    font-size: 16px;
+    margin: 5px;
+  }

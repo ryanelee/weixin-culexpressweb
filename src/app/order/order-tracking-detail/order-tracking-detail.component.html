@@ -1,5 +1,5 @@
 <div class="main-container">
-    <section id="timeline" class="timeline-outer">
+    <!-- <section id="timeline" class="timeline-outer">
       <div class="container" id="content">
         <div class="row">
           <div class="col s12 m12 l12">
@@ -19,6 +19,26 @@
           </div>
         </div>
       </div>
-    </section>
-    <br/>
+    </section> -->
+    <div>
+      <div class="otd-info">
+        <img src="/assets/images/icon-left-baoguo.png">
+        <div>
+          <p>已出库</p>
+          <span>cul包裹号:{{trackingHistory.trackingNumber}}</span><br>
+          <span>已运送:{{trackingHistory.usedTimeString}}</span>
+        </div>
+      </div>
+    </div>
+    <mat-vertical-stepper>
+      <ul class="timeline">
+        <li *ngFor="let tracking of trackingHistory.data" class="event">
+          <mat-step [label]="tracking.operationDate">
+             {{tracking.note}}
+          </mat-step>
+        </li>
+      </ul>
+    </mat-vertical-stepper>
   </div>
+
+  
