@@ -1,6 +1,7 @@
 import { Tracking } from '../../models/tracking';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { OrderService } from 'app/core/service/order.service';
+import { TrackingHistory } from 'app/models/trackingHistory';
 
 @Component({
   selector: 'app-order-tracking',
@@ -10,7 +11,10 @@ import { OrderService } from 'app/core/service/order.service';
 export class OrderTrackingComponent implements OnInit {
 
   trackingNumber: string;
-  trackings: Array<Tracking>;
+  trackingHistory: TrackingHistory;
+  // @Output() trackingHistory: TrackingHistory;
+
+
   constructor(
     private _order: OrderService
   ) { }
@@ -23,7 +27,7 @@ export class OrderTrackingComponent implements OnInit {
       next: result => {
         const data: any = result.json();
         if (data.data && data.data[0]) {
-          this.trackings = data.data;
+          this.trackingHistory = data;
         }
       },
       error: message => {
