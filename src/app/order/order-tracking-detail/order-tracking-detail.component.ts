@@ -14,16 +14,5 @@ export class OrderTrackingDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.getTrackingHistory();
-    // console.log(this.trackingHistory);
   }
-
-  // getTrackingHistory(): void {
-  //   const id = this.route.snapshot.paramMap.get('id');
-  //   this.orderService.getTrackingHistory(id)
-  //     .subscribe(result => {
-  //       console.log('12345')
-  //       this.trackingHistory = result
-  //     });
-  // }
 }
