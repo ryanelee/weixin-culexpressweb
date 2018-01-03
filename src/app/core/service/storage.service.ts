@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 
 export class StorageService {
   set(key, value) {
-    if (typeof value != 'object') {
-      return "type error"
+    if (typeof value !== 'object') {
+      return 'type error'
     }
     value = JSON.stringify(value);
     window.localStorage.setItem(key, value);
@@ -21,7 +21,7 @@ export class StorageService {
     window.localStorage.setItem(key, value);
   }
   getValue(key): any {
-    let value = window.localStorage.getItem(key);
+    const value = window.localStorage.getItem(key);
     return value
   }
 
@@ -36,15 +36,15 @@ export class StorageService {
     return value
   }
   setSession(key, value) {
-    if (typeof value != 'object') {
-      return "type error"
+    if (typeof value !== 'object') {
+      return 'type error'
     }
     value = JSON.stringify(value);
     window.sessionStorage.setItem(key, value);
   }
 
   getSessionVal(key): any {
-    let value = window.sessionStorage.getItem(key);
+    const value = window.sessionStorage.getItem(key);
     return value
   }
   setSessionVal(key, value) {

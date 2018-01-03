@@ -20,7 +20,7 @@ npm i
 start project
 
 ```
-ng serve
+npm start
 
 ```
 

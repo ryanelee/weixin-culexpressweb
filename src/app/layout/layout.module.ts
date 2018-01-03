@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule
   ],
-  declarations: [FooterComponent, HeaderComponent]
+  declarations: [FooterComponent, HeaderComponent],
+  exports: [HeaderComponent, FooterComponent]
 })
 export class LayoutModule { }
