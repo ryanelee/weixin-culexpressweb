@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class OrderTrackingComponent implements OnInit {
 
   trackingNumber: string;
-  
   constructor() { }
 
   ngOnInit() {

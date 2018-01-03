@@ -27,6 +27,9 @@ export class OrderTrackingDetailComponent implements OnInit {
   getTrackingHistory(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.orderService.getTrackingHistory(id)
-      .subscribe(result => this.trackingHistory = result);
+      .subscribe(result => {
+        console.log('12345', result);
+        this.trackingHistory = result
+      });
   }
 }

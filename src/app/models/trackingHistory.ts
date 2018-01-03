@@ -5,4 +5,4 @@ export class TrackingHistory {
     shipDate: string;
     usedTimeString: string;
     data: Array<Tracking>;
-}
+};
