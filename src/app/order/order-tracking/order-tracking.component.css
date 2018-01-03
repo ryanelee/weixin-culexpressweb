@@ -11,4 +11,9 @@
 }
 .ot-search {
   padding: 10px 0px;
+  display: flex;
+  align-items: center;
+}
+.ot-search button{
+  margin-left: 10px;
 }

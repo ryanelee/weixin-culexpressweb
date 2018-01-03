@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatStepperModule, MatInputModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatButtonModule } from '@angular/material';
 
 import { OrderRoutingModule } from './order-routing.module';
 import { OrderListComponent } from './order-list/order-list.component';
@@ -15,7 +15,8 @@ import { OrderTrackingDetailComponent } from './order-tracking-detail/order-trac
     FormsModule,
     OrderRoutingModule,
     MatStepperModule,
-    MatInputModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   declarations: [OrderListComponent, OrderDetailComponent, OrderTrackingComponent, OrderTrackingDetailComponent]
 })
