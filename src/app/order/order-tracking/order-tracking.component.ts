@@ -11,8 +11,8 @@ import { TrackingHistory } from 'app/models/trackingHistory';
 export class OrderTrackingComponent implements OnInit {
 
   trackingNumber: string;
-  trackingHistory: TrackingHistory;
-  // @Output() trackingHistory: TrackingHistory;
+  // trackingHistory: TrackingHistory;
+  @Output() trackingHistory: TrackingHistory;
 
 
   constructor(
