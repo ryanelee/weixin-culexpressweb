@@ -1,3 +1,5 @@
+import { OrderTrackingDetailComponent } from './order-tracking-detail/order-tracking-detail.component';
+import { OrderTrackingComponent } from './order-tracking/order-tracking.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { OrderListComponent } from './order-list/order-list.component';
@@ -11,6 +13,12 @@ const routes: Routes = [
   {
     path: 'order-detail',
     component: OrderDetailComponent
+  },
+  {
+    path: 'tracking', component: OrderTrackingComponent
+  },
+  {
+    path: 'tracking/:id', component: OrderTrackingDetailComponent
   }
 ];
 

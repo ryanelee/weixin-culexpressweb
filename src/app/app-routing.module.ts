@@ -14,12 +14,6 @@ const routes: Routes = [
         path: 'order',
         canLoad: [AuthGuardService],
         loadChildren: './order/order.module#OrderModule'
-    },
-    {
-        path: 'order/tracking', component: OrderTrackingComponent
-    },
-    {
-        path: 'order/tracking/:id', component: OrderTrackingDetailComponent
     }
 ];
 

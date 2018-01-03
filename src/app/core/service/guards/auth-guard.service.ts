@@ -24,11 +24,16 @@ export class AuthGuardService implements CanLoad, CanActivate {
   }
 
   canLoad(route: Route): boolean {
+    console.log('route', route);
     const url = `/${route.path}`;
     return this.checkLogin(url);
   }
 
   checkLogin(url: string): boolean {
+    const routeUrl = window.location.href;
+    if (routeUrl.includes('tracking')) {
+      return true
+    }
     const bool = this._auth.isLoggedIn();
     if (bool) {
       return true
