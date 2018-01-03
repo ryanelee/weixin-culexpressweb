@@ -6,7 +6,7 @@
       <span class="mdl-textfield__error">只能输入数字或者字母</span>
     </div> -->
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="请输入运单号码或者CUL包裹号..." value="" [(ngModel)]="trackingNumber">
+      <input matInput name="trackingNumber" placeholder="请输入运单号码或者CUL包裹号..." value="" [(ngModel)]="trackingNumber">
     </mat-form-field>
     <div>
       <button type="button" mat-raised-button class="btn-submit" color="warn" (click)="search(trackingNumber)">查询</button>
