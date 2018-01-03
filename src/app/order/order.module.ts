@@ -7,7 +7,7 @@ import { OrderRoutingModule } from './order-routing.module';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrderTrackingComponent } from './order-tracking/order-tracking.component';
-import { OrderTrackingDetailComponent } from './order-tracking-detail/order-tracking-detail.component';
+import { OrderTrackingDetailComponent } from 'app/order/order-tracking/order-tracking-detail/order-tracking-detail.component';
 
 @NgModule({
   imports: [
