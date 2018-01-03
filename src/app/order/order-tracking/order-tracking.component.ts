@@ -25,7 +25,6 @@ export class OrderTrackingComponent implements OnInit {
         if (data.data && data.data[0]) {
           this.trackings = data.data;
         }
-        console.log('trackings', this.trackings);
       },
       error: message => {
         message = message.json();
