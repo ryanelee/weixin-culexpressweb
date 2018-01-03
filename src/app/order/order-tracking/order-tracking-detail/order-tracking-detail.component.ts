@@ -1,5 +1,5 @@
+import { TrackingHistory } from '../../../models/trackingHistory';
 import { Component, OnInit, Input } from '@angular/core';
-import { TrackingHistory } from '../../models/trackingHistory';
 
 @Component({
   selector: 'app-order-tracking-detail',
