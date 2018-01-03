@@ -33,14 +33,18 @@ export class UserService {
     return obj;
   };
 
+
+  // post(){
+
+  // }
+
   login(user) {
     const key = CryptoJS.lib.WordArray.random(128 / 8);
-
     const data = {
       data: CryptoJS.AES.encrypt(JSON.stringify(user), key.toString()).toString(),
       key: key.toString()
     };
-
+    // post()
     return this.http.post(environment.api + '/customer/login2', data);
   }
 

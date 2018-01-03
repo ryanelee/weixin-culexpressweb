@@ -1,8 +1,8 @@
 import { Tracking } from './tracking';
 
 export class TrackingHistory {
-    trackingNumber: string;
-    shipDate: string;
-    usedTimeString: string;
-    data: Array<Tracking>;
+    public trackingNumber?: string;
+    public shipDate?: string;
+    public usedTimeString?: string;
+    public data?: Array<Tracking>;
 };
