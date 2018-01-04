@@ -11,8 +11,8 @@
     </div>
     <mat-vertical-stepper>
       <ul class="timeline">
-        <li *ngFor="let tracking of trackingHistory.data" class="event">
-          <mat-step [label]="tracking.operationDate">
+        <li *ngFor="let tracking of trackingHistory.data" class="event" >
+          <mat-step [label]="tracking.operationDate" >
              {{tracking.note}}
           </mat-step>
         </li>
