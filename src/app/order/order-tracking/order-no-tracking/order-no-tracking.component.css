@@ -1,0 +1,12 @@
+.ote-page {
+    text-align: center;
+    padding: 20px 10px;
+}
+.ote-page img{
+    width: 60%;
+}
+
+.ote-page p{
+    font-size: 22px;
+    color: #607eae;
+}

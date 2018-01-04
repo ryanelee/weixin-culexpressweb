@@ -13,6 +13,7 @@ export class OrderTrackingComponent implements OnInit {
   trackingNumber: string;
   // trackingHistory: TrackingHistory;
   @Output() trackingHistory: TrackingHistory;
+  noData = false;
 
 
   constructor(
@@ -30,6 +31,8 @@ export class OrderTrackingComponent implements OnInit {
           this.trackingHistory = data;
           this.trackingHistory.trackingNumber = trackingNumber
           console.log('this.trackingHistory', this.trackingHistory);
+        } else {
+          this.noData = true;
         }
       },
       error: message => {

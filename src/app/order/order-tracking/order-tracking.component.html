@@ -14,4 +14,5 @@
   </div>
   </div>
 </div>
-<app-order-tracking-detail *ngIf="trackingHistory" [trackingHistory]="trackingHistory"></app-order-tracking-detail>
+<app-order-tracking-detail *ngIf="trackingHistory && !noData" [trackingHistory]="trackingHistory"></app-order-tracking-detail>
+<app-order-no-tracking *ngIf="noData" ></app-order-no-tracking>

@@ -8,6 +8,7 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrderTrackingComponent } from './order-tracking/order-tracking.component';
 import { OrderTrackingDetailComponent } from 'app/order/order-tracking/order-tracking-detail/order-tracking-detail.component';
+import { OrderNoTrackingComponent } from 'app/order/order-tracking/order-no-tracking/order-no-tracking.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { OrderTrackingDetailComponent } from 'app/order/order-tracking/order-tra
     MatFormFieldModule,
     MatButtonModule
   ],
-  declarations: [OrderListComponent, OrderDetailComponent, OrderTrackingComponent, OrderTrackingDetailComponent]
+  declarations: [OrderListComponent, OrderDetailComponent, OrderTrackingComponent, OrderTrackingDetailComponent, OrderNoTrackingComponent]
 })
 export class OrderModule { }
