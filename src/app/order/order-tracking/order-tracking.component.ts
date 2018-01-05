@@ -29,7 +29,7 @@ export class OrderTrackingComponent implements OnInit {
     this.trackingHistory = null;
     this.noData = false;
 
-    if(trackingNumber && !trackingNumber.toUpperCase().startsWith('CUL')){
+    if (trackingNumber && !trackingNumber.toUpperCase().startsWith('CUL')) {
 
       this._order.getTrackingListByOrderNumber(trackingNumber).subscribe({
         next: result => {
