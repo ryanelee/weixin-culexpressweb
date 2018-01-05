@@ -11,6 +11,7 @@ import { TrackingHistory } from 'app/models/trackingHistory';
 export class OrderTrackingComponent implements OnInit {
 
   trackingNumber: string;
+  @Output() trackingNumberList: [string];
   // trackingHistory: TrackingHistory;
   @Output() trackingHistory: TrackingHistory;
   noData = false;
@@ -24,6 +25,29 @@ export class OrderTrackingComponent implements OnInit {
 
   }
   search(trackingNumber) {
+    this.trackingNumberList = null;
+    this.trackingHistory = null;
+    this.noData = false;
+
+    if(trackingNumber && !trackingNumber.toUpperCase().startsWith('CUL')){
+
+      this._order.getTrackingListByOrderNumber(trackingNumber).subscribe({
+        next: result => {
+          const data: any = result.json();
+          if (data && data[0]) {
+            this.trackingNumberList = data;
+          } else {
+            this.noData = true;
+          }
+        },
+        error: message => {
+          message = message.json();
+        }
+      });
+
+      return;
+    }
+
     this._order.getOrderTrackingList(trackingNumber).subscribe({
       next: result => {
         const data: any = result.json();

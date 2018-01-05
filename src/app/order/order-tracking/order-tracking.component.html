@@ -14,5 +14,6 @@
   </div>
   </div>
 </div>
+<app-order-package-list *ngIf="trackingNumberList && !noData" [trackingNumberList]="trackingNumberList" (searchEvent)="search($event)"></app-order-package-list>
 <app-order-tracking-detail *ngIf="trackingHistory && !noData" [trackingHistory]="trackingHistory"></app-order-tracking-detail>
 <app-order-no-tracking *ngIf="noData" ></app-order-no-tracking>

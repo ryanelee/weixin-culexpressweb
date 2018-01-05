@@ -33,6 +33,10 @@ export class OrderService {
     return obj;
   };
 
+  getTrackingListByOrderNumber(orderNumber){
+    return this.http.get(environment.api + `/order/package/${orderNumber}`);
+  }
+
   getOrderTrackingList(trackingNumber) {
     return this.http.get(environment.api + '/outboundpackage/track/' + trackingNumber);
   }
