@@ -10,7 +10,7 @@ import { TrackingHistory } from 'app/models/trackingHistory';
 })
 export class OrderTrackingComponent implements OnInit {
 
-  trackingNumber: string;
+  trackingNumber = 'CUL100004903';
   @Output() trackingNumberList: [string];
   // trackingHistory: TrackingHistory;
   @Output() trackingHistory: TrackingHistory;

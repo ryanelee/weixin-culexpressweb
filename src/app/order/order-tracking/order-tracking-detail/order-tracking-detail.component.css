@@ -20,9 +20,12 @@
     font-size: 14px;
     margin: 5px;
   }
-  .mat-step-icon .mat-icon {
+  .otd-tracking .mat-step-icon .mat-icon {
     display: none !important;
   }
-  .mat-step-icon span {
+  .otd-tracking .mat-step-icon span {
     display: none !important;
+  }
+  .mat-vertical-stepper-header{
+    pointer-events: none !important;
   }

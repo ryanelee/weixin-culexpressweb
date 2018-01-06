@@ -6,3 +6,16 @@ body {
     background-color: white;
     padding: 10px;
 }
+
+.otd-tracking .mat-step-icon .mat-icon {
+    display: none !important;
+}
+.otd-tracking .mat-step-icon span {
+    display: none !important;
+}
+.otd-tracking .mat-step-icon-not-touched span {
+    display: none;
+}
+.otd-tracking .mat-vertical-stepper-header{
+    pointer-events: none !important;
+}

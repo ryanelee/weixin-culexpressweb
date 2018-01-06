@@ -10,10 +10,10 @@
       </div>
     </div>
     <div class="otd-tracking">
-      <mat-vertical-stepper linear>
+      <mat-vertical-stepper class="otd-tracking" linear>
         <ul>
           <li *ngFor="let tracking of trackingHistory.data" class="event" >
-            <mat-step [label]="tracking.operationDate" completed>
+            <mat-step [label]="tracking.operationDate">
               <ng-template matStepLabel>
                 <p>{{tracking.operationDate | date:'yyyy-MM-dd HH:mm:ss'}}</p>
                 <p>{{tracking.note}}</p>
