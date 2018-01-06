@@ -1,3 +1,4 @@
+import { PipesModule } from './service/pipes/pipes.module';
 import { AuthGuardService } from './service/guards/auth-guard.service';
 import { UserService } from './service/user.service';
 import { StorageService } from './service/storage.service';
@@ -13,6 +14,7 @@ import { OrderService } from 'app/core/service/order.service';
   imports: [
     CommonModule,
     HttpModule,
+    PipesModule
   ],
   declarations: [],
   providers: [
