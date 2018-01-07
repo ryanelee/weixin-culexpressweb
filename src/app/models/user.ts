@@ -62,8 +62,8 @@ export class User {
     public birthday?: string,
     public isAgent?: number,
     public isVip?: boolean,
-    public photoUrl?: string
-
+    public photoUrl?: string,
+    public password?: string
   ) {
   }
 }

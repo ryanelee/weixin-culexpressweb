@@ -1,8 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({
-  name: 'baseCode'
-})
+@Pipe({name: 'baseCode'})
 export class BaseCodePipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
