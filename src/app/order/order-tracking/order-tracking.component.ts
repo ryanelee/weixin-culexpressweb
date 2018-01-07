@@ -36,6 +36,7 @@ export class OrderTrackingComponent implements OnInit {
           const data: any = result.json();
           if (data && data[0]) {
             this.trackingNumberList = data;
+            console.log(this.trackingNumberList);
           } else {
             this.noData = true;
           }
