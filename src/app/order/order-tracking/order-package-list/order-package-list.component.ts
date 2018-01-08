@@ -15,7 +15,7 @@ export class OrderPackageListComponent implements OnInit {
   ngOnInit() {
   }
 
-  search(trackingNumber){
+  search(trackingNumber) {
     this.searchEvent.emit(trackingNumber);
   }
 }
