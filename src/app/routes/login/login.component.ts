@@ -10,7 +10,7 @@ import { User } from 'app/models/user';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  user: User = {};
+  user: User = { emailAddress: '', password: '' };
   errMeg: string;
   constructor(
     private _user: UserService,

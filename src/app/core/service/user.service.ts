@@ -4,10 +4,11 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 import * as CryptoJS from 'crypto-js';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class UserService {
-
+  public SpinnerShow: Subject<any> = new Subject<any>();
   constructor(private http: Http) { }
 
   toResult(res) {
@@ -33,10 +34,13 @@ export class UserService {
     return obj;
   };
 
+  // SpinnerShow
 
-  // post(){
-
-  // }
+  post(url, data) {
+    console.log('123456');
+    this.SpinnerShow.next(true);
+   return  this.http.post(environment.api + url, data);
+  }
 
   login(user) {
     const key = CryptoJS.lib.WordArray.random(128 / 8);
@@ -45,7 +49,7 @@ export class UserService {
       key: key.toString()
     };
     // post()
-    return this.http.post(environment.api + '/customer/login2', data);
+    return this.post('/customer/login2', data);
   }
 
 
