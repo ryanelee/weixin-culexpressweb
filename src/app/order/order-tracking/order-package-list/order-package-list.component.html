@@ -1,5 +1,7 @@
-<mat-nav-list>
-  <mat-list-item *ngFor='let trkNo of trackingNumberList'>
-    <button mat-raised-button (click)='search(trkNo)'>{{trkNo}}</button>
-  </mat-list-item>
-</mat-nav-list>
+<div class="opl-page">
+  <mat-nav-list>
+    <mat-list-item *ngFor='let trkNo of trackingNumberList' class="opl-cell">
+      <a (click)='search(trkNo)'>{{trkNo}}</a><i class="material-icons">navigate_next</i>
+    </mat-list-item>
+  </mat-nav-list>
+</div>

@@ -1,0 +1,16 @@
+.opl-page {
+    background-color: #ffffff;
+    margin: 20px 0px;
+}
+.opl-cell {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #efefef;
+}
+.opl-cell a{
+    flex: 1;
+}
+.opl-cell mat-icon::before{
+    content: "\f077";
+}
