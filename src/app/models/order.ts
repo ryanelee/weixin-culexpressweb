@@ -1,13 +1,64 @@
 export class Order {
-    public code?: string;
-    public arrivedDate?: string;
-    public description?: string;
-    public eventCode?: number;
-    public icon?: string;
-    public note?: string;
-    public operationDate?: string;
-    public operationUser?: string;
-    public show?: boolean;
-    public status?: string;
-    public warehouseName?: string;
+    public "orderNumber"?:String;
+    public "orderStatus"?:String;
+    public "printStatus"?:String;
+    public "orderDate"?:Date;
+    public "payDate"?:Date;
+    public "shipServiceId"?:Number;
+    public "shipServiceName"?:String;
+    public "goodsCategory"?:String;
+    public "declareGoodsValue"?:Number;
+    public "declareGoodsName"?:String;
+    public "goodsCount"?:Number;
+    public "cartonCount"?:Number;
+    public "pack_takeoutInvoice"?:String;
+    public "pack_urgentProcess"?:String;
+    public "pack_steadyInner"?:String;
+    public "pack_replaceCarton"?:String;
+    public "pack_removeInner"?:String;
+    public "pack_addCarton"?:String;
+    public "pack_checkCount"?:String;
+    public "insuranceMark"?:Number;
+    public "pointMark"?:Number;
+    public "usedPoint"?:Number;
+    public "pointCash"?:Number;
+    public "tip"?:Number;
+    public "shippingFee"?:Number;
+    public "stockingFee"?:Number;
+    public "transferringFee"?:Number;
+    public "goodsFee"?:Number;
+    public "exGoodsFee"?:Number;
+    public "insuranceFee"?:Number;
+    public "valueAddFee"?:String;
+    public "couponNo"?:String;
+    public "totalCount"?:Number;
+    public "paied"?:Number;
+    public "priceAdjustMemo"?:String;
+    public "inuserName"?:String;
+    public "warehouseNumber"?:String;
+    public "warehouseName"?:String;
+    public "orderMessageNumber"?:String;
+    public "batchNumber"?:String;
+    public "referenceOrderNumber"?:String;
+    public "orderType"?:String;
+    public "reference1"?:String;
+    public "reference2"?:String;
+    public "reference3"?:String;
+    public "batchSeq"?:String;
+    public "isFastOrder"?:String;
+    public "currencyCode"?:String;
+    public "shippingFeeAdjust"?:String;
+    public "customerNumber"?:String;
+    public "deleteMan"?:String;
+    public "deleteTime"?:String;
+    public "remark"?:String;
+    public "deleteMessage"?:String;
+    public "tariffMoney"?:Number;
+    public "totalRefund"?:String;
+    public "customer"?:Object
+    public "packageTotalFee"?:Number;
+    public "actualWeight"?:Number;
+    public "outboundPackages"?:Array
+    public "orderItems"?:Array
+    public "shipToAddresses"?:Array
 }
