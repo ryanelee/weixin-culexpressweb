@@ -82,6 +82,10 @@ export class OrderService {
     return this.get('/outboundpackage/track/' + trackingNumber);
   }
 
+  getOrderList(param) {
+    return this.post(environment.api + '/order/list', param);
+  }
+
 }
 
 
