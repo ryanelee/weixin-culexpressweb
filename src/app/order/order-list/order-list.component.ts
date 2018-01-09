@@ -22,18 +22,11 @@ export class OrderListComponent implements OnInit {
   }
 
   getOrderList(param) {
-    this._order.getOrderList(param).subscribe({
-      next: result => {
-        const data: any = result.json();
-        if (data.data && data.data[0]) {
-          this.orderList = data;
-        } else {
-          this.noData = true;
-        }
-      },
-      error: message => {
-        message = message.json();
-        // this.errMeg = message.message;
+    this._order.getOrderList(param).subscribe((data) => {
+      if (data && data[0]) {
+        this.orderList = data;
+      } else {
+        this.noData = true;
       }
     })
   }
