@@ -55,7 +55,7 @@ export class Order {
     public "deleteMessage"?:String;
     public "tariffMoney"?:Number;
     public "totalRefund"?:String;
-    public "customer"?:Object
+    public "customer"?:Object;
     public "packageTotalFee"?:Number;
     public "actualWeight"?:Number;
     public "outboundPackages"?:Array
