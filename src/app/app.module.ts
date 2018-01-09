@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 
 import { OrderModule } from './order/order.module';
+import { LayoutModule } from 'app/layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { OrderModule } from './order/order.module';
     RouterModule,
     LoginModule,
     OrderModule,
-    CoreModule
+    CoreModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { CommonService } from './service/common.service';
 import { PipesModule } from './service/pipes/pipes.module';
 import { AuthGuardService } from './service/guards/auth-guard.service';
 import { UserService } from './service/user.service';
@@ -22,7 +23,8 @@ import { OrderService } from 'app/core/service/order.service';
     StorageService,
     UserService,
     AuthGuardService,
-    OrderService
+    OrderService,
+    CommonService
   ]
 })
 export class CoreModule { }

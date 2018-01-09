@@ -10,10 +10,13 @@ import { OrderTrackingComponent } from './order-tracking/order-tracking.componen
 import { OrderTrackingDetailComponent } from 'app/order/order-tracking/order-tracking-detail/order-tracking-detail.component';
 import { OrderNoTrackingComponent } from 'app/order/order-tracking/order-no-tracking/order-no-tracking.component';
 import { OrderPackageListComponent } from './order-tracking/order-package-list/order-package-list.component';
+import { OrderComponent } from './order.component';
+import { LayoutModule } from 'app/layout/layout.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    LayoutModule,
     FormsModule,
     MatInputModule,
     OrderRoutingModule,
@@ -21,6 +24,12 @@ import { OrderPackageListComponent } from './order-tracking/order-package-list/o
     MatFormFieldModule,
     MatButtonModule
   ],
-  declarations: [OrderListComponent, OrderDetailComponent, OrderTrackingComponent, OrderTrackingDetailComponent, OrderNoTrackingComponent, OrderPackageListComponent]
+  declarations: [OrderListComponent,
+    OrderDetailComponent,
+    OrderTrackingComponent,
+    OrderTrackingDetailComponent,
+    OrderNoTrackingComponent,
+    OrderPackageListComponent,
+    OrderComponent]
 })
 export class OrderModule { }

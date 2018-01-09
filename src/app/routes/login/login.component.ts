@@ -30,17 +30,14 @@ export class LoginComponent implements OnInit {
       !user.password) {
       return this.errMeg = '用户名和密码不能为空';
     }
-    this._user.login(user).subscribe({
-      next: result => {
-        const data: User = result.json();
-        this._auth.setUser(data);
+    this._user.login(user).subscribe((result: any) => {
+      if (result.err) {
+        this.errMeg = result.err;
+      } else {
+        const data: User = result
+        this._auth.setUser(result);
         this._router.navigate(['order']);
-      },
-      error: message => {
-        message = message.json();
-        this.errMeg = message.message;
       }
     })
   }
-
 }
