@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from 'app/core/service/guards/auth-guard.service';
+import { ChannelIntroComponent } from 'app/home/channel-intro/channel-intro.component';
+
 const routes: Routes = [
     {
         path: '',
@@ -10,6 +12,9 @@ const routes: Routes = [
         path: 'order',
         canLoad: [AuthGuardService],
         loadChildren: './order/order.module#OrderModule'
+    },
+    {
+        path: 'channel-intro', component: ChannelIntroComponent
     }
 ];
 
