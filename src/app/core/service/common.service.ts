@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs/Observable';
+import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class CommonService {
   public SpinnerShow: BehaviorSubject<Boolean> = new BehaviorSubject(false);
-  constructor() { }
+  constructor(private http: Http) { }
   show() {
     this.SpinnerShow.next(true);
   }
@@ -14,5 +17,44 @@ export class CommonService {
   getSpinnerShow() {
     return this.SpinnerShow;
   }
+  post(url, data) {
+    this.show();
+    const observable = new Observable(observer => {
+      return this.http.post(environment.api + url, data).subscribe({
+        next: result => {
+          this.hidden();
+          // this.SpinnerShow.next(false);
+          observer.next(result);
+        },
+        error: message => {
+          this.hidden();
+          observer.next({
+            err: message.json().message,
+          });
+        }
+      })
+    });
+    return observable;
+  }
+
+  get(url) {
+    this.show();
+    const observable = new Observable(observer => {
+      return this.http.get(environment.api + url).subscribe({
+        next: result => {
+          this.hidden();
+          observer.next(result);
+        },
+        error: message => {
+           this.hidden();
+          observer.next({
+            err: message.json().message
+          });
+        }
+      })
+    });
+    return observable;
+  }
+
 
 }

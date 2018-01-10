@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { CommonService } from './service/common.service';
 import { PipesModule } from './service/pipes/pipes.module';
 import { AuthGuardService } from './service/guards/auth-guard.service';

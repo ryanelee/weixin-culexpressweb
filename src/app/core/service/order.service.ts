@@ -34,56 +34,16 @@ export class OrderService {
     obj.data = data;
     return obj;
   };
-  post(url, data) {
-    this._common.show();
-    const observable = new Observable(observer => {
-      return this.http.post(environment.api + url, data).subscribe({
-        next: result => {
-          this._common.hidden();
-          // this.SpinnerShow.next(false);
-          observer.next(result);
-        },
-        error: message => {
-          this._common.hidden();
-          observer.next({
-            err: message.json().message,
-          });
-        }
-      })
-    });
-    return observable;
-  }
-
-  get(url) {
-    console.log('12', 12);
-    this._common.show();
-    const observable = new Observable(observer => {
-      return this.http.get(environment.api + url).subscribe({
-        next: result => {
-          this._common.hidden();
-          observer.next(result);
-        },
-        error: message => {
-           this._common.hidden();
-          observer.next({
-            err: message.json().message,
-          });
-        }
-      })
-    });
-    return observable;
-  }
-
   getTrackingListByOrderNumber(orderNumber) {
-    return this.get(`/order/package/${orderNumber}`);
+    return this._common.get(`/order/package/${orderNumber}`);
   }
 
   getOrderTrackingList(trackingNumber) {
-    return this.get('/outboundpackage/track/' + trackingNumber);
+    return this._common.get('/outboundpackage/track/' + trackingNumber);
   }
 
   getOrderList(param) {
-    return this.post(environment.api + '/order/list', param);
+    return this._common.post(environment.api + '/order/list', param);
   }
 
 }
