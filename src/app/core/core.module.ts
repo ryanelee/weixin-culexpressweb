@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderService } from 'app/core/service/order.service';
 // import { AuthHttp, AuthConfig } from 'angular2-jwt';
-// import { Http, HttpModule, JsonpModule, RequestOptions } from '@angular/http';
+import { Http, HttpModule, JsonpModule, RequestOptions } from '@angular/http';
 
 
 // import { AuthGuard } from './guards/auth.guard';
