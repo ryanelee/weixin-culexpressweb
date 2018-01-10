@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api:"http://api.culexpress.com/api"
+  api: 'http://api.culexpress.com/api'
 };

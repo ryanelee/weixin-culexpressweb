@@ -10,10 +10,9 @@ export class OrderService {
   toResult(res) {
     const body = res.json();
     if (body.code === '000') {
-      return body.data
+      return body.data;
     }
     if (body.code === '999') {
-      console.log(234)
       return { err: body.msg }
     }
   }

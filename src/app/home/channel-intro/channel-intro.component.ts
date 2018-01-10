@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataSource } from '@angular/cdk/collections'; 
+import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { of as ObservableOf } from 'rxjs/observable/of';
 
@@ -13,12 +13,10 @@ import { CommonService } from 'app/core/service/common.service';
 
 export class ChannelIntroComponent implements OnInit {
 
-  panelOpenState: boolean = false;
+  panelOpenState = false;
   ELEMENT_DATA = [];
 
-  constructor(private _service: CommonService) { 
-    
-  }
+  constructor(private _service: CommonService) { }
 
   ngOnInit() {
     this.loadDataSource();
@@ -34,7 +32,9 @@ export class ChannelIntroComponent implements OnInit {
 
         if (data.data.data && data.data.data[0]) {
           data.data.data.forEach(item => {
-            if(item.status == 0) return;
+            if (item.status === 0) {
+              return;
+            }
             this.ELEMENT_DATA.push({
               serviceName: item.shipServiceName,
               serviceSummary: item.serviceSummary,
@@ -42,8 +42,8 @@ export class ChannelIntroComponent implements OnInit {
               tax: item.taxIncluded,
               maxWeight: item.maxWeight + '磅',
               idCard: item.needIDCard === 1 ? '需要身份证' : '无须身份证',
-              firstWeightRate: item.shipFeeList.filter(i => i.isVip == '0')[0].firstWeight,
-              continueWeightRate: item.shipFeeList.filter(i => i.isVip == '0')[0].continuedWeight
+              firstWeightRate: item.shipFeeList.filter(i => i.isVip === '0')[0].firstWeight,
+              continueWeightRate: item.shipFeeList.filter(i => i.isVip === '0')[0].continuedWeight
             });
 
           });
@@ -81,5 +81,5 @@ export class ElementDataSource extends DataSource<any> {
     return ObservableOf(this.element);
   }
 
-  disconnect() {}
+  disconnect() { }
 }
