@@ -36,10 +36,8 @@ export class UserService {
       key: key.toString()
     };
     // post()
-    return this._common.post('/customer/login2', data);
+    return this._common.post('/customer/login2', data)
   }
-
-
 }
 
 

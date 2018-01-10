@@ -34,8 +34,10 @@ export class LoginComponent implements OnInit {
       if (result.err) {
         this.errMeg = result.err;
       } else {
+        console.log('result', result);
         const data: User = result
         this._auth.setUser(result);
+        this._auth.setJwtToken(result.token);
         this._router.navigate(['order']);
       }
     })

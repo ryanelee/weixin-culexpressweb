@@ -24,22 +24,16 @@ export class AuthService {
     this.storage.set('user', user);
   }
 
-  judgeTheRoleIsRM(): boolean {
-    const user = this.storage.get('user');
-    if (user) {
-      if (user.role === 'R') {
-        return true;
-      }
-    }
-    return false;
-  }
 
   getUser(): void {
     return this.storage.get('user');
   }
 
   getJwtToken(): void {
-    return this.storage.get('token');
+    return this.storage.getValue('token');
+  }
+  setJwtToken(token): void {
+    return this.storage.setValue('jwtToken', token);
   }
   logout(): void {
     this.storage.remove('user');

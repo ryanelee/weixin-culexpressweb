@@ -16,9 +16,10 @@ const storage = new StorageService();
 export function authFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
     // headerPrefix: 'Bearer',
+    noTokenScheme: true ,
     noJwtError: true,
     globalHeaders: [{ 'Accept': 'application/json' }],
-    tokenGetter: (() => storage.get('token')),
+    tokenGetter: (() => storage.getValue('jwtToken')),
   }), http, options);
 }
 

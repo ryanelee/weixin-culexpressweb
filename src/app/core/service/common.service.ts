@@ -18,14 +18,17 @@ export class CommonService {
   getSpinnerShow() {
     return this.SpinnerShow;
   }
-  post(url, data) {
+  post(url, params) {
     this.show();
     const observable = new Observable(observer => {
-      return this.http.post(environment.api + url, data).subscribe({
+      return this.http.post(environment.api + url, params).subscribe({
         next: result => {
           this.hidden();
-          // this.SpinnerShow.next(false);
-          observer.next(result);
+          const data: any = result.json();
+          if (result.headers.toJSON().token) {
+            data.token = result.headers.toJSON().token[0]
+          };
+          observer.next(data);
         },
         error: message => {
           this.hidden();
@@ -47,7 +50,7 @@ export class CommonService {
           observer.next(result);
         },
         error: message => {
-           this.hidden();
+          this.hidden();
           observer.next({
             err: message.json().message
           });
@@ -62,7 +65,7 @@ export class CommonService {
   authPost(url, data) {
     this.show();
     const observable = new Observable(observer => {
-      return this.http.post(environment.api + url, data).subscribe({
+      return this._authHttp.post(environment.api + url, data).subscribe({
         next: result => {
           this.hidden();
           // this.SpinnerShow.next(false);
@@ -70,9 +73,10 @@ export class CommonService {
         },
         error: message => {
           this.hidden();
-          observer.next({
-            err: message.json().message,
-          });
+          console.log('message.json()', message)
+          // observer.next({
+          //   err: message.json().message,
+          // });
         }
       })
     });
