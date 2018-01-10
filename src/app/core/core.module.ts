@@ -1,5 +1,3 @@
-import { HttpModule } from '@angular/http';
-import { CommonService } from './service/common.service';
 import { PipesModule } from './service/pipes/pipes.module';
 import { AuthGuardService } from './service/guards/auth-guard.service';
 import { UserService } from './service/user.service';
@@ -8,13 +6,10 @@ import { AuthService } from './service/auth.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderService } from 'app/core/service/order.service';
-<<<<<<< HEAD
 import { CommonService } from 'app/core/service/common.service';
 // import { AuthGuard } from './guards/auth.guard';
-=======
 // import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http, HttpModule, JsonpModule, RequestOptions } from '@angular/http';
->>>>>>> dc076db9ea4aace36064d6f764157ea15a674da7
 
 
 // import { AuthGuard } from './guards/auth.guard';
