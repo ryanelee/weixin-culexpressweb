@@ -1,14 +1,16 @@
+import { CommonService } from './common.service';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 import * as CryptoJS from 'crypto-js';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class OrderService {
-
-  constructor(private http: Http) { }
+  SpinnerShow: BehaviorSubject<Boolean> = new BehaviorSubject(false);
+  constructor(private http: Http, private _common: CommonService) { }
 
   toResult(res) {
     const body = res.json();
@@ -32,15 +34,17 @@ export class OrderService {
     obj.data = data;
     return obj;
   };
-
-  getTrackingListByOrderNumber(orderNumber){
-    return this.http.get(environment.api + `/order/package/${orderNumber}`);
+  getTrackingListByOrderNumber(orderNumber) {
+    return this._common.get(`/order/package/${orderNumber}`);
   }
 
   getOrderTrackingList(trackingNumber) {
-    return this.http.get(environment.api + '/outboundpackage/track/' + trackingNumber);
+    return this._common.get('/outboundpackage/track/' + trackingNumber);
   }
 
+  getOrderList(param) {
+    return this._common.post(environment.api + '/order/list', param);
+  }
 
 }
 

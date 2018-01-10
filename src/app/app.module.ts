@@ -12,8 +12,12 @@ import { AppComponent } from './app.component';
 import { MatExpansionPanel, MatExpansionModule } from '@angular/material';
 
 import { OrderModule } from './order/order.module';
+<<<<<<< HEAD
 import { HomeComponent } from './home/home.component';
 import { ChannelIntroComponent } from './home/channel-intro/channel-intro.component';
+=======
+import { LayoutModule } from 'app/layout/layout.module';
+>>>>>>> dc076db9ea4aace36064d6f764157ea15a674da7
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { ChannelIntroComponent } from './home/channel-intro/channel-intro.compon
     LoginModule,
     OrderModule,
     CoreModule,
+<<<<<<< HEAD
     MatExpansionModule
+=======
+    LayoutModule
+>>>>>>> dc076db9ea4aace36064d6f764157ea15a674da7
   ],
   providers: [],
   bootstrap: [AppComponent]

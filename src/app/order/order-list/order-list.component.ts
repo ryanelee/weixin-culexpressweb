@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { OrderService } from 'app/core/service/order.service';
+import { OrderList } from '../../models/orderList';
 
 @Component({
   selector: 'app-order-list',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderListComponent implements OnInit {
 
-  constructor() { }
+  @Output() orderList: OrderList;
+  noData: boolean;
+
+  constructor(
+    private _order: OrderService
+  ) { }
 
   ngOnInit() {
+    this.getOrderList({})
+  }
+
+  getOrderList(param) {
+    this._order.getOrderList(param).subscribe((data) => {
+      if (data && data[0]) {
+        this.orderList = data;
+      } else {
+        this.noData = true;
+      }
+    })
   }
 
 }

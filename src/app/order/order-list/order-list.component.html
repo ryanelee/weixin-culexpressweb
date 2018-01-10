@@ -1,7 +1,10 @@
-<p>
-  order-list works!
-   <br>
-  YaMi!
 
+<div class="ol-page">
+  <mat-nav-list>
+    <mat-list-item *ngFor='let order of orderList' class="ol-cell">
+      <a (click)='search(trkNo)'>order</a>
+      <i class="material-icons">navigate_next</i>
+    </mat-list-item>
+  </mat-nav-list>
   <button class="weui-btn weui-btn_primary" type="text" [routerLink]="['/order/order-detail']" id="showTooltips">订单详情</button>
-</p>
+</div>

@@ -1,0 +1,45 @@
+.spinner-container {
+    background-color: rgba(255, 255, 255, .8);
+    opacity: 0.6;
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10000;
+   
+}
+
+
+.image-container {
+    background-color: rgba(255, 255, 255, .8);
+    opacity: 1;
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10000;
+   
+}
+.image-container .circles-container{
+    z-index: 10000;
+    left: 20%;
+    margin-left: -16px;
+    position: fixed;
+    top: 10%;
+   
+}
+.image-container .circles-container img{
+    width: 100px;
+    height: 100px;
+}
+ .circles-container {
+      z-index: 10000;
+        left: 40%;
+        margin-left: -16px;
+        position: fixed;
+        top: 20%;
+    }
