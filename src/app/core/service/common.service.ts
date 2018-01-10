@@ -57,6 +57,8 @@ export class CommonService {
     return observable;
   }
 
+
+
   authPost(url, data) {
     this.show();
     const observable = new Observable(observer => {
