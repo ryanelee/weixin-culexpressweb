@@ -79,8 +79,4 @@ export class CommonService {
     return observable;
   }
 
-
-  getShipService() {
-    return this.http.post(`getShipService`, {});
-  }
 }

@@ -9,16 +9,17 @@ import { CommonModule } from '@angular/common';
 import { OrderService } from 'app/core/service/order.service';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http, HttpModule, JsonpModule, RequestOptions } from '@angular/http';
+import { CommonApiService } from 'app/core/service/common-api.service';
 
 
 const storage = new StorageService();
 export function authFactory(http: Http, options: RequestOptions) {
-    return new AuthHttp(new AuthConfig({
-        // headerPrefix: 'Bearer',
-        noJwtError: true,
-        globalHeaders: [{ 'Accept': 'application/json' }],
-        tokenGetter: (() => storage.get('token')),
-    }), http, options);
+  return new AuthHttp(new AuthConfig({
+    // headerPrefix: 'Bearer',
+    noJwtError: true,
+    globalHeaders: [{ 'Accept': 'application/json' }],
+    tokenGetter: (() => storage.get('token')),
+  }), http, options);
 }
 
 @NgModule({
@@ -35,6 +36,7 @@ export function authFactory(http: Http, options: RequestOptions) {
     AuthGuardService,
     OrderService,
     CommonService,
+    CommonApiService,
     {
       provide: AuthHttp,
       useFactory: authFactory,
