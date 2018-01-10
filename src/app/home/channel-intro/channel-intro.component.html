@@ -1,0 +1,35 @@
+<div class="main-container">
+    <div class="embargo-title ">
+      <div>渠道说明</div>
+      <div class="title-icon">
+        <img src="/assets/images/icon-zy.png">
+      </div>
+    </div>
+    <div>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let element of ELEMENT_DATA" 
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  渠道: {{element.serviceName}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  首重: ￥{{element.firstWeightRate}} 续重: ￥{{element.continueWeightRate}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+          
+              <p>
+                <span *ngIf="element.tax == 1" ><i class="material-icons md-18">check_circle</i> 包关税 </span>
+                <span *ngIf="element.tax == 0" ><i class="material-icons md-18">remove_circle</i> 不包关税 </span>
+                <span><i class="material-icons">local_airport</i> 限重{{element.maxWeight}}</span>
+                <span><i class="material-icons">verified_user</i> {{element.idCard}}</span>
+                <small>
+                  <div [innerHTML]="element.serviceSummary"></div>                  
+                </small>
+                <i class="material-icons md-18">info</i> {{element.serviceLimitation}}
+              </p>
+            </mat-expansion-panel>
+          </mat-accordion>
+    </div>
+  </div>

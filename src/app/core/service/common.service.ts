@@ -57,6 +57,7 @@ export class CommonService {
     return observable;
   }
 
+<<<<<<< HEAD
   authPost(url, data) {
     this.show();
     const observable = new Observable(observer => {
@@ -78,4 +79,9 @@ export class CommonService {
   }
 
 
+=======
+  getShipService() {
+    return this.http.post(`${environment.api}/getShipService`,{});
+  }
+>>>>>>> 480ed742e0c28ba1c8f3690bf869d8ee0496fe09
 }
