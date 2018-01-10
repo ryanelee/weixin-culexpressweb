@@ -81,6 +81,6 @@ export class CommonService {
 
 
   getShipService() {
-    return this.http.post(`${environment.api}/getShipService`, {});
+    return this.http.post(`getShipService`, {});
   }
 }
