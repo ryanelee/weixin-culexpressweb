@@ -9,18 +9,15 @@ import {AppRoutingModule} from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 
-import { MatExpansionPanel, MatExpansionModule } from '@angular/material';
-
 import { OrderModule } from './order/order.module';
-import { HomeComponent } from './home/home.component';
-import { ChannelIntroComponent } from './home/channel-intro/channel-intro.component';
 import { LayoutModule } from 'app/layout/layout.module';
+import { HomeModule } from './home/home.module';
+import { AddValueIntroComponent } from './channel-introl/add-value-intro/add-value-intro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ChannelIntroComponent
+    AddValueIntroComponent
     ],
   imports: [
     BrowserModule,
@@ -32,8 +29,8 @@ import { LayoutModule } from 'app/layout/layout.module';
     LoginModule,
     OrderModule,
     CoreModule,
-    MatExpansionModule,
-    LayoutModule
+    LayoutModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
