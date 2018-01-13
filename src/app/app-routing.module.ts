@@ -14,7 +14,8 @@ const routes: Routes = [
         loadChildren: './order/order.module#OrderModule'
     },
     {
-        path: 'channel-intro', component: ChannelIntroComponent
+        path: 'home',
+        loadChildren: './home/home.module#HomeModule'
     }
 ];
 

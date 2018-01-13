@@ -1,0 +1,26 @@
+<!-- <mat-accordion>
+  <mat-expansion-panel *ngFor="let row of ADDVALUE_DATA" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header class="panel-title">
+      <mat-panel-title>
+        {{row.serviceName}}
+      </mat-panel-title>
+      <mat-panel-description>
+        价格: {{row.price}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+      <p class="panel-detail">
+        服务介绍: {{row.intro}}
+      </p>
+  </mat-expansion-panel>
+</mat-accordion> -->
+
+<mat-card *ngFor="let row of ADDVALUE_DATA">
+  <mat-card-header class="card-title">
+    <mat-card-title><i class="material-icons md-18">check_box</i> {{row.serviceName}}:{{row.price}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="card-detail">
+      服务介绍: {{row.intro}}
+    </p>
+  </mat-card-content>
+</mat-card>

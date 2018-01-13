@@ -25,13 +25,13 @@ export class ChannelIntroComponent implements OnInit {
 
   loadDataSource() {
 
-    // let ElementArray = [];
     this._commonApi.getShipService({}).subscribe((data: any) => {
       if (data.data.data && data.data.data[0]) {
         data.data.data.forEach(item => {
           if (item.status === 0) {
             return;
           }
+
           this.ELEMENT_DATA.push({
             serviceName: item.shipServiceName,
             serviceSummary: item.serviceSummary,
@@ -39,37 +39,12 @@ export class ChannelIntroComponent implements OnInit {
             tax: item.taxIncluded,
             maxWeight: item.maxWeight + '磅',
             idCard: item.needIDCard === 1 ? '需要身份证' : '无须身份证',
-            firstWeightRate: item.shipFeeList.filter(i => i.isVip === '0')[0].firstWeight,
-            continueWeightRate: item.shipFeeList.filter(i => i.isVip === '0')[0].continuedWeight
+            firstWeightRate: item.shipFeeList.filter(i => i.isVip === 0)[0].firstWeight,
+            continueWeightRate: item.shipFeeList.filter(i => i.isVip === 0)[0].continuedWeight
           });
 
         })
-        console.log(this.ELEMENT_DATA);
       }
     })
   }
-}
-
-interface Element {
-  serviceName: string;
-  serviceSummary: string;
-  serviceLimitation: string;
-  tax: string;
-  maxWeight: string;
-  idCard: string;
-  firstWeightRate: string;
-  continueWeightRate: string
-}
-
-export class ElementDataSource extends DataSource<any> {
-
-  constructor(private element: Element[]) {
-    super();
-  }
-
-  connect(): Observable<Element[]> {
-    return ObservableOf(this.element);
-  }
-
-  disconnect() { }
 }
