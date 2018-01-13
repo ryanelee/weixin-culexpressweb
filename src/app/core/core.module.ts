@@ -1,3 +1,4 @@
+import { CommonwxService } from './service/commonwx.service';
 import { CommonService } from './service/common.service';
 import { PipesModule } from './service/pipes/pipes.module';
 import { AuthGuardService } from './service/guards/auth-guard.service';
@@ -37,6 +38,7 @@ export function authFactory(http: Http, options: RequestOptions) {
     AuthGuardService,
     OrderService,
     CommonService,
+    CommonwxService,
     CommonApiService,
     {
       provide: AuthHttp,
@@ -47,3 +49,5 @@ export function authFactory(http: Http, options: RequestOptions) {
   ]
 })
 export class CoreModule { }
+
+

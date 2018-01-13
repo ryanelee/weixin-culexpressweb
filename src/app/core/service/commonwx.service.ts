@@ -1,4 +1,3 @@
-import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { environment } from '../../../environments/environment';
@@ -12,10 +11,10 @@ declare var $: any;
 
 
 @Injectable()
-export class CommonService {
+export class CommonwxService {
 
   public SpinnerShow: BehaviorSubject<Boolean> = new BehaviorSubject(false);
-  constructor(private http: Http, private _authHttp: AuthHttp, private _auth: AuthService) { }
+  constructor(private http: Http, private _authHttp: AuthHttp) { }
 
   createReqObject(to, data) {
     const obj: any = {};
@@ -87,11 +86,11 @@ export class CommonService {
   authPost(url, data) {
     this.show();
     const observable = new Observable(observer => {
-      data.token = this._auth.getJwtToken();
-      return this.http.post(environment.api + url, data).subscribe({
+      return this._authHttp.post(environment.api + url, data).subscribe({
         next: result => {
           this.hidden();
-          observer.next(result.json());
+          // this.SpinnerShow.next(false);
+          observer.next(result);
         },
         error: message => {
           this.hidden();

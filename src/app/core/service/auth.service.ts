@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   getJwtToken(): void {
-    return this.storage.getValue('token');
+    return this.storage.getValue('jwtToken');
   }
   setJwtToken(token): void {
     return this.storage.setValue('jwtToken', token);

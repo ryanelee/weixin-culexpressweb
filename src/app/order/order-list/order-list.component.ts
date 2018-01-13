@@ -23,6 +23,7 @@ export class OrderListComponent implements OnInit {
 
   getOrderList(param) {
     this._order.getOrderList(param).subscribe((data) => {
+      console.log('data', data);
       if (data && data[0]) {
         this.orderList = data;
       } else {

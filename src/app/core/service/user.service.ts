@@ -15,18 +15,6 @@ export class UserService {
     }
   }
 
-  createReqObject(to, data) {
-    const obj: any = {};
-    const now = new Date();
-    obj.reqId = 'zm' + now.getTime();
-    obj.version = '1';
-    obj.from = 'zm';
-    obj.to = to;
-    obj.reqDate = now;
-    obj.data = data;
-    return obj;
-  };
-
 
 
   login(user) {
@@ -37,6 +25,10 @@ export class UserService {
     };
     // post()
     return this._common.post('/customer/login2', data)
+  }
+
+  getUserInfo(data){
+    return this._common.post('/wx/getUserInfo', data)
   }
 }
 
