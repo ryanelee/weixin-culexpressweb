@@ -24,7 +24,8 @@ import { LayoutModule } from 'app/layout/layout.module';
     MatFormFieldModule,
     MatButtonModule
   ],
-  declarations: [OrderListComponent,
+  declarations: [
+    OrderListComponent,
     OrderDetailComponent,
     OrderTrackingComponent,
     OrderTrackingDetailComponent,

@@ -5,7 +5,7 @@ import { ChannelIntroComponent } from 'app/home/channel-intro/channel-intro.comp
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'login',
         loadChildren: './routes/login/login.module#LoginModule'
     },
     {

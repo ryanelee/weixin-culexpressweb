@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         const data: User = result
         this._auth.setUser(result);
         this._auth.setJwtToken(result.token);
-        this._router.navigate(['order']);
+        this._router.navigate(['user-profile']);
       }
     })
   }
