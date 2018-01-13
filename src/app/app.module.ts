@@ -12,12 +12,10 @@ import { AppComponent } from './app.component';
 import { OrderModule } from './order/order.module';
 import { LayoutModule } from 'app/layout/layout.module';
 import { HomeModule } from './home/home.module';
-import { AddValueIntroComponent } from './home/channel-intro/add-value-intro/add-value-intro.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AddValueIntroComponent
+    AppComponent
     ],
   imports: [
     BrowserModule,
