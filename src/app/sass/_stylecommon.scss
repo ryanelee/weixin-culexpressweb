@@ -33,6 +33,19 @@ body {
     padding: 10px;
 }
 
+.label-success {
+    color: #5cb85c;
+}
+.label-warning {
+    color: #f0ad4e;
+}
+.label-danger {
+    color: #d9534f;
+}
+.label-info {
+    color: #5bc0de;
+}
+
 .otd-tracking .mat-step-icon .mat-icon {
     display: none !important;
 }
@@ -45,3 +58,4 @@ body {
 .otd-tracking .mat-vertical-stepper-header{
     pointer-events: none !important;
 }
+
