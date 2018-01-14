@@ -1,3 +1,4 @@
+import { UserProfileComponent } from './routes/user-profile/user-profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from 'app/core/service/guards/auth-guard.service';
@@ -16,7 +17,13 @@ const routes: Routes = [
     {
         path: 'home',
         loadChildren: './home/home.module#HomeModule'
-    }
+    },
+    {
+        path: 'user-profile',
+        canActivate: [AuthGuardService],
+        component: UserProfileComponent
+    },
+
 ];
 
 @NgModule({
