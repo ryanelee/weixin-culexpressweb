@@ -25,7 +25,12 @@ export class OrderListComponent implements OnInit {
         pageIndex: 1
       }
     }
-    this.getOrderList(this.param)
+    this.getOrderList(this.param);
+    // refresher.init({
+    //   id: "wrapper",
+    //   pullDownAction: Refresh,
+    //   pullUpAction: Load
+    // });
   }
 
   getOrderList(param) {
