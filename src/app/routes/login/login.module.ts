@@ -1,8 +1,9 @@
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatTabsModule, MatInputModule, MatSelectModule, MatButtonModule, MatFormFieldModule } from '@angular/material';
-
+// tslint:disable-next-line:max-line-length
+import { MatTabsModule, MatInputModule, MatSelectModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatStepperModule } from '@angular/material';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { LayoutModule } from '../../layout/layout.module';
@@ -18,8 +19,10 @@ import { LayoutModule } from '../../layout/layout.module';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCardModule,
+    MatStepperModule
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent, UserProfileComponent]
 })
 export class LoginModule { }

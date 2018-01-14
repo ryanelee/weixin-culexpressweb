@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image" style="background-image: url('{{user.headimgurl}}');"> -->
+    <!-- <img src="{{user.headimgurl}}" /> -->
+    <!-- </div> -->
+    <img mat-card-avatar src="{{user.headimgurl}}" />
+    <mat-card-title>{{user.nickname}}</mat-card-title>
+    <mat-card-subtitle>{{user.province}}</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="{{user.headimgurl}}" alt="Photo of a Shiba Inu"> -->
+</mat-card>
+
+
+<div class="opl-page" >
+  <mat-nav-list>
+    <mat-list-item class="opl-cell" >
+      <a>订单查询</a>
+      <i class="material-icons">navigate_next</i>
+    </mat-list-item>
+    <mat-list-item class="opl-cell" [routerLink]="['/order/tracking']" >
+      <a>运单查询</a>
+      <i class="material-icons">navigate_next</i>
+    </mat-list-item>
+  </mat-nav-list>
+</div>

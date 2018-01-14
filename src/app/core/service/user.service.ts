@@ -27,7 +27,7 @@ export class UserService {
     return this._common.post('/customer/login2', data)
   }
 
-  getUserInfo(data){
+  getUserInfo(data) {
     return this._common.post('/wx/getUserInfo', data)
   }
 }
