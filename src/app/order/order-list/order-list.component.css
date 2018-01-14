@@ -7,6 +7,13 @@
     border-bottom: 1px solid #efefef;
 }
 
+.ol-cell a {
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    color: #333333; 
+}
+
 .ol-cell .ol-cell-info-left {
     flex: 1;
 }

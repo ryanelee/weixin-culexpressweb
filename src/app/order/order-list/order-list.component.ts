@@ -26,11 +26,6 @@ export class OrderListComponent implements OnInit {
       }
     }
     this.getOrderList(this.param);
-    // refresher.init({
-    //   id: "wrapper",
-    //   pullDownAction: Refresh,
-    //   pullUpAction: Load
-    // });
   }
 
   getOrderList(param) {
@@ -41,9 +36,12 @@ export class OrderListComponent implements OnInit {
       } else {
         this.noData = true;
       }
-      console.log('order list data', this.orderList);
     })
   }
+
+  // goOrderDetail() {
+  //   this.routes.navigate(['/exampledetail'], { queryParams: { 'name': 'yxman' } });
+  // }
 
   orderStatus(status) {
     switch (status) {

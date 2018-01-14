@@ -1,0 +1,18 @@
+.od-cell {
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+.od-cell p{
+    display: flex;
+    margin: 5px 0px;
+    color: #999999;
+    width: 100%;
+}
+
+.od-cell p label{
+    float: left;
+}
+
+.od-cell p span{
+    float: right;
+}
