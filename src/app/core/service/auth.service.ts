@@ -29,6 +29,21 @@ export class AuthService {
     return this.storage.get('user');
   }
 
+  getWxUser(): void {
+    return this.storage.get('wxuser');
+  }
+  setWxUser(user): void {
+    this.storage.set('wxuser', user);
+  }
+  ifWxUser() {
+    const user = this.storage.get('wxuser');
+    if (user) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   getJwtToken(): void {
     return this.storage.getValue('jwtToken');
   }

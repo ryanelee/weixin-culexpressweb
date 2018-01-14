@@ -16,13 +16,12 @@ export class CommonwxService {
   public SpinnerShow: BehaviorSubject<Boolean> = new BehaviorSubject(false);
   constructor(private http: Http, private _authHttp: AuthHttp) { }
 
-  createReqObject(to, data) {
+  createReqObject(data) {
     const obj: any = {};
     const now = new Date();
     obj.reqId = 'zm' + now.getTime();
     obj.version = '1';
     obj.from = 'zm';
-    obj.to = to;
     obj.reqDate = now;
     obj.data = data;
     return obj;
@@ -65,7 +64,7 @@ export class CommonwxService {
   get(url) {
     this.show();
     const observable = new Observable(observer => {
-      return this.http.get(environment.api + url).subscribe({
+      return this.http.get(environment.wechatApi + url).subscribe({
         next: result => {
           this.hidden();
           observer.next(result);
@@ -86,11 +85,18 @@ export class CommonwxService {
   authPost(url, data) {
     this.show();
     const observable = new Observable(observer => {
-      return this._authHttp.post(environment.api + url, data).subscribe({
+      return this.http.post(environment.wechatApi + url, this.createReqObject(data)).subscribe({
         next: result => {
           this.hidden();
           // this.SpinnerShow.next(false);
-          observer.next(result);
+          const _data = result.json();
+          if (_data.code === '000') {
+            observer.next(_data.data);
+          }
+          if (_data.code === '999') {
+            observer.next({ err: _data.msg });
+          }
+
         },
         error: message => {
           this.hidden();
