@@ -1,3 +1,4 @@
+import { WxUser } from '../../models/wx-user';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'app/core/service/storage.service';
 
@@ -7,7 +8,7 @@ import { StorageService } from 'app/core/service/storage.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  user = {}
+  user: WxUser;
   constructor(private _storage: StorageService) { }
 
   ngOnInit() {
