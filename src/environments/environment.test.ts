@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  api: 'http://localhost:8000/api',
-  wechatApi: 'http://localhost:8080'
+    production: false,
+    api: 'http://123.206.217.94:8000/api',
+    wechatApi: 'http://123.206.217.94:8080'
 };

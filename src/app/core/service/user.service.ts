@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 import { CommonService } from 'app/core/service/common.service';
+import { CommonwxService } from 'app/core/service/commonwx.service';
 
 @Injectable()
 export class UserService {
   // public SpinnerShow: Subject<any> = new Subject<any>();
-  constructor(private _common: CommonService) { }
+  constructor(private _common: CommonService, private _commonwx: CommonwxService) { }
 
   toResult(body) {
     if (body.code.toString() === '000') {
@@ -28,7 +29,7 @@ export class UserService {
   }
 
   getUserInfo(data) {
-    return this._common.post('/wx/getUserInfo', data)
+    return this._commonwx.authPost('/user/getUserInfo', data)
   }
 }
 

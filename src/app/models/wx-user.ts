@@ -2,7 +2,7 @@ export class WxUser {
     public id?: number;
     public nickname?: string;
     public city?: string;
-    public province?: number;
+    public province?: string;
     public headimgurl?: string;
     public language?: string;
     public openid?: string;

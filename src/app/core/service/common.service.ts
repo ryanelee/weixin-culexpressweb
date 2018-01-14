@@ -53,10 +53,18 @@ export class CommonService {
           observer.next(data);
         },
         error: message => {
+          console.log('message', message);
           this.hidden();
-          observer.next({
-            err: message.json().message,
-          });
+          if (message.status === 0) {
+            observer.next({
+              err: '网络错误'
+            });
+          } else {
+            observer.next({
+              err: message.json().message,
+            });
+          }
+
         }
       })
     });
