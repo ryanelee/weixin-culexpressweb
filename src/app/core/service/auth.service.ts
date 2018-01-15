@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
+import { WxUser } from 'app/models/wx-user';
 
 @Injectable()
 
@@ -29,7 +30,7 @@ export class AuthService {
     return this.storage.get('user');
   }
 
-  getWxUser(): void {
+  getWxUser(): WxUser {
     return this.storage.get('wxuser');
   }
   setWxUser(user): void {

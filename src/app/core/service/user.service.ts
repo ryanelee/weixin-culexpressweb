@@ -31,6 +31,10 @@ export class UserService {
   getUserInfo(data) {
     return this._commonwx.authPost('/user/getUserInfo', data)
   }
+
+  updateWxUserInfo(data) {
+    return this._commonwx.authPost('/user/updateUser', data)
+  }
 }
 
 
