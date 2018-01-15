@@ -1,9 +1,8 @@
-
 <div class="ol-page">
-  <div >
+  <div>
     <mat-nav-list>
       <mat-list-item *ngFor='let order of orderList' class="ol-cell">
-        <a [routerLink]="['/order-detail', {'order':order}]">
+        <a [routerLink]="['order-detail', order.orderNumber]">
           <div class="ol-cell-info-left">
             <label>{{order.orderNumber}}</label>
             <span> {{order.declareGoodsName}}</span>
@@ -16,5 +15,5 @@
       </mat-list-item>
     </mat-nav-list>
   </div>
-  <button class="weui-btn weui-btn_primary" type="text" [routerLink]="['/order/order-detail']" id="showTooltips">订单详情</button>
+  <!-- <button class="weui-btn weui-btn_primary" type="text" [routerLink]="['order-detail']" id="showTooltips">订单详情</button> -->
 </div>

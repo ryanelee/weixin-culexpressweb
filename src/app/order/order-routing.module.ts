@@ -10,7 +10,7 @@ const routes: Routes = [
     component: OrderListComponent
   },
   {
-    path: 'order-detail',
+    path: 'order-detail/:orderNumber',
     component: OrderDetailComponent
   },
   {
