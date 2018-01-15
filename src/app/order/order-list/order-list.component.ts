@@ -25,7 +25,7 @@ export class OrderListComponent implements OnInit {
         pageIndex: 1
       }
     }
-    this.getOrderList(this.param)
+    this.getOrderList(this.param);
   }
 
   getOrderList(param) {
@@ -36,9 +36,12 @@ export class OrderListComponent implements OnInit {
       } else {
         this.noData = true;
       }
-      console.log('order list data', this.orderList);
     })
   }
+
+  // goOrderDetail() {
+  //   this.routes.navigate(['/exampledetail'], { queryParams: { 'name': 'yxman' } });
+  // }
 
   orderStatus(status) {
     switch (status) {
