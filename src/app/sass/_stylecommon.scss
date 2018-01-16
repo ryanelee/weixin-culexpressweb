@@ -1,5 +1,6 @@
 body {
     background-color: #f9f9f9;
+    margin: 0px !important;
 }
 
 .material-icons {
@@ -31,6 +32,11 @@ body {
 .page-white {
     background-color: white;
     padding: 10px;
+}
+
+.display-flex {
+    display: flex;
+    align-content: center;
 }
 
 .label-success {

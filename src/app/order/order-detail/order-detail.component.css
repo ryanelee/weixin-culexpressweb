@@ -16,3 +16,7 @@
 .od-cell p span{
     float: right;
 }
+.od-tracking {
+    color: #ffb528;
+    flex: 1;
+}
