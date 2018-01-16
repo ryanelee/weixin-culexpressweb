@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs/Observable';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 
 
@@ -95,8 +95,11 @@ export class CommonService {
   authPost(url, data) {
     this.show();
     const observable = new Observable(observer => {
-      data.token = this._auth.getJwtToken();
-      return this.http.post(environment.api + url, data).subscribe({
+      const token: string = this._auth.getJwtToken();
+      const headers = new Headers();
+      headers.append('Token', token);
+      const options = new RequestOptions({ headers: headers });
+      return this.http.post(environment.api + url, data, options).subscribe({
         next: result => {
           this.hidden();
           observer.next(result.json());
@@ -107,6 +110,29 @@ export class CommonService {
           // observer.next({
           //   err: message.json().message,
           // });
+        }
+      })
+    });
+    return observable;
+  }
+
+  authGet(url) {
+    this.show();
+    const token: string = this._auth.getJwtToken();
+    const headers = new Headers();
+    headers.append('Token', token);
+    const options = new RequestOptions({ headers: headers });
+    const observable = new Observable(observer => {
+      return this.http.get(environment.api + url, options).subscribe({
+        next: result => {
+          this.hidden();
+          observer.next(result.json());
+        },
+        error: message => {
+          this.hidden();
+          observer.next({
+            err: message.json().message
+          });
         }
       })
     });
