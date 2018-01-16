@@ -39,18 +39,26 @@ export class LoginComponent implements OnInit {
         console.log('result', result);
         console.log('email', result.emailAddress);
         const wxuser: WxUser = this._auth.getWxUser();
-        this._user.updateWxUserInfo({ email: result.emailAddress, openid: wxuser.openid }).subscribe((update_result: any) => {
-          if (update_result.err) {
-            alert('err' + update_result.err);
-          } else {
-            const data: User = result;
-            this._auth.setUser(result);
-            this._auth.setJwtToken(result.token);
-            // this._user
-            this._router.navigate(['user-profile']);
-          }
-          ;
-        })
+        if (wxuser) {
+          this._user.updateWxUserInfo({ email: result.emailAddress, openid: wxuser.openid }).subscribe((update_result: any) => {
+            if (update_result.err) {
+              alert('err' + update_result.err);
+            } else {
+              const data: User = result;
+              this._auth.setUser(result);
+              this._auth.setJwtToken(result.token);
+              // this._user
+              this._router.navigate(['user-profile']);
+            }
+            ;
+          })
+        } else {
+          this._auth.setUser(result);
+          this._auth.setJwtToken(result.token);
+          // this._user
+          this._router.navigate(['user-profile']);
+        }
+
 
       }
     })
