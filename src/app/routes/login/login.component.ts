@@ -35,10 +35,12 @@ export class LoginComponent implements OnInit {
       if (result.err) {
         this.errMeg = result.err;
       } else {
+        this._router.navigate(['user-profile']);
 
         console.log('result', result);
         console.log('email', result.emailAddress);
         const wxuser: WxUser = this._auth.getWxUser();
+        console.log('wxuser', wxuser);
         this._user.updateWxUserInfo({ email: result.emailAddress, openid: wxuser.openid }).subscribe((update_result: any) => {
           if (update_result.err) {
             alert('err' + update_result.err);
