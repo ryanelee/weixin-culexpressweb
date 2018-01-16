@@ -1,6 +1,7 @@
 .od-cell {
     margin-bottom: 10px;
     background-color: #ffffff;
+    margin-bottom: 10px;
 }
 .od-cell p{
     display: flex;
@@ -11,6 +12,7 @@
 
 .od-cell p label{
     float: left;
+    flex: 1;
 }
 
 .od-cell p span{
@@ -20,3 +22,30 @@
     color: #ffb528;
     flex: 1;
 }
+
+.od-cell .mat-checkbox-inner-container{
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.otd-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    margin: 10px 0px;
+  }
+  .otd-info img{
+    width: 80px;
+    padding-right: 10px;
+  }
+  .otd-info p{
+    color: #6dca8c;
+    font-size: 18px;
+    margin: 5px;
+  }
+  .otd-info span{
+    color: #999999;
+    font-size: 14px;
+    margin: 5px;
+  }

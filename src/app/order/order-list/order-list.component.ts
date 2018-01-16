@@ -23,7 +23,9 @@ export class OrderListComponent implements OnInit {
       pageInfo: {
         pageSize: 10,
         pageIndex: 1
-      }
+      },
+      orderStatus: '',
+      searchKeyName: 'orderNumber'
     }
     this.getOrderList(this.param);
   }

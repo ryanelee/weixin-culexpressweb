@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatStepperModule, MatFormFieldModule, MatButtonModule, MatInputModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatCheckboxModule } from '@angular/material';
 
 
 import { OrderRoutingModule } from './order-routing.module';
@@ -24,7 +24,8 @@ import { LayoutModule } from 'app/layout/layout.module';
     OrderRoutingModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule
   ],
   declarations: [
     OrderListComponent,

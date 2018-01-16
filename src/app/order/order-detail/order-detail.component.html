@@ -1,4 +1,10 @@
 <div class="od-page page-white">
+    <div class="od-cell">
+        <p>
+            <label>订单编号：</label>
+            <span>{{orderDetail.orderNumber}}</span>
+        </p>
+    </div>
     <div class="od-cell display-flex">
         <a class="od-tracking">查看包裹轨迹</a>
         <i class="material-icons" style="color: #999999;">navigate_next</i>
@@ -9,44 +15,89 @@
     </div>
     <div class="od-cell">
         <p>费用明细</p>
-        <p><label>包裹重量</label><span></span></p>
+        <p><label>包裹重量</label><span>{{orderDetail.actualWeight}}磅</span></p>
         <p>
             <label>运 费</label>
-            <span></span>
+            <span>¥{{orderDetail.shippingFee}}</span>
         </p>
         <p>
             <label>购买保险</label>
-            <span></span>
+            <span>¥{{orderDetail.insuranceFee}}</span>
         </p>
         <p>
             <label>小 费</label>
-            <span></span>
+            <span>¥{{orderDetail.tip}}</span>
         </p>
         <p>
-            <label>增值服务</label>
-            <span></span>
+            <label>¥增值服务</label>
+            <span>{{orderDetail.valueAddFee}}</span>
         </p>
         <p>
-            <label>积分抵扣</label>
-            <span></span>
+            <label>¥积分抵扣</label>
+            <span>{{orderDetail.usedPoint}}</span>
         </p>
         <p>
-            <label>清关费用</label>
-            <span></span>
+            <label>¥清关费用</label>
+            <span>{{orderDetail.tariffMoney}}</span>
         </p>
         <p>
             <label>实付款</label>
-            <span></span>
+            <span>¥{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint)}}</span>
+        </p>
+        <p ng-if="orderDetail.orderStatus=='Arrears'">
+            <label>运费拖欠</label>
+            <span>¥{{orderDetail.shippingFeeAdjust}}</span>
         </p>
          
     </div>
-    <div class="od-cell">增值服务
-        <p>
-            <label>实付款</label>
+    <div class="od-cell">
+        增值服务
+        <p *ngIf="orderDetail.pack_takeoutInvoice == null && orderDetail.pack_urgentProcess == null && orderDetail.pack_steadyInner
+        == null && orderDetail.pack_replaceCarton == null && orderDetail.pack_removeInner == null">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 没有选择任何增值服务</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_urgentProcess == 1"> 
+            <label><mat-checkbox checked="true" disabled="true"></mat-checkbox> 加急处理</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_steadyInner == 1">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 内件加固</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_replaceCarton == 1">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 更换外箱</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_removeInner == 1">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 去鞋盒/包装</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_addCarton == 1">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 加套外箱</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_checkCount == 1">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 清点拍照</label>
             <span></span>
         </p>
     </div>
-    <div>订单信息</div>
-    <div>包裹信息</div>
+    <div>包裹信息
+        <div class="otd-info" *ngFor="let pkg of orderDetail.outboundPackages">
+            <img src="/assets/images/icon-left-baoguo.png">
+            <div>
+                <!-- <p>{{pkgStatus(pkg.status)}}</p> -->
+                <span>cul包裹号:{{pkg.trackingNumber}}</span>
+                <br>
+                <span> 重量:{{pkg.actualWeight}}磅</span>
+            </div>
+        </div>
+    </div>
     
 </div>

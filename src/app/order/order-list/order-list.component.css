@@ -1,9 +1,8 @@
 
 .ol-cell {
     display: flex;
-    width: 100%;
     align-items: center;
-    padding: 15px 0px;
+    padding: 15px;
     border-bottom: 1px solid #efefef;
 }
 
@@ -23,4 +22,8 @@
 .ol-cell .ol-cell-info-left span{
     font-size: 14px;
     color: #555555;
+}
+.ol-cell .mat-checkbox-inner-container{
+    width: 16px !important;
+    height: 16px !important;
 }
