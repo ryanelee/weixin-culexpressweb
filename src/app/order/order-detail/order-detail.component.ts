@@ -36,4 +36,21 @@ export class OrderDetailComponent implements OnInit {
         // console.log('this.orderDetail', this.orderDetail.declareGoodsValue);
     }
 
+    pkgStatus(status) {
+        switch (status) {
+            case 'Init':
+                return '未打包'
+            case 'Packaged':
+                return '已打包'
+            case 'Shipped':
+                return '出库'
+            case 'Send':
+                return '送往机场'
+            case 'Arrived':
+                return '到达国内'
+            default:
+                break;
+        }
+    }
+
 }

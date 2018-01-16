@@ -54,13 +54,11 @@
         增值服务
         <p *ngIf="orderDetail.pack_takeoutInvoice == null && orderDetail.pack_urgentProcess == null && orderDetail.pack_steadyInner
         == null && orderDetail.pack_replaceCarton == null && orderDetail.pack_removeInner == null">
-            <label>
-                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 没有选择任何增值服务</label>
-            <span></span>
+            <label><mat-checkbox checked="true" disabled="true"></mat-checkbox> 没有选择任何增值服务</label>
         </p>
         <p *ngIf="orderDetail.pack_urgentProcess == 1"> 
             <label><mat-checkbox checked="true" disabled="true"></mat-checkbox> 加急处理</label>
-            <span></span>
+            <span>¥10.00</span>
         </p>
         <p *ngIf="orderDetail.pack_steadyInner == 1">
             <label>
@@ -89,10 +87,10 @@
         </p>
     </div>
     <div>包裹信息
-        <div class="otd-info" *ngFor="let pkg of orderDetail.outboundPackages">
+        <div class="od-info" *ngFor="let pkg of orderDetail.outboundPackages">
             <img src="/assets/images/icon-left-baoguo.png">
             <div>
-                <!-- <p>{{pkgStatus(pkg.status)}}</p> -->
+                <p>{{pkgStatus(pkg.status)}}</p>
                 <span>cul包裹号:{{pkg.trackingNumber}}</span>
                 <br>
                 <span> 重量:{{pkg.actualWeight}}磅</span>

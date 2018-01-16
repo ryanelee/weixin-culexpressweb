@@ -1,7 +1,8 @@
 .od-cell {
     margin-bottom: 10px;
     background-color: #ffffff;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #efefef;
 }
 .od-cell p{
     display: flex;
@@ -28,23 +29,23 @@
     height: 16px !important;
 }
 
-.otd-info {
+.od-info {
     display: flex;
     align-items: center;
     padding: 10px;
     background-color: #ffffff;
     margin: 10px 0px;
   }
-  .otd-info img{
+  .od-info img{
     width: 80px;
     padding-right: 10px;
   }
-  .otd-info p{
+  .od-info p{
     color: #6dca8c;
     font-size: 18px;
     margin: 5px;
   }
-  .otd-info span{
+  .od-info span{
     color: #999999;
     font-size: 14px;
     margin: 5px;
