@@ -15,38 +15,38 @@
     </div>
     <div class="od-cell">
         <p>费用明细</p>
-        <p><label>包裹重量</label><span>{{orderDetail.actualWeight}}磅</span></p>
+        <p><label>包裹重量</label><span>{{orderDetail.actualWeight | number: '1.2-2'}}磅</span></p>
         <p>
             <label>运 费</label>
-            <span>¥{{orderDetail.shippingFee}}</span>
+            <span>{{orderDetail.shippingFee  | currency: 'CNY': true: '1.2-2':'1.2-2'}}</span>
         </p>
         <p>
             <label>购买保险</label>
-            <span>¥{{orderDetail.insuranceFee}}</span>
+            <span>{{orderDetail.insuranceFee | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
         <p>
             <label>小 费</label>
-            <span>¥{{orderDetail.tip}}</span>
+            <span>{{orderDetail.tip | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
         <p>
-            <label>¥增值服务</label>
-            <span>{{orderDetail.valueAddFee}}</span>
+            <label>增值服务</label>
+            <span>{{orderDetail.valueAddFee | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
         <p>
-            <label>¥积分抵扣</label>
-            <span>{{orderDetail.usedPoint}}</span>
+            <label>积分抵扣</label>
+            <span>{{orderDetail.usedPoint | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
         <p>
-            <label>¥清关费用</label>
-            <span>{{orderDetail.tariffMoney}}</span>
+            <label>清关费用</label>
+            <span>{{orderDetail.tariffMoney | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
         <p>
             <label>实付款</label>
-            <span>¥{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint)}}</span>
+            <span>{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint) | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
         <p ng-if="orderDetail.orderStatus=='Arrears'">
             <label>运费拖欠</label>
-            <span>¥{{orderDetail.shippingFeeAdjust}}</span>
+            <span>{{orderDetail.shippingFeeAdjust | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
          
     </div>
@@ -58,7 +58,7 @@
         </p>
         <p *ngIf="orderDetail.pack_urgentProcess == 1"> 
             <label><mat-checkbox checked="true" disabled="true"></mat-checkbox> 加急处理</label>
-            <span>¥10.00</span>
+            <span>10.00</span>
         </p>
         <p *ngIf="orderDetail.pack_steadyInner == 1">
             <label>

@@ -24,11 +24,6 @@
     flex: 1;
 }
 
-.od-cell .mat-checkbox-inner-container{
-    width: 16px !important;
-    height: 16px !important;
-}
-
 .od-info {
     display: flex;
     align-items: center;
