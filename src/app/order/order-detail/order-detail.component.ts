@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Order } from '../../models/Order';
 import { OrderService } from 'app/core/service/order.service';
+import { Tool } from 'app/core/service/tool';
 
 @Component({
     selector: 'app-order-detail',
@@ -37,20 +38,11 @@ export class OrderDetailComponent implements OnInit {
     }
 
     pkgStatus(status) {
-        switch (status) {
-            case 'Init':
-                return '未打包'
-            case 'Packaged':
-                return '已打包'
-            case 'Shipped':
-                return '出库'
-            case 'Send':
-                return '送往机场'
-            case 'Arrived':
-                return '到达国内'
-            default:
-                break;
-        }
+        return Tool.pkgStatus(status);
+    }
+
+    pkgStatusClass(status) {
+        return Tool.pkgStatusClass(status);
     }
 
 }

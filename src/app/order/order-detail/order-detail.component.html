@@ -1,18 +1,16 @@
-<div class="od-page page-white">
+<div class="od-page">
     <div class="od-cell">
         <p>
             <label>订单编号：</label>
             <span>{{orderDetail.orderNumber}}</span>
         </p>
     </div>
-    <div class="od-cell display-flex">
-        <a class="od-tracking">查看包裹轨迹</a>
-        <i class="material-icons" style="color: #999999;">navigate_next</i>
+    <div class="od-cell od-margin-bom-10">
+        <p><label>收货人：{{orderDetail.shipToAddresses[0].receivePersonName}}</label> 
+            <span>{{orderDetail.shipToAddresses[0].cellphoneNumber}}</span></p>
+        <p><label>收获地址：{{orderDetail.shipToAddresses[0].address1}}</label></p>
     </div>
-    <div class="od-cell">
-        <p>收货人：</p>
-        <label>收获地址：</label>
-    </div>
+
     <div class="od-cell">
         <p>费用明细</p>
         <p><label>包裹重量</label><span>{{orderDetail.actualWeight | number: '1.2-2'}}磅</span></p>
@@ -50,7 +48,7 @@
         </p>
          
     </div>
-    <div class="od-cell">
+    <div class="od-cell od-margin-bom-10">
         增值服务
         <p *ngIf="orderDetail.pack_takeoutInvoice == null && orderDetail.pack_urgentProcess == null && orderDetail.pack_steadyInner
         == null && orderDetail.pack_replaceCarton == null && orderDetail.pack_removeInner == null">
@@ -86,14 +84,20 @@
             <span></span>
         </p>
     </div>
-    <div>包裹信息
-        <div class="od-info" *ngFor="let pkg of orderDetail.outboundPackages">
-            <img src="/assets/images/icon-left-baoguo.png">
-            <div>
-                <p>{{pkgStatus(pkg.status)}}</p>
-                <span>cul包裹号:{{pkg.trackingNumber}}</span>
-                <br>
-                <span> 重量:{{pkg.actualWeight}}磅</span>
+    <div>
+        <div *ngFor="let pkg of orderDetail.outboundPackages">
+            <div class="od-tracking display-flex">
+                <a>查看包裹轨迹</a>
+                <label [class]="pkgStatusClass(pkg.status)">{{pkgStatus(pkg.status)}}</label>
+                <i class="material-icons" style="color: #999999;">navigate_next</i>
+            </div>
+            <div class="od-info">
+                <img src="/assets/images/icon-left-baoguo.png">
+                <div>
+                    <span>cul包裹号:{{pkg.trackingNumber}}</span>
+                    <br>
+                    <span> 重量:{{pkg.actualWeight | number: '1.2-2'}}磅</span>
+                </div>
             </div>
         </div>
     </div>

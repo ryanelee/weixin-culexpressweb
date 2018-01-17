@@ -1,7 +1,6 @@
 .od-cell {
-    margin-bottom: 10px;
     background-color: #ffffff;
-    padding-bottom: 10px;
+    padding: 10px;
     border-bottom: 1px solid #efefef;
 }
 .od-cell p{
@@ -20,7 +19,14 @@
     float: right;
 }
 .od-tracking {
-    color: #ffb528;
+    border-bottom: 1px solid #efefef;
+    font-size: 14px;
+    padding: 5px 0px;
+    background-color: #ffffff;
+    padding: 6px 10px;
+}
+.od-tracking a{
+    color: #999999;
     flex: 1;
 }
 
@@ -29,19 +35,22 @@
     align-items: center;
     padding: 10px;
     background-color: #ffffff;
-    margin: 10px 0px;
-  }
-  .od-info img{
-    width: 80px;
+}
+.od-info img{
+    width: 50px;
     padding-right: 10px;
-  }
-  .od-info p{
+}
+.od-info p{
     color: #6dca8c;
-    font-size: 18px;
+    font-size: 15px;
     margin: 5px;
-  }
-  .od-info span{
+}
+.od-info span{
     color: #999999;
     font-size: 14px;
     margin: 5px;
-  }
+}
+
+.od-margin-bom-10 {
+   margin-bottom: 10px;
+}
