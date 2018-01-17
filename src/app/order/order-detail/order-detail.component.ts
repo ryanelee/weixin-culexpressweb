@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Order } from '../../models/Order';
+import { TrackingHistory } from 'app/models/trackingHistory';
 import { OrderService } from 'app/core/service/order.service';
 import { Tool } from 'app/core/service/tool';
 
@@ -11,8 +12,11 @@ import { Tool } from 'app/core/service/tool';
     styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
-    @Output() orderDetail: Order
+    @Output() orderDetail: Order;
+    @Output() trackingHistory: TrackingHistory;
     orderNumber: string;
+    noData: boolean;
+
     constructor(
         private _route: ActivatedRoute,
         private _order: OrderService
@@ -43,6 +47,18 @@ export class OrderDetailComponent implements OnInit {
 
     pkgStatusClass(status) {
         return Tool.pkgStatusClass(status);
+    }
+
+    getPkgTracking(trackingNumber) {
+        this._order.getOrderTrackingList(trackingNumber).subscribe((data: any) => {
+            if (data.data && data.data[0]) {
+                this.trackingHistory = data;
+                this.trackingHistory.trackingNumber = trackingNumber
+                console.log('this.trackingHistory', this.trackingHistory);
+            } else {
+                this.noData = true;
+            }
+        })
     }
 
 }

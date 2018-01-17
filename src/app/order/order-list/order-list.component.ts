@@ -42,10 +42,6 @@ export class OrderListComponent implements OnInit {
     })
   }
 
-  // goOrderDetail() {
-  //   this.routes.navigate(['/exampledetail'], { queryParams: { 'name': 'yxman' } });
-  // }
-
   orderStatus(status) {
     return Tool.orderStatus(status);
   }
