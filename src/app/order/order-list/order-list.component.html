@@ -8,7 +8,7 @@
             <span [class]="orderStatusClass(order.orderStatus)">{{orderStatus(order.orderStatus)}}</span>
           </div>
           <div class="display-flex">
-            <span style="flex:1"> {{order.declareGoodsName}}</span>
+            <span style="flex:1;overflow: hidden;height: 20px;"> {{order.declareGoodsName}}</span>
             <span class="text-small">包裹 x{{order.outboundPackages.length}}</span>
           </div>
         </a>
