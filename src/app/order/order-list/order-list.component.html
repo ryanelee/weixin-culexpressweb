@@ -3,12 +3,13 @@
     <mat-nav-list>
       <mat-list-item *ngFor='let order of orderList' class="ol-cell">
         <a [routerLink]="['order-detail', order.orderNumber]">
-          <div class="ol-cell-info-left">
-            <label>{{order.orderNumber}}</label>
-            <span> {{order.declareGoodsName}}</span>
+          <div class="display-flex">
+            <span style="flex:1" class="text-small">{{order.orderNumber}}</span>
+            <span [class]="orderStatusClass(order.orderStatus)">{{orderStatus(order.orderStatus)}}</span>
           </div>
-          <div class="ol-cell-info-right">
-            <label [class]="orderStatusClass(order.orderStatus)">{{orderStatus(order.orderStatus)}}</label>
+          <div class="display-flex">
+            <span style="flex:1"> {{order.declareGoodsName}}</span>
+            <span class="text-small">包裹 x{{order.outboundPackages.length}}</span>
           </div>
         </a>
         <!-- <i class="material-icons">navigate_next</i> -->

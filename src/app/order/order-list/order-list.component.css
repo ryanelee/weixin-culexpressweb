@@ -1,26 +1,19 @@
 
 .ol-cell {
-    display: flex;
-    align-items: center;
+    display: block;
     padding: 15px;
     border-bottom: 1px solid #efefef;
 }
 
 .ol-cell a {
     text-decoration: none;
-    display: flex;
-    width: 100%;
     color: #333333; 
 }
-
-.ol-cell .ol-cell-info-left {
-    flex: 1;
-}
-.ol-cell .ol-cell-info-left label{
-    display: block;
-}
-.ol-cell .ol-cell-info-left span{
+.ol-cell .text-small{
     font-size: 14px;
-    color: #555555;
+    color: #999999;
 }
+
+
+
 
