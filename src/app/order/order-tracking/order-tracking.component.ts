@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Tracking } from '../../models/tracking';
 import { OrderService } from 'app/core/service/order.service';
 import { TrackingHistory } from 'app/models/trackingHistory';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-order-tracking',
@@ -17,6 +18,7 @@ export class OrderTrackingComponent implements OnInit {
   // trackingHistory: TrackingHistory;
   @Output() trackingHistory: TrackingHistory;
   noData = false;
+  searchShow = true;
 
 
   constructor(
@@ -26,6 +28,7 @@ export class OrderTrackingComponent implements OnInit {
     this._route.params.subscribe(
       params => {
         if (params['trackingNumber']) {
+          this.searchShow = false;
           this.trackingNumber = params['trackingNumber'];
           this.search(this.trackingNumber);
         }
@@ -41,6 +44,7 @@ export class OrderTrackingComponent implements OnInit {
     this.trackingHistory = null;
     this.noData = false;
 
+    console.log('trackingNumber', trackingNumber.toUpperCase().startsWith('CUL'));
     if (trackingNumber && !trackingNumber.toUpperCase().startsWith('CUL')) {
       this._order.getTrackingListByOrderNumber(trackingNumber).subscribe((data: any) => {
         if (data && data[0]) {
@@ -53,9 +57,10 @@ export class OrderTrackingComponent implements OnInit {
       return;
     }
     this._order.getOrderTrackingList(trackingNumber).subscribe((data: any) => {
-      if (data.data && data.data[0]) {
-        this.trackingHistory = data;
-        this.trackingHistory.trackingNumber = trackingNumber
+      console.log(data);
+      if (data._body) {
+        this.trackingHistory = JSON.parse(data._body);
+        // this.trackingHistory.trackingNumber = trackingNumber
         console.log('this.trackingHistory', this.trackingHistory);
       } else {
         this.noData = true;
