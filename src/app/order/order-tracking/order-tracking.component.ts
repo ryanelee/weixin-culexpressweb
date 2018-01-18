@@ -44,7 +44,6 @@ export class OrderTrackingComponent implements OnInit {
     this.trackingHistory = null;
     this.noData = false;
 
-    console.log('trackingNumber', trackingNumber.toUpperCase().startsWith('CUL'));
     if (trackingNumber && !trackingNumber.toUpperCase().startsWith('CUL')) {
       this._order.getTrackingListByOrderNumber(trackingNumber).subscribe((data: any) => {
         if (data && data[0]) {
@@ -57,10 +56,9 @@ export class OrderTrackingComponent implements OnInit {
       return;
     }
     this._order.getOrderTrackingList(trackingNumber).subscribe((data: any) => {
-      console.log(data);
       if (data._body) {
         this.trackingHistory = JSON.parse(data._body);
-        // this.trackingHistory.trackingNumber = trackingNumber
+        this.trackingHistory.trackingNumber = trackingNumber
         console.log('this.trackingHistory', this.trackingHistory);
       } else {
         this.noData = true;
