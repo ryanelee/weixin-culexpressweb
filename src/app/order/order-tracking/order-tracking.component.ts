@@ -1,5 +1,7 @@
-import { Tracking } from '../../models/tracking';
 import { Component, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Tracking } from '../../models/tracking';
 import { OrderService } from 'app/core/service/order.service';
 import { TrackingHistory } from 'app/models/trackingHistory';
 
@@ -18,8 +20,18 @@ export class OrderTrackingComponent implements OnInit {
 
 
   constructor(
+    private _route: ActivatedRoute,
     private _order: OrderService
-  ) { }
+  ) {
+    this._route.params.subscribe(
+      params => {
+        if (params['trackingNumber']) {
+          this.trackingNumber = params['trackingNumber'];
+          this.search(this.trackingNumber);
+        }
+      }
+    );
+   }
 
   ngOnInit() {
 

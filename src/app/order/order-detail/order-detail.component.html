@@ -12,11 +12,11 @@
     </div>
 
     <div class="od-cell">
-        <p>费用明细</p>
+        <!-- <p>费用明细</p> -->
         <p><label>包裹重量</label><span>{{orderDetail.actualWeight | number: '1.2-2'}}磅</span></p>
         <p>
             <label>运 费</label>
-            <span>{{orderDetail.shippingFee  | currency: 'CNY': true: '1.2-2':'1.2-2'}}</span>
+            <span>{{orderDetail.shippingFee  | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
         <p>
             <label>购买保险</label>
@@ -86,7 +86,7 @@
     </div>
     <div>
         <div *ngFor="let pkg of orderDetail.outboundPackages">
-            <div class="od-tracking display-flex">
+            <div class="od-tracking display-flex" [routerLink]="['/order/tracking', pkg.trackingNumber]">
                 <a>查看包裹轨迹</a>
                 <label [class]="pkgStatusClass(pkg.status)">{{pkgStatus(pkg.status)}}</label>
                 <i class="material-icons" style="color: #999999;">navigate_next</i>
