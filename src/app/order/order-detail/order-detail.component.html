@@ -42,7 +42,7 @@
             <label>实付款</label>
             <span>{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint) | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
-        <p ng-if="orderDetail.orderStatus=='Arrears'">
+        <p *ngIf="orderDetail.orderStatus=='Arrears'">
             <label>运费拖欠</label>
             <span>{{orderDetail.shippingFeeAdjust | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
@@ -56,7 +56,7 @@
         </p>
         <p *ngIf="orderDetail.pack_urgentProcess == 1"> 
             <label><mat-checkbox checked="true" disabled="true"></mat-checkbox> 加急处理</label>
-            <span>10.00</span>
+            <span></span>
         </p>
         <p *ngIf="orderDetail.pack_steadyInner == 1">
             <label>
