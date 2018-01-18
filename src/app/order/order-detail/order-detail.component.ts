@@ -34,11 +34,11 @@ export class OrderDetailComponent implements OnInit {
             console.log('order', order);
             if (!order.err) {
                 this.orderDetail = order;
+                // this.orderDetail.totalFee = this.orderDetail.toNumber +
+                // this.orderDetail.tariffMoney + this.orderDetail.tip + orderDetail.valueAddFee
+                //  + this.orderDetail.insuranceFee - this.orderDetail.usedPoint;
             }
         })
-        // this.orderDetail = this._route.snapshot.params['order'];
-        // console.log('this.orderDetail', this.orderDetail);
-        // console.log('this.orderDetail', this.orderDetail.declareGoodsValue);
     }
 
     pkgStatus(status) {

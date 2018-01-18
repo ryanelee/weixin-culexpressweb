@@ -40,7 +40,7 @@
         </p>
         <p>
             <label>实付款</label>
-            <span>{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint) | currency: 'CNY': true: '1.2-2'}}</span>
+            <!-- <span>{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint) | currency: 'CNY': true: '1.2-2'}}</span> -->
         </p>
         <p *ngIf="orderDetail.orderStatus=='Arrears'">
             <label>运费拖欠</label>
@@ -54,31 +54,31 @@
         == null && orderDetail.pack_replaceCarton == null && orderDetail.pack_removeInner == null">
             <label><mat-checkbox checked="true" disabled="true"></mat-checkbox> 没有选择任何增值服务</label>
         </p>
-        <p *ngIf="orderDetail.pack_urgentProcess == 1"> 
+        <p *ngIf="orderDetail.pack_urgentProcess == '1'"> 
             <label><mat-checkbox checked="true" disabled="true"></mat-checkbox> 加急处理</label>
             <span></span>
         </p>
-        <p *ngIf="orderDetail.pack_steadyInner == 1">
+        <p *ngIf="orderDetail.pack_steadyInner == '1'">
             <label>
                 <mat-checkbox checked="true" disabled="true"></mat-checkbox> 内件加固</label>
             <span></span>
         </p>
-        <p *ngIf="orderDetail.pack_replaceCarton == 1">
+        <p *ngIf="orderDetail.pack_replaceCarton == '1'">
             <label>
                 <mat-checkbox checked="true" disabled="true"></mat-checkbox> 更换外箱</label>
             <span></span>
         </p>
-        <p *ngIf="orderDetail.pack_removeInner == 1">
+        <p *ngIf="orderDetail.pack_removeInner == '1'">
             <label>
                 <mat-checkbox checked="true" disabled="true"></mat-checkbox> 去鞋盒/包装</label>
             <span></span>
         </p>
-        <p *ngIf="orderDetail.pack_addCarton == 1">
+        <p *ngIf="orderDetail.pack_addCarton == '1'">
             <label>
                 <mat-checkbox checked="true" disabled="true"></mat-checkbox> 加套外箱</label>
             <span></span>
         </p>
-        <p *ngIf="orderDetail.pack_checkCount == 1">
+        <p *ngIf="orderDetail.pack_checkCount == '1'">
             <label>
                 <mat-checkbox checked="true" disabled="true"></mat-checkbox> 清点拍照</label>
             <span></span>
