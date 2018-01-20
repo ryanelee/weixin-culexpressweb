@@ -11,6 +11,9 @@
     padding-bottom: 32px;
     font-size: 22px !important;
   }
+  .page-logo img {
+    width: 60%;
+  }
   .login-group-inline {
     padding-top: 30px;
   }
@@ -77,6 +80,7 @@
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
+    background-color: #6e89c5 !important;
   }
   .mat-error {
     margin-bottom: 20px;

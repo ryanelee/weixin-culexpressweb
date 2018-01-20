@@ -1,13 +1,14 @@
 <div class="container">
     <div class="page-logo">
-        中美速递
+        <!-- 中美速递 -->
+        <img src="./assets/images/logo.png">
     </div>
     <div class="example-container">
         <mat-form-field>
-            <input matInput placeholder="用户名"  (keyup)="clearMsg()" [(ngModel)]="user.emailAddress">
+            <input matInput placeholder="用户名或邮箱"  (keyup)="clearMsg()" [(ngModel)]="user.emailAddress">
         </mat-form-field>
         <mat-form-field>
-            <input matInput type="password" placeholder="密码" (keyup)="clearMsg()" [(ngModel)]="user.password">
+            <input matInput type="password" placeholder="登录密码" (keyup)="clearMsg()" [(ngModel)]="user.password">
         </mat-form-field>
         <mat-error>
             {{errMeg}}
