@@ -30,25 +30,25 @@
     flex: 1;
 }
 
-.od-info {
+.od-cul-info {
     display: flex;
     align-items: center;
     padding: 10px;
     background-color: #ffffff;
 }
-.od-info img{
+.od-cul-info img{
     width: 50px;
     padding-right: 10px;
 }
-.od-info p{
+.od-cul-info p{
     color: #6dca8c;
     font-size: 15px;
     margin: 5px;
 }
-.od-info span{
+.od-cul-info span{
     color: #999999;
     font-size: 14px;
-    margin: 5px;
+    margin: 0px;
 }
 
 .od-margin-bom-10 {

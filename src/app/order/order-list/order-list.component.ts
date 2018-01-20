@@ -22,7 +22,7 @@ export class OrderListComponent implements OnInit {
   ngOnInit() {
     this.param = {
       pageInfo: {
-        pageSize: 10,
+        pageSize: 99,
         pageIndex: 1
       },
       orderStatus: '',

@@ -91,12 +91,17 @@
                 <label [class]="pkgStatusClass(pkg.status)">{{pkgStatus(pkg.status)}}</label>
                 <i class="material-icons" style="color: #999999;">navigate_next</i>
             </div>
-            <div class="od-info">
+            <div class="od-cul-info">
                 <img src="/assets/images/icon-left-baoguo.png">
-                <div>
-                    <span>cul包裹号:{{pkg.trackingNumber}}</span>
-                    <br>
-                    <span> 重量:{{pkg.actualWeight | number: '1.2-2'}}磅</span>
+                <div style="width:100%">
+                    <div class="display-block">
+                        <span style="float:left;margin:0px;">{{pkg.trackingNumber}}</span>
+                        <span style="float:right">{{pkg.actualWeight | number: '1.2-2'}}磅</span>
+                    </div>
+                    <div class="display-block" *ngFor="let pkgItem of pkg.items">
+                        <span style="float:left">{{pkgItem.itemBrand}}</span>
+                        <span style="float:right">{{pkgItem.unitprice | currency: 'USD': true: '1.2-2'}}</span>
+                    </div>
                 </div>
             </div>
         </div>
