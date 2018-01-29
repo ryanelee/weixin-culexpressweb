@@ -1,3 +1,112 @@
-<div>
-    <p>订单详情</p>
+<div class="od-page">
+    <div class="od-cell">
+        <p>
+            <label>订单编号：</label>
+            <span>{{orderDetail.orderNumber}}</span>
+        </p>
+    </div>
+    <div class="od-cell od-margin-bom-10">
+        <p><label>收货人：{{orderDetail.shipToAddresses[0].receivePersonName}}</label> 
+            <span>{{orderDetail.shipToAddresses[0].cellphoneNumber}}</span></p>
+        <p><label>收获地址：{{orderDetail.shipToAddresses[0].address1}}</label></p>
+    </div>
+
+    <div class="od-cell">
+        <!-- <p>费用明细</p> -->
+        <p><label>包裹重量</label><span>{{orderDetail.actualWeight | number: '1.2-2'}}磅</span></p>
+        <p>
+            <label>运 费</label>
+            <span>{{orderDetail.shippingFee  | currency: 'CNY': true: '1.2-2'}}</span>
+        </p>
+        <p>
+            <label>购买保险</label>
+            <span>{{orderDetail.insuranceFee | currency: 'CNY': true: '1.2-2'}}</span>
+        </p>
+        <p>
+            <label>小 费</label>
+            <span>{{orderDetail.tip | currency: 'CNY': true: '1.2-2'}}</span>
+        </p>
+        <p>
+            <label>增值服务</label>
+            <span>{{orderDetail.valueAddFee | currency: 'CNY': true: '1.2-2'}}</span>
+        </p>
+        <p>
+            <label>积分抵扣</label>
+            <span>{{orderDetail.usedPoint | currency: 'CNY': true: '1.2-2'}}</span>
+        </p>
+        <p>
+            <label>清关费用</label>
+            <span>{{orderDetail.tariffMoney | currency: 'CNY': true: '1.2-2'}}</span>
+        </p>
+        <p>
+            <label>实付款</label>
+            <!-- <span>{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint) | currency: 'CNY': true: '1.2-2'}}</span> -->
+        </p>
+        <p *ngIf="orderDetail.orderStatus=='Arrears'">
+            <label>运费拖欠</label>
+            <span>{{orderDetail.shippingFeeAdjust | currency: 'CNY': true: '1.2-2'}}</span>
+        </p>
+         
+    </div>
+    <div class="od-cell od-margin-bom-10">
+        增值服务
+        <p *ngIf="orderDetail.pack_takeoutInvoice == null && orderDetail.pack_urgentProcess == null && orderDetail.pack_steadyInner
+        == null && orderDetail.pack_replaceCarton == null && orderDetail.pack_removeInner == null">
+            <label><mat-checkbox checked="true" disabled="true"></mat-checkbox> 没有选择任何增值服务</label>
+        </p>
+        <p *ngIf="orderDetail.pack_urgentProcess == '1'"> 
+            <label><mat-checkbox checked="true" disabled="true"></mat-checkbox> 加急处理</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_steadyInner == '1'">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 内件加固</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_replaceCarton == '1'">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 更换外箱</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_removeInner == '1'">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 去鞋盒/包装</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_addCarton == '1'">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 加套外箱</label>
+            <span></span>
+        </p>
+        <p *ngIf="orderDetail.pack_checkCount == '1'">
+            <label>
+                <mat-checkbox checked="true" disabled="true"></mat-checkbox> 清点拍照</label>
+            <span></span>
+        </p>
+    </div>
+    <div>
+        <div *ngFor="let pkg of orderDetail.outboundPackages">
+            <div class="od-tracking display-flex" [routerLink]="['/order/tracking', pkg.trackingNumber]">
+                <a>查看包裹轨迹</a>
+                <label [class]="pkgStatusClass(pkg.status)">{{pkgStatus(pkg.status)}}</label>
+                <i class="material-icons" style="color: #999999;">navigate_next</i>
+            </div>
+            <div class="od-cul-info">
+                <img src="/assets/images/icon-left-baoguo.png">
+                <div style="width:100%">
+                    <div class="display-block">
+                        <span style="float:left;margin:0px;">{{pkg.trackingNumber}}</span>
+                        <span style="float:right">{{pkg.actualWeight | number: '1.2-2'}}磅</span>
+                    </div>
+                    <div class="display-block" *ngFor="let pkgItem of pkg.items">
+                        <span style="float:left">{{pkgItem.itemBrand}}</span>
+                        <span style="float:right">{{pkgItem.unitprice | currency: 'USD': true: '1.2-2'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <app-order-tracking-detail *ngIf="trackingHistory && !noData" [trackingHistory]="trackingHistory"></app-order-tracking-detail> -->
+    
 </div>

@@ -1,0 +1,19 @@
+
+.ol-cell {
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid #efefef;
+}
+
+.ol-cell a {
+    text-decoration: none;
+    color: #333333; 
+}
+.ol-cell .text-small{
+    font-size: 14px;
+    color: #999999;
+}
+
+
+
+

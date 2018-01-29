@@ -1,7 +1,10 @@
-import { Tracking } from '../../models/tracking';
 import { Component, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Tracking } from '../../models/tracking';
 import { OrderService } from 'app/core/service/order.service';
 import { TrackingHistory } from 'app/models/trackingHistory';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-order-tracking',
@@ -15,11 +18,23 @@ export class OrderTrackingComponent implements OnInit {
   // trackingHistory: TrackingHistory;
   @Output() trackingHistory: TrackingHistory;
   noData = false;
+  searchShow = true;
 
 
   constructor(
+    private _route: ActivatedRoute,
     private _order: OrderService
-  ) { }
+  ) {
+    this._route.params.subscribe(
+      params => {
+        if (params['trackingNumber']) {
+          this.searchShow = false;
+          this.trackingNumber = params['trackingNumber'];
+          this.search(this.trackingNumber);
+        }
+      }
+    );
+   }
 
   ngOnInit() {
 
@@ -41,8 +56,8 @@ export class OrderTrackingComponent implements OnInit {
       return;
     }
     this._order.getOrderTrackingList(trackingNumber).subscribe((data: any) => {
-      if (data.data && data.data[0]) {
-        this.trackingHistory = data;
+      if (data._body) {
+        this.trackingHistory = JSON.parse(data._body);
         this.trackingHistory.trackingNumber = trackingNumber
         console.log('this.trackingHistory', this.trackingHistory);
       } else {

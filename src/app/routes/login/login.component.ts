@@ -3,6 +3,7 @@ import { UserService } from '../../core/service/user.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/models/user';
+import { WxUser } from 'app/models/wx-user';
 
 @Component({
   selector: 'app-login',
@@ -34,11 +35,32 @@ export class LoginComponent implements OnInit {
       if (result.err) {
         this.errMeg = result.err;
       } else {
+        this._router.navigate(['user-profile']);
+
         console.log('result', result);
-        const data: User = result
-        this._auth.setUser(result);
-        this._auth.setJwtToken(result.token);
-        this._router.navigate(['order']);
+        console.log('email', result.emailAddress);
+        const wxuser: WxUser = this._auth.getWxUser();
+        if (wxuser) {
+          this._user.updateWxUserInfo({ email: result.emailAddress, openid: wxuser.openid }).subscribe((update_result: any) => {
+            if (update_result.err) {
+              alert('err' + update_result.err);
+            } else {
+              const data: User = result;
+              this._auth.setUser(result);
+              this._auth.setJwtToken(result.token);
+              // this._user
+              this._router.navigate(['user-profile']);
+            }
+            ;
+          })
+        } else {
+          this._auth.setUser(result);
+          this._auth.setJwtToken(result.token);
+          // this._user
+          this._router.navigate(['user-profile']);
+        }
+
+
       }
     })
   }

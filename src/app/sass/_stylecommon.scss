@@ -1,5 +1,6 @@
 body {
     background-color: #f9f9f9;
+    margin: 0px !important;
 }
 
 .material-icons {
@@ -33,6 +34,32 @@ body {
     padding: 10px;
 }
 
+.page-default {
+    padding: 10px;
+}
+
+.display-flex {
+    display: flex;
+    align-items: center;
+}
+.display-block {
+    display: inline-block;
+    width: 100%;
+}
+
+.label-success {
+    color: #5cb85c;
+}
+.label-warning {
+    color: #f0ad4e;
+}
+.label-danger {
+    color: #d9534f;
+}
+.label-info {
+    color: #5bc0de;
+}
+
 .otd-tracking .mat-step-icon .mat-icon {
     display: none !important;
 }
@@ -44,4 +71,10 @@ body {
 }
 .otd-tracking .mat-vertical-stepper-header{
     pointer-events: none !important;
+}
+
+
+.od-cell .mat-checkbox-inner-container{
+    width: 16px !important;
+    height: 16px !important;
 }

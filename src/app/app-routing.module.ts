@@ -1,3 +1,4 @@
+import { UserProfileComponent } from './routes/user-profile/user-profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from 'app/core/service/guards/auth-guard.service';
@@ -5,7 +6,7 @@ import { ChannelIntroComponent } from 'app/home/channel-intro/channel-intro.comp
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'login',
         loadChildren: './routes/login/login.module#LoginModule'
     },
     {
@@ -16,7 +17,13 @@ const routes: Routes = [
     {
         path: 'home',
         loadChildren: './home/home.module#HomeModule'
-    }
+    },
+    {
+        path: 'user-profile',
+        canActivate: [AuthGuardService],
+        component: UserProfileComponent
+    },
+
 ];
 
 @NgModule({

@@ -40,6 +40,10 @@ export class OrderService {
     return this._common.authPost('/order/list', param);
   }
 
+  getOrderDetail(param) {
+    return this._common.authGet('/order/' + param);
+  }
+
 }
 
 

@@ -1,4 +1,7 @@
-import { Tracking } from './tracking';
+
+import { OutboundPackages } from './outboundPackages';
+import { OrderItems } from './orderItems';
+import { ShipToAddresses } from './shipToAddresses';
 
 export class Order {
     public 'orderNumber'?: String;
@@ -60,7 +63,7 @@ export class Order {
     public 'customer'?: Object;
     public 'packageTotalFee'?: Number;
     public 'actualWeight'?: Number;
-    public 'outboundPackages'?: Array<Tracking>;
-    public 'orderItems'?: Array<Tracking>;
-    public 'shipToAddresses'?: Array<Tracking>;
+    public 'outboundPackages'?: Array<OutboundPackages>;
+    public 'orderItems'?: Array<OrderItems>;
+    public 'shipToAddresses'?: Array<ShipToAddresses>;
 }

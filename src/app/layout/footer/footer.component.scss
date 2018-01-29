@@ -9,5 +9,6 @@ footer {
     height: map-get($layout, footer);
     line-height: map-get($layout, footer);
     font-size: map-get($font-sizes, p3);
+    color: #999999;
   }
   

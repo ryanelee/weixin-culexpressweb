@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build  --env=test  --aot --oh bundles",
+    "buildProd": "ng build --prod --aot --oh bundles",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -31,6 +32,7 @@
     "jquery": "^3.2.1",
     "material-design-icons": "^3.0.1",
     "rxjs": "^5.5.6",
+    "vconsole": "^3.1.0",
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
