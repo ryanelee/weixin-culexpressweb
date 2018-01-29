@@ -1,0 +1,9 @@
+img {
+	width: 100%;
+  }
+
+  .embargo-row .embargo-img {
+      display: inline-block;
+      width: 26px;
+      text-align: center;
+  }
