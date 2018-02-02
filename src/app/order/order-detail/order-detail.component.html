@@ -1,14 +1,23 @@
-<div class="od-page">
+<div class="od-page" *ngIf="orderDetail">
     <div class="od-cell">
         <p>
             <label>订单编号：</label>
             <span>{{orderDetail.orderNumber}}</span>
         </p>
+        <p>
+            <label></label>
+            <span>{{orderDetail.orderStatus}}</span>
+        </p>
     </div>
     <div class="od-cell od-margin-bom-10">
-        <p><label>收货人：{{orderDetail.shipToAddresses[0].receivePersonName}}</label> 
-            <span>{{orderDetail.shipToAddresses[0].cellphoneNumber}}</span></p>
-        <p><label>收获地址：{{orderDetail.shipToAddresses[0].address1}}</label></p>
+        <p>
+            <label>收货人：{{orderDetail.shipToAddresses[0].receivePersonName}}</label>
+            <i class="material-icons md-18">phone</i>
+            <span>{{orderDetail.shipToAddresses[0].cellphoneNumber}}</span>
+        </p>
+        <p>
+            <label>收获地址：{{orderDetail.shipToAddresses[0].address1}}</label>
+        </p>
     </div>
 
     <div class="od-cell">
@@ -42,7 +51,7 @@
             <label>实付款</label>
             <!-- <span>{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint) | currency: 'CNY': true: '1.2-2'}}</span> -->
         </p>
-        <p *ngIf="orderDetail.orderStatus=='Arrears'">
+        <p *ngIf="orderDetail.orderStatus && orderDetail.orderStatus === 'Arrears'">
             <label>运费拖欠</label>
             <span>{{orderDetail.shippingFeeAdjust | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
