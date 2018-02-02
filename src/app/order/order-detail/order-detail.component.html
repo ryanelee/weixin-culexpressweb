@@ -47,9 +47,14 @@
             <label>清关费用</label>
             <span>{{orderDetail.tariffMoney | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
+        <md-divider></md-divider>
+        <p>
+            <label>总计</label>
+            <span>{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint) | currency: 'CNY': true: '1.2-2'}}</span>
+        </p>
         <p>
             <label>实付款</label>
-            <!-- <span>{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint) | currency: 'CNY': true: '1.2-2'}}</span> -->
+            <span>{{orderDetail.paied | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
         <p *ngIf="orderDetail.orderStatus && orderDetail.orderStatus === 'Arrears'">
             <label>运费拖欠</label>
