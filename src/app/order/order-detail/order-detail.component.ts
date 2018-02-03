@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Order } from '../../models/Order';
+import { Order } from 'app/models/Order';
 import { TrackingHistory } from 'app/models/trackingHistory';
 import { OrderService } from 'app/core/service/order.service';
 import { Tool } from 'app/core/service/tool';
