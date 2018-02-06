@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { ChannelIntroComponent } from 'app/home/channel-intro/channel-intro.component';
 import { EmbargoComponent } from 'app/home/embargo/embargo.component';
+import { HowtouseComponent } from 'app/home/howtouse/howtouse.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,9 @@ const routes: Routes = [
   },
   {
     path: 'embargo', component: EmbargoComponent
+  },
+  {
+    path: 'howtouse', component: HowtouseComponent
   }
 ];
 
