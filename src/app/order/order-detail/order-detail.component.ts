@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Order } from '../../models/Order';
+import { Order } from 'app/models/order';
 import { TrackingHistory } from 'app/models/trackingHistory';
 import { OrderService } from 'app/core/service/order.service';
 import { Tool } from 'app/core/service/tool';
@@ -29,11 +29,11 @@ export class OrderDetailComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('this.orderNumber', this.orderNumber);
         this._order.getOrderDetail(this.orderNumber).subscribe((order: any) => {
-            console.log('order', order);
             if (!order.err) {
                 this.orderDetail = order;
+                this.orderDetail.orderStatus = Tool.orderStatus(order.orderStatus);
+                console.log(this.orderDetail);
                 // this.orderDetail.totalFee = this.orderDetail.toNumber +
                 // this.orderDetail.tariffMoney + this.orderDetail.tip + orderDetail.valueAddFee
                 //  + this.orderDetail.insuranceFee - this.orderDetail.usedPoint;
