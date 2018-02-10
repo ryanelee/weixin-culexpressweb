@@ -1,0 +1,1 @@
+{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"production":true,"api":"http://api.culexpress.com/api","wechatApi":"http://weixinapi.culexpress.com"}}],"symbols":[{"__symbol":0,"name":"environment","filePath":"/workstation/weixin-cul/weixin-culweb/src/environments/environment.prod.d.ts"}]}

@@ -10,6 +10,12 @@ import { AddValueIntroComponent } from './channel-intro/add-value-intro/add-valu
 import { EmbargoComponent } from './embargo/embargo.component';
 import { HowtouseComponent } from './howtouse/howtouse.component';
 import { FaqComponent } from './faq/faq.component';
+import { AboutComponent } from './about/about.component';
+import { TermsComponent } from './terms/terms.component';
+import { TermsEnComponent } from './terms/terms-en/terms-en.component';
+import { AppendixLimitComponent } from './terms/appendix-limit/appendix-limit.component';
+import { AppendixOrmdComponent } from './terms/appendix-ormd/appendix-ormd.component';
+import { InsuranceIntroComponent } from './terms/insurance-intro/insurance-intro.component';
 
 @NgModule({
   imports: [
@@ -20,6 +26,19 @@ import { FaqComponent } from './faq/faq.component';
     MatGridListModule,
     HomeRoutingModule
   ],
-  declarations: [HomeComponent, ChannelIntroComponent, AddValueIntroComponent, EmbargoComponent, HowtouseComponent, FaqComponent]
+  declarations: [
+    HomeComponent,
+    ChannelIntroComponent,
+    AddValueIntroComponent,
+    EmbargoComponent,
+    HowtouseComponent,
+    FaqComponent,
+    AboutComponent,
+    TermsComponent,
+    TermsEnComponent,
+    AppendixLimitComponent,
+    AppendixOrmdComponent,
+    InsuranceIntroComponent
+  ]
 })
 export class HomeModule { }

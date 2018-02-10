@@ -39,8 +39,8 @@ export class ChannelIntroComponent implements OnInit {
             tax: item.taxIncluded,
             maxWeight: item.maxWeight + '磅',
             idCard: item.needIDCard === 1 ? '需要身份证' : '无须身份证',
-            firstWeightRate: item.shipFeeList.filter(i => i.isVip === '0')[0].firstWeight,
-            continueWeightRate: item.shipFeeList.filter(i => i.isVip === '0')[0].continuedWeight
+            firstWeightRate: item.shipFeeList.filter(i => i.isVip === '0' || i.isVip === 0)[0].firstWeight,
+            continueWeightRate: item.shipFeeList.filter(i => i.isVip === '0' || i.isVip === 0)[0].continuedWeight
           });
 
         })

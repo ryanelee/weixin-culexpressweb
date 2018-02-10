@@ -1,0 +1,128 @@
+.about-container {
+    margin: 20px 20px 20px 20px
+}
+
+.about-container .about-title {
+	color: #000;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.about-container .about-title span {
+	color: #000;
+	font-size: 18px;
+	margin-left: 5px;
+}
+
+.about-container .icon-about {
+	margin: 20px 0 15px;
+}
+
+.about-container .icon-about::before {
+	content: '';
+	display: inline-block;
+	background: url('/assets/images/about/icon-line.png') no-repeat center center;
+	width: 30px;
+	height: 5px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.about-container .icon-about::after {
+	content: '';
+	display: inline-block;
+	background: url('/assets/images/about/icon-line.png') no-repeat center center;
+	width: 30px;
+	height: 5px;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.about-container .about-main {
+	display: inline-block;
+	color: #333;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 10%;
+	margin-bottom: 15px;
+}
+
+.about-container .img-about {
+	width: 90%;
+	height: auto;
+}
+
+.middle-about {
+	background-color: #b0bfd7;
+}
+
+.middle-about .middle-item {
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+.middle-about img {
+	width:30%;
+}
+
+.middle-about .middle-item img {
+	vertical-align: middle;
+}
+
+.middle-about .middle-item .middle-font {
+	display: inline-block;
+	margin-left: 3px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 12px;
+}
+
+.about-container .contact-title {
+	font-size: 20px;
+	color: #000;
+	margin-top: 30px;
+	font-weight: bold;
+}
+.about-container .contact-icon {
+	margin: 10px 0;
+}
+
+.about-container .contact-content {
+	margin: 14px 0;
+	font-size: 14px;
+}
+
+.about-container .contact-icon span:first-child {
+	color: #ffa100;
+}
+
+.about-container .contact-icon-container {
+	padding: 10px 0;
+}
+
+.contact-icon-item .contact-item-title {
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffa100;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.contact-icon-item .contact-item-remark {
+	font-size: 12px;
+	color:#0c0c0c;
+	margin-top: 10px;
+	margin-left: 40px;
+}
+
+.contact-icon-item .contact-item-img {
+	height:10%;
+}
+
+.contact-icon-item .contact-item-info {
+	font-size: 14px;
+	color: #030303;
+	vertical-align: middle;
+	margin-left: 10px;
+}
