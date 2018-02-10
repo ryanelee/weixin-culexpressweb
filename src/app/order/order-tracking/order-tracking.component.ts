@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 import { Tracking } from '../../models/tracking';
 import { OrderService } from 'app/core/service/order.service';
@@ -23,7 +24,8 @@ export class OrderTrackingComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _order: OrderService
+    private _order: OrderService,
+    private _snackBar: MatSnackBar
   ) {
     this._route.params.subscribe(
       params => {
@@ -40,14 +42,18 @@ export class OrderTrackingComponent implements OnInit {
 
   }
   search(trackingNumber) {
+    if (!trackingNumber) {
+      this._snackBar.open('请输入运单号或订单号！');
+      return;
+    }
     this.trackingNumberList = null;
     this.trackingHistory = null;
     this.noData = false;
 
     if (trackingNumber && !trackingNumber.toUpperCase().startsWith('CUL')) {
       this._order.getTrackingListByOrderNumber(trackingNumber).subscribe((data: any) => {
-        if (data && data[0]) {
-          this.trackingNumberList = data;
+        if (data._body.indexOf('CUL') > 0) {
+          this.trackingNumberList = data._body.replace(/\[|\"|\]/g, '').split(',');
           console.log(this.trackingNumberList);
         } else {
           this.noData = true;
