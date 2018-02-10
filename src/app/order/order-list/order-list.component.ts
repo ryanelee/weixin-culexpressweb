@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { OrderService } from 'app/core/service/order.service';
-import { OrderList } from '../../models/orderList';
+import { OrderList } from 'app/models/orderList';
 import { Tool } from 'app/core/service/tool';
 
 @Component({

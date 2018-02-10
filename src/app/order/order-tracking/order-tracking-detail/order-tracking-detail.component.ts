@@ -1,4 +1,4 @@
-import { TrackingHistory } from '../../../models/trackingHistory';
+import { TrackingHistory } from 'app/models/trackingHistory';
 import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({

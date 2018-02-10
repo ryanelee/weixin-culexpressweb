@@ -8,13 +8,13 @@
 
 import * as i0 from './order-tracking.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
-import * as i2 from '../../../../node_modules/@angular/material/form-field/typings/index.ngfactory';
+import * as i2 from '@angular/material/form-field/typings/index.ngfactory';
 import * as i3 from '@angular/material/form-field';
 import * as i4 from '@angular/material/core';
 import * as i5 from '@angular/forms';
 import * as i6 from '@angular/material/input';
 import * as i7 from '@angular/cdk/platform';
-import * as i8 from '../../../../node_modules/@angular/material/button/typings/index.ngfactory';
+import * as i8 from '@angular/material/button/typings/index.ngfactory';
 import * as i9 from '@angular/material/button';
 import * as i10 from '@angular/cdk/a11y';
 import * as i11 from './order-package-list/order-package-list.component.ngfactory';
@@ -26,7 +26,7 @@ import * as i16 from './order-no-tracking/order-no-tracking.component';
 import * as i17 from '@angular/common';
 import * as i18 from './order-tracking.component';
 import * as i19 from '@angular/router';
-import * as i20 from '../../core/service/order.service';
+import * as i20 from 'app/core/service/order.service';
 const styles_OrderTrackingComponent:any[] = [i0.styles];
 export const RenderType_OrderTrackingComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
     styles:styles_OrderTrackingComponent,data:{}});

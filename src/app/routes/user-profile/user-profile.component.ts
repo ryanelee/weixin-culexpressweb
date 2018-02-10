@@ -1,4 +1,4 @@
-import { WxUser } from '../../models/wx-user';
+import { WxUser } from 'app/models/wx-user';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'app/core/service/storage.service';
 

@@ -8,7 +8,7 @@
 
 import * as i0 from './order-detail.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
-import * as i2 from '../../../../node_modules/@angular/material/checkbox/typings/index.ngfactory';
+import * as i2 from '@angular/material/checkbox/typings/index.ngfactory';
 import * as i3 from '@angular/forms';
 import * as i4 from '@angular/material/checkbox';
 import * as i5 from '@angular/material/core';
@@ -16,7 +16,7 @@ import * as i6 from '@angular/cdk/a11y';
 import * as i7 from '@angular/router';
 import * as i8 from '@angular/common';
 import * as i9 from './order-detail.component';
-import * as i10 from '../../core/service/order.service';
+import * as i10 from 'app/core/service/order.service';
 const styles_OrderDetailComponent:any[] = [i0.styles];
 export const RenderType_OrderDetailComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
     styles:styles_OrderDetailComponent,data:{}});

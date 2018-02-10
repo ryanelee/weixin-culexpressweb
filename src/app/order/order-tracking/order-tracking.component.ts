@@ -2,7 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 
-import { Tracking } from '../../models/tracking';
+import { Tracking } from 'app/models/tracking';
 import { OrderService } from 'app/core/service/order.service';
 import { TrackingHistory } from 'app/models/trackingHistory';
 import { debug } from 'util';

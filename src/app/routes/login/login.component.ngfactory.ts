@@ -8,20 +8,20 @@
 
 import * as i0 from './login.component.scss.shim.ngstyle';
 import * as i1 from '@angular/core';
-import * as i2 from '../../../../node_modules/@angular/material/form-field/typings/index.ngfactory';
+import * as i2 from '@angular/material/form-field/typings/index.ngfactory';
 import * as i3 from '@angular/material/core';
 import * as i4 from '@angular/material/form-field';
 import * as i5 from './login.component';
 import * as i6 from '@angular/forms';
 import * as i7 from '@angular/material/input';
 import * as i8 from '@angular/cdk/platform';
-import * as i9 from '../../../../node_modules/@angular/material/button/typings/index.ngfactory';
+import * as i9 from '@angular/material/button/typings/index.ngfactory';
 import * as i10 from '@angular/material/button';
 import * as i11 from '@angular/cdk/a11y';
-import * as i12 from '../../layout/footer/footer.component.ngfactory';
-import * as i13 from '../../layout/footer/footer.component';
-import * as i14 from '../../core/service/user.service';
-import * as i15 from '../../core/service/auth.service';
+import * as i12 from 'app/layout/footer/footer.component.ngfactory';
+import * as i13 from 'app/layout/footer/footer.component';
+import * as i14 from 'app/core/service/user.service';
+import * as i15 from 'app/core/service/auth.service';
 import * as i16 from '@angular/router';
 const styles_LoginComponent:any[] = [i0.styles];
 export const RenderType_LoginComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
