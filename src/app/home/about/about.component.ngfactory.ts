@@ -8,7 +8,7 @@
 
 import * as i0 from './about.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
-import * as i2 from '../../../../node_modules/@angular/material/grid-list/typings/index.ngfactory';
+import * as i2 from '@angular/material/grid-list/typings/index.ngfactory';
 import * as i3 from '@angular/material/core';
 import * as i4 from '@angular/material/grid-list';
 import * as i5 from '@angular/cdk/bidi';

@@ -8,18 +8,18 @@
 
 import * as i0 from './channel-intro.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
-import * as i2 from '../../../../node_modules/@angular/material/expansion/typings/index.ngfactory';
+import * as i2 from '@angular/material/expansion/typings/index.ngfactory';
 import * as i3 from '@angular/material/expansion';
 import * as i4 from '@angular/cdk/collections';
 import * as i5 from '@angular/cdk/a11y';
 import * as i6 from '@angular/common';
-import * as i7 from '../../../../node_modules/@angular/material/tabs/typings/index.ngfactory';
+import * as i7 from '@angular/material/tabs/typings/index.ngfactory';
 import * as i8 from '@angular/material/core';
 import * as i9 from '@angular/material/tabs';
 import * as i10 from './add-value-intro/add-value-intro.component.ngfactory';
 import * as i11 from './add-value-intro/add-value-intro.component';
 import * as i12 from './channel-intro.component';
-import * as i13 from '../../core/service/common-api.service';
+import * as i13 from 'app/core/service/common-api.service';
 const styles_ChannelIntroComponent:any[] = [i0.styles];
 export const RenderType_ChannelIntroComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
     styles:styles_ChannelIntroComponent,data:{}});

@@ -25,7 +25,7 @@ import * as i15 from '@angular/http';
 import * as i16 from '@angular/material/stepper';
 import * as i17 from '@angular/router';
 import * as i18 from './login-routing.module';
-import * as i19 from '../../layout/layout.module';
+import * as i19 from 'app/layout/layout.module';
 import * as i20 from '@angular/cdk/portal';
 import * as i21 from '@angular/material/tabs';
 import * as i22 from '@angular/material/form-field';

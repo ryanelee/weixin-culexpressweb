@@ -12,7 +12,7 @@ import * as i2 from '@angular/material/core';
 import * as i3 from '@angular/router';
 import * as i4 from '@angular/common';
 import * as i5 from './order-list.component';
-import * as i6 from '../../core/service/order.service';
+import * as i6 from 'app/core/service/order.service';
 const styles_OrderListComponent:any[] = [i0.styles];
 export const RenderType_OrderListComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
     styles:styles_OrderListComponent,data:{}});

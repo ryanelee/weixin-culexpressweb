@@ -8,12 +8,12 @@
 
 import * as i0 from './user-profile.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
-import * as i2 from '../../../../node_modules/@angular/material/card/typings/index.ngfactory';
+import * as i2 from '@angular/material/card/typings/index.ngfactory';
 import * as i3 from '@angular/material/core';
 import * as i4 from '@angular/material/card';
 import * as i5 from '@angular/router';
 import * as i6 from './user-profile.component';
-import * as i7 from '../../core/service/storage.service';
+import * as i7 from 'app/core/service/storage.service';
 const styles_UserProfileComponent:any[] = [i0.styles];
 export const RenderType_UserProfileComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
     styles:styles_UserProfileComponent,data:{}});
