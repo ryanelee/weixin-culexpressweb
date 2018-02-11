@@ -14,7 +14,7 @@ import * as i4 from './routes/login/login.component.ngfactory';
 import * as i5 from './order/order-list/order-list.component.ngfactory';
 import * as i6 from './order/order-detail/order-detail.component.ngfactory';
 import * as i7 from './order/order-tracking/order-tracking.component.ngfactory';
-import * as i8 from '../../node_modules/@angular/material/snack-bar/typings/index.ngfactory';
+import * as i8 from '@angular/material/snack-bar/typings/index.ngfactory';
 import * as i9 from './home/channel-intro/channel-intro.component.ngfactory';
 import * as i10 from './home/embargo/embargo.component.ngfactory';
 import * as i11 from './home/howtouse/howtouse.component.ngfactory';

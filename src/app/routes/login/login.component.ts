@@ -37,8 +37,6 @@ export class LoginComponent implements OnInit {
       } else {
         this._router.navigate(['user-profile']);
 
-        console.log('result', result);
-        console.log('email', result.emailAddress);
         const wxuser: WxUser = this._auth.getWxUser();
         if (wxuser) {
           this._user.updateWxUserInfo({ email: result.emailAddress, openid: wxuser.openid }).subscribe((update_result: any) => {

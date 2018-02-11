@@ -14,3 +14,14 @@
 .opl-cell mat-icon::before{
     content: "\f077";
 }
+
+.mat-card-content p {
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.material-icons.md-18 {
+	font-size: 18px !important;
+	height: 18px !important;
+	width: 18px !important;
+	}

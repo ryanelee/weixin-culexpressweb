@@ -9,7 +9,7 @@
 import * as i0 from './faq.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
 import * as i2 from '@angular/material/expansion';
-import * as i3 from '../../../../node_modules/@angular/material/expansion/typings/index.ngfactory';
+import * as i3 from '@angular/material/expansion/typings/index.ngfactory';
 import * as i4 from '@angular/cdk/collections';
 import * as i5 from '@angular/cdk/a11y';
 import * as i6 from '@angular/material/core';
