@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="disclaimer">
+    <p>海关清关入境包裹，提交身份证信息说明</p>
+    <span>- 根据最新《中华人民共和国海关对进出境快件监管办法》规定，入境到中国大陆的个人包裹经海关查验需向海关提供收件人身份证影印件等相关信息。</span><br>
+    <span>- 中美速递承诺所有信息均进行加密存储，直接提交给海关清关时进行查验，绝不用做其它途径。</span>
+  </div>
+  <div class="option">
+    <mat-radio-group [(ngModel)]="customerType">
+      <mat-radio-button value="cul">Cul客户</mat-radio-button>
+      <mat-radio-button value="taobao">淘宝微信客户</mat-radio-button>
+    </mat-radio-group>
+    <div class="cul-option" *ngIf="customerType === 'cul'">
+      <mat-form-field>
+        <input matInput placeholder="Cul包裹编号" required>
+        <!-- <mat-error *ngIf="culPackageFormControl.hasError('invalid')">
+          请输入有效的Cul包裹编号
+        </mat-error> -->
+      </mat-form-field>
+    </div>
+    <div class="taobao-option" *ngIf="customerType === 'taobao'">
+      <mat-form-field>
+        <input matInput placeholder="淘宝订单号">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="upload-content">
+    <mat-form-field>
+      <input matInput placeholder="收货人" required>
+      <!-- <mat-error *ngIf="idCardFormControl.hasError('invalid')">
+        请输入有效的Cul包裹编号
+      </mat-error> -->
+    </mat-form-field>
+    <div class="IDCard">
+      <mat-form-field class="ID-input">
+        <input matInput placeholder="身份证号码" required minlength="8" maxlength="15">
+      </mat-form-field>
+      <span class="ID-warning">
+        <i class="material-icons" md-18 matTooltip="请填写真实的身份证号码，身份证号码是15或18位数字。在需要身份证清关的渠道使用，请确保身份证号码持有人与收货人姓名对应。" matTooltipPosition="after">warning</i>
+      </span>
+    </div>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="身份证有效截止日期">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    是否永久:
+    <mat-radio-group>
+      <mat-radio-button value="yes">是</mat-radio-button>
+      <mat-radio-button value="no">否</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field>
+      <input matInput placeholder="手机号码" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="备用号码">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="电子邮箱" email required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="备注信息" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+    </mat-form-field>
+
+    <div class="button-row">
+      <button mat-raised-button color="primary">提交</button>
+      <button mat-raised-button>返回</button>
+    </div>
+  </div>
+</div>

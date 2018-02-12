@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule, MatExpansionPanel, MatExpansionModule, MatTab, MatTabsModule } from '@angular/material';
-import { MatGridListModule, MatGridList } from '@angular/material';
+import { MatGridListModule, MatGridList, MatRadioModule, MatFormFieldModule,
+  MatInputModule, MatTooltipModule, MatDatepickerModule, MatNativeDateModule, MatButtonModule } from '@angular/material';
 
 import { HomeComponent } from 'app/home/home.component';
 import { ChannelIntroComponent } from 'app/home/channel-intro/channel-intro.component';
@@ -16,15 +18,25 @@ import { TermsEnComponent } from './terms/terms-en/terms-en.component';
 import { AppendixLimitComponent } from './terms/appendix-limit/appendix-limit.component';
 import { AppendixOrmdComponent } from './terms/appendix-ormd/appendix-ormd.component';
 import { InsuranceIntroComponent } from './terms/insurance-intro/insurance-intro.component';
+import { UploadIdcardComponent } from './upload-idcard/upload-idcard.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatStepperModule,
     MatExpansionModule,
     MatTabsModule,
     MatGridListModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule
   ],
   declarations: [
     HomeComponent,
@@ -38,7 +50,8 @@ import { InsuranceIntroComponent } from './terms/insurance-intro/insurance-intro
     TermsEnComponent,
     AppendixLimitComponent,
     AppendixOrmdComponent,
-    InsuranceIntroComponent
+    InsuranceIntroComponent,
+    UploadIdcardComponent
   ]
 })
 export class HomeModule { }

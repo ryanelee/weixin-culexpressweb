@@ -23,7 +23,7 @@
     <p>
         <span>
             <i class="material-icons md-18">account_balance_wallet</i>
-            账户余额: ￥{{user.accountBalance}}
+            账户余额: {{user.accountBalance | currency: 'CNY': true: '1.2-2'}}
             积分: {{user.myPoint}}
         </span>
     </p>

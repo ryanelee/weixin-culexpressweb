@@ -12,6 +12,7 @@ import { TermsEnComponent } from './terms/terms-en/terms-en.component';
 import { AppendixLimitComponent } from './terms/appendix-limit/appendix-limit.component';
 import { AppendixOrmdComponent } from './terms/appendix-ormd/appendix-ormd.component';
 import { InsuranceIntroComponent } from './terms/insurance-intro/insurance-intro.component';
+import { UploadIdcardComponent } from './upload-idcard/upload-idcard.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,9 @@ const routes: Routes = [
   },
   {
     path: 'insurance-intro', component: InsuranceIntroComponent
+  },
+  {
+    path: 'upload-idcard', component: UploadIdcardComponent
   }
 ];
 
