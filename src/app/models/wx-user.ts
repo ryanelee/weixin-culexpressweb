@@ -10,6 +10,7 @@ export class WxUser {
     public email?: boolean;
     public createdTime?: Date;
     public country?: string;
+    public point?: number;
 }
 
 

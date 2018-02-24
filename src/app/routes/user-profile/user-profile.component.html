@@ -3,21 +3,26 @@
     <!-- <div mat-card-avatar class="example-header-image" style="background-image: url('{{user.headimgurl}}');"> -->
     <!-- <img src="{{user.headimgurl}}" /> -->
     <!-- </div> -->
-    <img mat-card-avatar src="{{user.headimgurl}}" />
-    <mat-card-title>{{user.nickname}}</mat-card-title>
-    <mat-card-subtitle>{{user.province}}</mat-card-subtitle>
+    <img mat-card-avatar src="{{wxuser.headimgurl}}" />
+    <mat-card-title>{{wxuser.nickname}}</mat-card-title>
+    <mat-card-subtitle>{{wxuser.province}}</mat-card-subtitle>
   </mat-card-header>
+  <mat-card-content>
+    <p> 
+      你当前的积分: {{wxuser.point || 0}} 分
+    </p>
+  </mat-card-content>
   <!-- <img mat-card-image src="{{user.headimgurl}}" alt="Photo of a Shiba Inu"> -->
 </mat-card>
 
 
-<div class="opl-page" >
+<div class="opl-page">
   <mat-nav-list>
     <mat-list-item class="opl-cell" [routerLink]="['/order']">
       <a>我的订单</a>
       <i class="material-icons">navigate_next</i>
     </mat-list-item>
-    <mat-list-item class="opl-cell" [routerLink]="['/order/tracking']" >
+    <mat-list-item class="opl-cell" [routerLink]="['/order/tracking']">
       <a>运单查询</a>
       <i class="material-icons">navigate_next</i>
     </mat-list-item>

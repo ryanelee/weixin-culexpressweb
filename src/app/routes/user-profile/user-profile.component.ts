@@ -1,6 +1,7 @@
 import { WxUser } from '../../models/wx-user';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'app/core/service/storage.service';
+import { UserService } from 'app/core/service/user.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,12 +9,17 @@ import { StorageService } from 'app/core/service/storage.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  user: WxUser;
-  constructor(private _storage: StorageService) { }
+  wxuser: WxUser;
+  constructor(private _storage: StorageService, private _user: UserService) { }
 
   ngOnInit() {
-    this.user = this._storage.get('wxuser');
-    console.log('user', this.user);
+    this.wxuser = this._storage.get('wxuser');
+    this._user.getwxUserInfo(this.wxuser.openid).subscribe((user: any) => {
+      if (user.err) {
+        return alert(user.err)
+      }
+      this.wxuser = user;
+    });
   }
 
 }

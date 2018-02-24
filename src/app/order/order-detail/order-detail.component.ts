@@ -12,10 +12,11 @@ import { Tool } from 'app/core/service/tool';
     styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
-    @Output() orderDetail: Order;
+    @Output() orderDetail: Order = {};
     @Output() trackingHistory: TrackingHistory;
     orderNumber: string;
     noData: boolean;
+    show = false;
 
     constructor(
         private _route: ActivatedRoute,
@@ -32,6 +33,7 @@ export class OrderDetailComponent implements OnInit {
         console.log('this.orderNumber', this.orderNumber);
         this._order.getOrderDetail(this.orderNumber).subscribe((order: any) => {
             console.log('order', order);
+            this.show = true;
             if (!order.err) {
                 this.orderDetail = order;
                 // this.orderDetail.totalFee = this.orderDetail.toNumber +

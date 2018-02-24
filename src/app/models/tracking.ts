@@ -10,4 +10,5 @@ export class Tracking {
     public show?: boolean;
     public status?: string;
     public warehouseName?: string;
+    public receivePersonName?: string;
 }

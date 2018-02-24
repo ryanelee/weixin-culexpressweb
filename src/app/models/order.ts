@@ -5,7 +5,7 @@ import { ShipToAddresses } from './shipToAddresses';
 
 export class Order {
     public 'orderNumber'?: String;
-    public 'orderStatus'?: String;
+    public 'orderStatus'?: string;
     public 'printStatus'?: String;
     public 'orderDate'?: Date;
     public 'payDate'?: Date;
