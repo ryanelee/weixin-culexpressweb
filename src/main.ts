@@ -39,7 +39,13 @@ if (environment.production) {
     window.localStorage.setItem('wxObj', wxObj);
   }
 
-
+  setTimeout(() => {
+    const vBtn = document.querySelector('#__vconsole .vc-switch') as HTMLElement;
+    if (vBtn) {
+      vBtn.innerHTML = 'Console';
+      vBtn.style.marginBottom = 'env(safe-area-inset-bottom)';
+    }
+  }, 2000);
 
 
 }

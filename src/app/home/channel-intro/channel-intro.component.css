@@ -2,3 +2,7 @@
 .panel-title { font-size: 14px; }
 .panel-detail { font-size: 10px; }
 :host >>> p { font-size: 10px }
+
+img {
+	width: 100%;
+  }

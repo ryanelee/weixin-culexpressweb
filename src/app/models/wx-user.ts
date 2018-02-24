@@ -7,6 +7,7 @@ export class WxUser {
     public language?: string;
     public openid?: string;
     public sex?: number;
+    public gender?: string;
     public email?: boolean;
     public createdTime?: Date;
     public country?: string;

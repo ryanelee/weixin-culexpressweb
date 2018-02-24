@@ -2,7 +2,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatStepperModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatCheckboxModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatCheckboxModule,
+         MatSnackBarModule } from '@angular/material';
 
 
 import { OrderRoutingModule } from './order-routing.module';
@@ -25,7 +26,8 @@ import { LayoutModule } from 'app/layout/layout.module';
     MatStepperModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   declarations: [
     OrderListComponent,

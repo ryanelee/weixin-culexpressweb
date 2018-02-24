@@ -3,13 +3,29 @@
     <!-- <div mat-card-avatar class="example-header-image" style="background-image: url('{{user.headimgurl}}');"> -->
     <!-- <img src="{{user.headimgurl}}" /> -->
     <!-- </div> -->
-    <img mat-card-avatar src="{{wxuser.headimgurl}}" />
-    <mat-card-title>{{wxuser.nickname}}</mat-card-title>
-    <mat-card-subtitle>{{wxuser.province}}</mat-card-subtitle>
+    <img mat-card-avatar src="{{user.headimgurl}}" />
+    <mat-card-title>{{user.userName}}</mat-card-title>
+    <mat-card-subtitle>注册邮箱:{{user.emailAddress}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p> 
-      你当前的积分: {{wxuser.point || 0}} 分
+    <p>
+       <span>客户编号:{{user.customerNumber}}</span>
+       <span>收件标示:{{user.receiveIdentity}}</span>
+    </p>
+    <p>
+        <span>
+            <i class="material-icons md-18">shopping_cart</i>
+            包裹总数: {{user.totalPackageCount}}
+            未入库: {{user.unreceivedPackageCount}}
+            已入库: {{user.receivedPackageCount}}
+        </span>
+    </p>
+    <p>
+        <span>
+            <i class="material-icons md-18">account_balance_wallet</i>
+            账户余额: {{user.accountBalance | currency: 'CNY': true: '1.2-2'}}
+            积分: {{user.myPoint}}
+        </span>
     </p>
   </mat-card-content>
   <!-- <img mat-card-image src="{{user.headimgurl}}" alt="Photo of a Shiba Inu"> -->

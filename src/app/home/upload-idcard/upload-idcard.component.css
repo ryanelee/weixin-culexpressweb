@@ -1,0 +1,68 @@
+.container {
+    margin:10px 10px 10px 10px;
+}
+
+.disclaimer p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffb528;
+}
+.disclaimer span {
+    font-size: 12px;
+}
+
+.option {
+    margin-top: 10px;
+    font-size: 12px;
+    width: 100%;
+}
+.option mat-radio-button {
+    margin: 5px;
+}
+.cul-option {
+    margin-top: 10px;
+}
+.taobao-option {
+    margin-top: 10px;
+}
+.option mat-form-field {
+    width: 100%;
+}
+.upload-content {
+    font-size: 12px;
+}
+.upload-content mat-form-field {
+    width: 100%;
+    font-size: 12px;
+}
+.upload-content mat-radio-button {
+    font-size: 12px;
+    margin: 5px;
+}
+.ID-card {
+    display: flex;
+}
+.ID-input {
+    width: 90% !important;
+}
+.ID-warning {
+    justify-content: flex-end;
+}
+
+/* .button-row {
+    display: flex;
+    align-items: left;
+    justify-content: space-around;
+} */
+
+.upload-id .btn-primary {
+    color: #fff;
+    background-color: #ffb528;
+    border-color: #ffb528;
+}
+
+.material-icons.md-18 {
+	font-size: 18px !important;
+	height: 18px !important;
+	width: 18px !important;
+}

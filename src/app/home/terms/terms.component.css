@@ -1,0 +1,87 @@
+.material-icons.md-18 {
+	font-size: 18px !important;
+	height: 18px !important;
+	width: 18px !important;
+	}
+
+.terms-container {
+	padding-top: 10px;
+	background: url('/assets/images/job/terms_bg.png') no-repeat right top;
+	background-size: 100%;
+}
+
+.terms-container .content {
+	margin: 20px 20px 10px 10px;
+}
+
+.terms-container .breadcrumbs h4{
+    position: relative;
+	margin-bottom: -6px;
+	border-bottom: solid 1px #ffb830;
+}
+
+.terms-container .breadcrumbs h5{
+    position: relative;
+	margin-bottom: -6px;
+	border-bottom: solid 1px #ffb830;
+}
+
+.terms-container .privacy {
+	font-size: 14px;
+}
+
+.terms-container .privacy .title {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.terms-container ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.terms-container ul li {
+	list-style: none;
+}
+
+.terms-container .fa-info-circle {
+	color: #607eae;
+	margin-right: 5px;
+}
+
+.terms-container .fa-map-marker {
+	color:#ffb830;
+	margin-right: 5px;
+}
+
+.terms-container h4 {
+	font-weight: bold;
+}
+
+.terms-container .lite {
+	background-color: #e9ecf2;
+	/* padding: 10px 20px; */
+	width: 100%;
+}
+
+.terms-container .lite img {
+	vertical-align: top;
+	margin-top:20px;
+}
+
+.terms-container .lite .lite-info {
+	display: inline-block;
+	width: calc(100% - 90px);
+}
+
+.terms-container .lite .lite-info .title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.terms-container .lite .lite-info span {
+	display: inline-block;
+	/* width: 200px; */
+}

@@ -1,0 +1,112 @@
+
+.index-banner {
+	display: inline-block;
+	width: 100%;
+	height: auto;
+}
+
+.howuse .row {
+	margin-bottom: 80px;
+	color: #3c3c3c;
+	margin: 0;
+}
+
+.howuse .left-col {
+	display: inline-block;
+	width: 50%;
+	position: relative;
+	font-size: 16px;
+	padding-right: 5%;
+	text-align: right;
+}
+
+.howuse .left-col .imac {
+	display: inline-block;
+	width: 80%;
+	height: auto;
+	margin-top: -70%;
+}
+
+.btn-register {
+	display: inline-block;
+	background-color: #ff9919;
+	color: #fff;
+	padding: 5px 20px;
+	border-radius: 15px;
+	border: 0;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+.step {margin-left: 20px;margin-right: 20px; position: relative; min-height: 32px /* circle-size */ ; }
+.step > div:first-child { position: static; height: 0; }
+.step > div:last-child { margin-left: 32px ; padding-left: 16px; }
+.circle { background: #ff9f00; width: 32px; height: 32px; line-height: 32px; border-radius: 16px; position: relative; color: white; text-align: center; }
+.line { position: absolute; border-left: 1px solid gainsboro; left: 16px; bottom: 10px; top: 42px; }
+.step:last-child .line { display: none; }
+.title { line-height: 32px; font-weight: bold; }
+.body { 
+	font-size: 12px; margin-right:10px;
+}
+
+.howuse .remark {
+	font-size: 12px;
+	color: #303030;
+	margin-top: 20px;
+}
+
+.howuse .font-item {
+	margin-top: 20px;
+	padding: 0;
+	text-align: left;
+}
+
+.howuse .font-item li {
+	list-style: none;
+	box-sizing: border-box;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+.howuse .font-item li::before {
+	content: '';
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+.howuse .font-item .step-user::before {
+	background: url('/assets/images/howtouse/icon-user.png') no-repeat center center;
+	background-size: cover;
+}
+
+.howuse .font-item .step-pwd::before {
+	background: url('/assets/images/howtouse/icon-pwd.png') no-repeat center center;
+	background-size: cover;
+}
+
+.howuse .font-item .step-email::before {
+	background: url('/assets/images/howtouse/icon-email.png') no-repeat center center;
+	background-size: contain;
+}
+
+.howuse .font-item .step-tuser::before {
+	background: url('/assets/images/howtouse/icon-tuser.png') no-repeat center center;
+	background-size: cover;
+}
+
+.howuse .font-item .step-dui::before {
+	background: url('/assets/images/howtouse/icon-4-gou.png') no-repeat center center;
+	background-size: cover;
+}
+
+.howuse .site-info {
+	color: #5d7dae;
+}
