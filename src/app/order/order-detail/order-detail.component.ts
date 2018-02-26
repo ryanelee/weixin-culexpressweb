@@ -31,11 +31,8 @@ export class OrderDetailComponent implements OnInit {
 
     ngOnInit() {
         this._order.getOrderDetail(this.orderNumber).subscribe((order: any) => {
-<<<<<<< HEAD
             console.log('order', order);
             this.show = true;
-=======
->>>>>>> ca227a06c3e605069e7c3a40aaae58c7a44bad57
             if (!order.err) {
                 this.orderDetail = order;
                 this.orderDetail.orderStatus = Tool.orderStatus(order.orderStatus);
