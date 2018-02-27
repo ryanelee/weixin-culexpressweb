@@ -1,20 +1,22 @@
 <div class="ol-page">
-  <div>
+  <div id="wrapper">
     <mat-nav-list>
-      <mat-list-item *ngFor='let order of orderList' class="ol-cell">
-        <a [routerLink]="['order-detail', order.orderNumber]">
-          <div class="display-flex">
-            <span style="flex:1" class="text-small">{{order.orderNumber}}</span>
-            <span [class]="orderStatusClass(order.orderStatus)">{{orderStatus(order.orderStatus)}}</span>
-          </div>
-          <md-divider></md-divider>
-          <div class="display-flex">
-            <span style="flex:1;overflow: hidden;height: 20px;"> {{order.declareGoodsName}}</span>
-            <span class="text-small">包裹 x{{order.outboundPackages.length}}</span>
-          </div>
-        </a>
-        <!-- <i class="material-icons">navigate_next</i> -->
-      </mat-list-item>
+      <ul>
+        <mat-list-item *ngFor='let order of orderList' class="ol-cell">
+          <a [routerLink]="['order-detail', order.orderNumber]">
+            <div class="display-flex">
+              <span style="flex:1" class="text-small">{{order.orderNumber}}</span>
+              <span [class]="orderStatusClass(order.orderStatus)">{{orderStatus(order.orderStatus)}}</span>
+            </div>
+            <md-divider></md-divider>
+            <div class="display-flex">
+              <span style="flex:1;overflow: hidden;height: 20px;"> {{order.declareGoodsName}}</span>
+              <span class="text-small">包裹 x{{order.outboundPackages.length}}</span>
+            </div>
+          </a>
+          <!-- <i class="material-icons">navigate_next</i> -->
+        </mat-list-item>
+      </ul>
     </mat-nav-list>
   </div>
   <!-- <button class="weui-btn weui-btn_primary" type="text" [routerLink]="['order-detail']" id="showTooltips">订单详情</button> -->
