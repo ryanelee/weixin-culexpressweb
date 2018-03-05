@@ -1,1 +1,0 @@
-{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"production":false,"api":"http://localhost:8000/api","wechatApi":"http://localhost:8080"}}],"symbols":[{"__symbol":0,"name":"environment","filePath":"/workstation/weixin-cul/weixin-culweb/src/environments/environment.d.ts"}]}
