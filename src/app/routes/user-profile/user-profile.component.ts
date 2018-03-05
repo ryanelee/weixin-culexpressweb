@@ -1,6 +1,7 @@
 import { WxUser } from 'app/models/wx-user';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'app/core/service/storage.service';
+import { UserService } from 'app/core/service/user.service';
 
 @Component({
   selector: 'app-user-profile',

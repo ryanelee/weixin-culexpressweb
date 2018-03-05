@@ -119,4 +119,31 @@ export class CommonwxService {
     return observable;
   }
 
+  authGet(url) {
+    this.show();
+    const observable = new Observable(observer => {
+      return this.http.get(environment.wechatApi + url).subscribe({
+        next: result => {
+          this.hidden();
+          // this.SpinnerShow.next(false);
+          const _data = result.json();
+          if (_data.code === '000') {
+            observer.next(_data.data);
+          }
+          if (_data.code === '999') {
+            observer.next({ err: _data.msg });
+          }
+        },
+        error: message => {
+          this.hidden();
+          console.log('message.json()', message)
+          // observer.next({
+          //   err: message.json().message,
+          // });
+        }
+      })
+    });
+    return observable;
+  }
+
 }
