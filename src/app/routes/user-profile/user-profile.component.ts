@@ -25,7 +25,7 @@ export class UserProfileComponent implements OnInit {
     }
     if (this._storage.get('wxuser')) {
       this.wxuser = this._storage.get('wxuser');
-      this._user.getUserInfo(this.wxuser.openid).subscribe((user: any) => {
+      this._user.getwxUserInfo(this.wxuser.openid).subscribe((user: any) => {
         this.wxuser.point = user.point;
         this.user.point = this.wxuser.point
         this.user.headimgurl = this.wxuser.headimgurl
