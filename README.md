@@ -61,4 +61,4 @@ ncu -u
  npm install
 ```
 
-scp -r  dist root@123.206.217.94:~/
+scp -r  dist root@120.78.129.187:~/

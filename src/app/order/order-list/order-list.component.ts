@@ -3,6 +3,9 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { OrderService } from 'app/core/service/order.service';
 import { OrderList } from 'app/models/orderList';
 import { Tool } from 'app/core/service/tool';
+// import MiniRefreshTools from 'minirefresh';
+// import 'minirefresh/dist/debug/minirefresh.css'
+// import { IScroll } from '../../../assets/js/iscroll-infinite';
 declare var IScroll: any;
 
 @Component({
@@ -31,7 +34,20 @@ export class OrderListComponent implements OnInit {
     }
     this.getOrderList(this.param);
     document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-    this.loaded();
+    // this.loaded();
+    // const miniRefresh = new MiniRefreshTools({
+    //   container: '#minirefresh',
+    //   down: {
+    //     callback: function () {
+    //       // 下拉事件
+    //     }
+    //   },
+    //   up: {
+    //     callback: function () {
+    //       // 上拉事件
+    //     }
+    //   }
+    // });
   }
 
   loaded() {

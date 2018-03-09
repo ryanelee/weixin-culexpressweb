@@ -5,7 +5,6 @@
 
 export const environment = {
   production: false,
-  // api: 'http://localhost:8000/api',
-  api: 'http://api.culexpress.com/api',
+  api: 'http://localhost:8000/api',
   wechatApi: 'http://localhost:8080'
 };
