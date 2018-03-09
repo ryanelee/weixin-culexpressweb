@@ -2,6 +2,7 @@ import { CommonService } from './common.service';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import * as CryptoJS from 'crypto-js';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class CommonApiService {
@@ -33,6 +34,17 @@ export class CommonApiService {
     return this._common.post('/getShipService', param);
   }
 
+  uploadIDCard(param) {
+    return this._common.post('/customermessage/uploadIdCard', param)
+  }
+
+  uploadTaobaoIDCard(param) {
+    return this._common.post('/addReceiveAddressTw', param);
+  }
+
+  verifyCULPackageNumber(param) {
+    return this._common.post('/customermessage/checkTrackingNumber', param);
+  }
 }
 
 

@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule, MatExpansionPanel, MatExpansionModule, MatTab, MatTabsModule } from '@angular/material';
 import { MatGridListModule, MatGridList, MatRadioModule, MatFormFieldModule,
-  MatInputModule, MatTooltipModule, MatDatepickerModule, MatNativeDateModule, MatButtonModule } from '@angular/material';
+  MatInputModule, MatTooltipModule, MatDatepickerModule, MatNativeDateModule,
+  MatButtonModule, MatIconModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
 
 import { HomeComponent } from 'app/home/home.component';
 import { ChannelIntroComponent } from 'app/home/channel-intro/channel-intro.component';
@@ -19,6 +20,7 @@ import { AppendixLimitComponent } from './terms/appendix-limit/appendix-limit.co
 import { AppendixOrmdComponent } from './terms/appendix-ormd/appendix-ormd.component';
 import { InsuranceIntroComponent } from './terms/insurance-intro/insurance-intro.component';
 import { UploadIdcardComponent } from './upload-idcard/upload-idcard.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -36,7 +38,11 @@ import { UploadIdcardComponent } from './upload-idcard/upload-idcard.component';
     MatTooltipModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    FileUploadModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     HomeComponent,

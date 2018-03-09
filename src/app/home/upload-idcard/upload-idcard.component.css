@@ -42,13 +42,29 @@
 .ID-card {
     display: flex;
 }
-.ID-input {
-    width: 90% !important;
+.IDCard mat-hint {
+    font-size: 8px;
+    color: #ffb528;
 }
 .ID-warning {
     justify-content: flex-end;
 }
 
+.IDCard-image mat-card {
+    max-width: 400px;
+}
+.IDCard-image img {
+    width: 50%;
+}
+
+.IDCard-image {
+    font-size: 14px;
+}
+
+.IDCard-image p {
+    font-size: 10px;
+    color: red;
+}
 /* .button-row {
     display: flex;
     align-items: left;
@@ -66,3 +82,16 @@
 	height: 18px !important;
 	width: 18px !important;
 }
+
+.loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

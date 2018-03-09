@@ -14,7 +14,16 @@ declare var $: any;
 export class CommonwxService {
 
   public SpinnerShow: BehaviorSubject<Boolean> = new BehaviorSubject(false);
-  constructor(private http: Http, private _authHttp: AuthHttp) { }
+  constructor(private http: Http, private _authHttp: AuthHttp) {
+    // wx.config({
+    //     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    //     appId: 'wxbea82c7ca7971d97', // 必填，公众号的唯一标识
+    //     timestamp: +new Date, // 必填，生成签名的时间戳
+    //     nonceStr: 'Wm3WZYTPz0wzccnW', // 必填，生成签名的随机串
+    //     signature: '0f9de62fce790f9a083d5c99e95740ceb90c27ed', // 必填，签名
+    //     jsApiList: ['chooseImage', 'previewImage'] // 必填，需要使用的JS接口列表
+    // });
+  }
 
   createReqObject(data) {
     const obj: any = {};

@@ -1,76 +1,160 @@
 <div class="container">
+  <div class="loading-shade" *ngIf="isSubmittingData === true">
+    <mat-spinner></mat-spinner>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
   <div class="disclaimer">
     <p>海关清关入境包裹，提交身份证信息说明</p>
     <span>- 根据最新《中华人民共和国海关对进出境快件监管办法》规定，入境到中国大陆的个人包裹经海关查验需向海关提供收件人身份证影印件等相关信息。</span><br>
     <span>- 中美速递承诺所有信息均进行加密存储，直接提交给海关清关时进行查验，绝不用做其它途径。</span>
   </div>
   <div class="option">
-    <mat-radio-group [(ngModel)]="customerType">
-      <mat-radio-button value="cul">Cul客户</mat-radio-button>
+    <mat-radio-group [(ngModel)]="customerType" formControlName="customerType" (change)="onCustomerTypeChange()">
+      <mat-radio-button  value="cul">Cul客户</mat-radio-button>
       <mat-radio-button value="taobao">淘宝微信客户</mat-radio-button>
     </mat-radio-group>
     <div class="cul-option" *ngIf="customerType === 'cul'">
       <mat-form-field>
-        <input matInput placeholder="Cul包裹编号" required>
-        <!-- <mat-error *ngIf="culPackageFormControl.hasError('invalid')">
-          请输入有效的Cul包裹编号
-        </mat-error> -->
+        <input matInput placeholder="Cul包裹编号" [(ngModel)]="data.trackingNumber" 
+          formControlName="trackingNumber" (blur)="verifyTrackingNumber(data.trackingNumber)" required>
+        <div *ngIf="trackingNumber.invalid && (trackingNumber.dirty || trackingNumber.touched)">
+          <mat-error *ngIf="trackingNumber.errors.required">
+            请输入Cul包裹编号
+          </mat-error>
+          <mat-error *ngIf="!trackingNumber.errors.required && trackingNumber.errors.format">
+            无效格式,请输入有效的Cul包裹编号,比如:CUL123456789
+          </mat-error>
+          <mat-error *ngIf="!trackingNumber.errors.required && !trackingNumber.errors.format && trackingNumber.errors.invalid">
+            CUL包裹编号不存在
+          </mat-error>
+        </div>
       </mat-form-field>
     </div>
     <div class="taobao-option" *ngIf="customerType === 'taobao'">
       <mat-form-field>
-        <input matInput placeholder="淘宝订单号">
+        <input matInput placeholder="淘宝订单号" [(ngModel)]="data.twOrder" formControlName="twOrder">
       </mat-form-field>
     </div>
   </div>
 
   <div class="upload-content">
     <mat-form-field>
-      <input matInput placeholder="收货人" required>
-      <!-- <mat-error *ngIf="idCardFormControl.hasError('invalid')">
-        请输入有效的Cul包裹编号
-      </mat-error> -->
+      <input matInput placeholder="收货人" formControlName="receivePersonName" [(ngModel)]="data.receivePersonName" required>
+      <div *ngIf="receivePersonName.invalid && (receivePersonName.dirty || receivePersonName.touched)">
+        <mat-error *ngIf="receivePersonName.errors.required">
+          请输入收货人全名
+        </mat-error>
+      </div>
     </mat-form-field>
     <div class="IDCard">
-      <mat-form-field class="ID-input">
-        <input matInput placeholder="身份证号码" required minlength="8" maxlength="15">
+      <mat-form-field>
+        <input matInput #IDNumber placeholder="身份证号码[与收货人姓名对应]" formControlName="IDCard" [(ngModel)]="data.idCard" required minlength="15" maxlength="18">
+        <div *ngIf="IDCard.invalid && (IDCard.dirty || IDCard.touched)">
+          <mat-error *ngIf="IDCard.errors.required">
+            请输入身份证号码
+          </mat-error>
+          <mat-error *ngIf="!IDCard.errors.required && (IDCard.errors.minlength || IDCard.errors.maxlength)">
+            身份证号码必须为15或18位数字
+          </mat-error>
+        </div>
+        <!-- <mat-hint align="start">身份证号码为15或18位数字.请确保身份证持有人与收货人姓名对应!</mat-hint> -->
       </mat-form-field>
-      <span class="ID-warning">
-        <i class="material-icons" md-18 matTooltip="请填写真实的身份证号码，身份证号码是15或18位数字。在需要身份证清关的渠道使用，请确保身份证号码持有人与收货人姓名对应。" matTooltipPosition="after">warning</i>
-      </span>
+    </div>
+    <br>
+    <div class="IDCard-image" *ngIf="showUploader || customerType==='taobao'">
+      <div>
+          <mat-card>
+              <mat-card-content>
+                  <p *ngIf="IDCardFrontImage.errors && IDCardFrontImage.errors.required">
+                      请选择身份证正面照片
+                  </p>
+                  <input #fileFront type="file" [hidden]="true" accept="image/*" (change)="changeListnerFront($event)" ng2FileSelect [uploader]="uploader">
+                  <img #imgFront class="imageFront" alt="身份证正面照">
+              </mat-card-content>
+              <mat-card-actions>                  
+                  <button type="button" mat-icon-button color="primary" #upload (click)="fileFront.click()">
+                      <mat-icon aria-label="选择身份证正面照片">add_a_photo</mat-icon>
+                    </button>
+                    <button type="button" [disabled]="showFrontDeleteButton === true?false:null" mat-icon-button color="primary" (click)="deleteFrontImage()">
+                        <mat-icon aria-label="删除">delete</mat-icon>
+                    </button>
+              </mat-card-actions>
+            </mat-card>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+          <mat-card>
+              <mat-card-content>
+                  <p *ngIf="IDCardBackImage.errors && IDCardBackImage.errors.required">
+                      请选择身份证反面照片
+                  </p>
+                  <input #fileBack type="file" [hidden]="true" accept="image/*" (change)="changeListnerBack($event)" ng2FileSelect [uploader]="uploader">
+                  <img #imgBack class="imageBack" alt="身份证反面照">
+              </mat-card-content>
+              <mat-card-actions>                  
+                  <button type="button" mat-icon-button color="primary" #upload (click)="fileBack.click()">
+                      <mat-icon aria-label="选择身份证反面照片">add_a_photo</mat-icon>
+                  </button>
+                  <button type="button" [disabled]="showBackDeleteButton === true?false:null" mat-icon-button color="primary" (click)="deleteBackImage()">
+                      <mat-icon aria-label="删除">delete</mat-icon>
+                  </button>
+              </mat-card-actions>
+            </mat-card>
+      </div>
     </div>
 
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="身份证有效截止日期">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
     是否永久:
-    <mat-radio-group>
-      <mat-radio-button value="yes">是</mat-radio-button>
-      <mat-radio-button value="no">否</mat-radio-button>
+    <mat-radio-group formControlName="IDForever" [(ngModel)]="data.idForever" (change)="onIDForeverChange()">
+      <mat-radio-button value="true">是</mat-radio-button>
+      <mat-radio-button value="false">否</mat-radio-button>
     </mat-radio-group>
 
     <mat-form-field>
-      <input matInput placeholder="手机号码" required>
+      <input matInput [matDatepicker]="picker" placeholder="身份证有效截止日期"
+        formControlName="IDCardExpiredDate" [(ngModel)]="data.deadline" required>
+      <div *ngIf="IDCardExpiredDate.invalid && (IDCardExpiredDate.dirty || IDCardExpiredDate.touched)">
+        <mat-error *ngIf="data.idForever==='no' && IDCardExpiredDate.errors.required">
+          请指定身份证有效截止日期或者选择永久不过期
+        </mat-error>
+      </div>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker [disabled]="data.idForever==='true'?true:null"></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="备用号码">
+      <input matInput placeholder="手机号码" formControlName="cellphoneNumber" [(ngModel)]="data.celphoneNumber" required>
+      <div *ngIf="cellphoneNumber.invalid && (cellphoneNumber.dirty || cellphoneNumber.touched)">
+        <mat-error *ngIf="cellphoneNumber.errors.required">
+          请输入手机号码
+        </mat-error>
+      </div>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="电子邮箱" email required>
+      <input matInput placeholder="备用号码" formControlName="telephoneNumber" [(ngModel)]="data.telephoneNumber">
     </mat-form-field>
 
     <mat-form-field>
-      <textarea matInput placeholder="备注信息" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+      <input matInput placeholder="电子邮箱" formControlName="emailAddress" [(ngModel)]="data.emailAddress" email required>
+      <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)">
+        <mat-error *ngIf="emailAddress.errors.required">
+          请输入电子邮箱地址
+        </mat-error>
+        <mat-error *ngIf="!emailAddress.errors.required && emailAddress.errors.email">
+          请输入有效的电子邮箱地址格式,比如:123@sohu.com
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="备注信息" formControlName="note" [(ngModel)]="data.note" matTextareaAutosize 
+        matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
     </mat-form-field>
 
     <div class="button-row">
-      <button mat-raised-button color="primary">提交</button>
+      <button mat-raised-button type="submit" color="primary" [disabled]="form.pristine">提交</button>
       <button mat-raised-button>返回</button>
     </div>
   </div>
+</form>
 </div>

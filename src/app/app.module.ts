@@ -13,10 +13,14 @@ import { OrderModule } from 'app/order/order.module';
 import { LayoutModule } from 'app/layout/layout.module';
 import { HomeModule } from 'app/home/home.module';
 import { MatCardModule } from '@angular/material';
+import { CulTrackingnumberValidatorDirective } from './shared/cul-trackingnumber-validator.directive';
+import { ValidateOnBlurDirective } from './shared/validate-on-blur.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CulTrackingnumberValidatorDirective,
+    ValidateOnBlurDirective
     ],
   imports: [
     BrowserModule,
