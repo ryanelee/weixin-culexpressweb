@@ -10,11 +10,19 @@ import { UserService } from 'app/core/service/user.service';
 })
 export class UserProfileComponent implements OnInit {
   user: any;
+  wxuser: any;
   constructor(private _storage: StorageService) { }
 
   ngOnInit() {
     this.user = this._storage.get('wxuser') || this._storage.get('user');
-
+    if (this._storage.get('user')) {
+      this.user = this._storage.get('user');
+      if (this._storage.get('wxuser')) {
+        this.wxuser = this._storage.get('wxuser');
+        this.user.point = this.wxuser.point
+        this.user.headimgurl = this.wxuser.headimgurl
+      }
+    }
     if (!this.user.headimgurl) {
       if (this.user.photoUrl && this.user.photoUrl.length > 0) {
         this.user.headimgurl = this.user.photoUrl;
