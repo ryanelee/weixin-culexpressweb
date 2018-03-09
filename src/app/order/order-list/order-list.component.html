@@ -1,7 +1,7 @@
-<div class="ol-page" style="overflow:scroll;">
+<div class="ol-page">
   <div id="wrapper">
     <mat-nav-list>
-      <ul>
+      <!-- <ul> -->
         <mat-list-item *ngFor='let order of orderList' class="ol-cell">
           <a [routerLink]="['order-detail', order.orderNumber]">
             <div class="display-flex">
@@ -15,7 +15,7 @@
             </div>
           </a>
         </mat-list-item>
-      </ul>
+      <!-- </ul> -->
     </mat-nav-list>
   </div>
   </div>
