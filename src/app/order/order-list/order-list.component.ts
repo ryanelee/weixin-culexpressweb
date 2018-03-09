@@ -33,7 +33,7 @@ export class OrderListComponent implements OnInit {
       searchKeyName: 'orderNumber'
     }
     this.getOrderList(this.param);
-    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    // document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     // this.loaded();
     // const miniRefresh = new MiniRefreshTools({
     //   container: '#minirefresh',
