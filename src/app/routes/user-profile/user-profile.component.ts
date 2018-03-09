@@ -11,26 +11,25 @@ import { UserService } from 'app/core/service/user.service';
 export class UserProfileComponent implements OnInit {
   user: any;
   wxuser: any;
-  constructor(private _storage: StorageService) { }
+  constructor(private _storage: StorageService, private _user: UserService) { }
 
   ngOnInit() {
-    this.user = this._storage.get('wxuser') || this._storage.get('user');
-    if (this._storage.get('user')) {
-      this.user = this._storage.get('user');
-      if (this._storage.get('wxuser')) {
-        this.wxuser = this._storage.get('wxuser');
+
+    this.user = this._storage.get('user');
+    if (this.user.photoUrl && this.user.photoUrl.length > 0) {
+      this.user.headimgurl = this.user.photoUrl;
+    } else if (this.user.sex === 1 || this.user.gender === 'F') {
+      this.user.headimgurl = 'assets/images/customer/profile/no-photo-female.jpg';
+    } else {
+      this.user.headimgurl = 'assets/images/customer/profile/no-photo-male.jpg';
+    }
+    if (this._storage.get('wxuser')) {
+      this.wxuser = this._storage.get('wxuser');
+      this._user.getUserInfo(this.wxuser.openid).subscribe((user: any) => {
+        this.wxuser.point = user.point;
         this.user.point = this.wxuser.point
         this.user.headimgurl = this.wxuser.headimgurl
-      }
-    }
-    if (!this.user.headimgurl) {
-      if (this.user.photoUrl && this.user.photoUrl.length > 0) {
-        this.user.headimgurl = this.user.photoUrl;
-      } else if (this.user.sex === 1 || this.user.gender === 'F') {
-        this.user.headimgurl = 'assets/images/customer/profile/no-photo-female.jpg';
-      } else {
-        this.user.headimgurl = 'assets/images/customer/profile/no-photo-male.jpg';
-      }
+      })
     }
   }
 
