@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/schematics": "0.0.40",
     "@angular/animations": "^5.2.7",
     "@angular/cdk": "^5.2.3",
     "@angular/common": "^5.2.7",
@@ -24,7 +25,6 @@
     "@angular/platform-browser": "^5.2.7",
     "@angular/platform-browser-dynamic": "^5.2.7",
     "@angular/router": "^5.2.7",
-    "@angular-devkit/schematics": "0.0.40",
     "angular2-jwt": "^0.2.3",
     "core-js": "^2.5.3",
     "crypto-js": "^3.1.9-1",

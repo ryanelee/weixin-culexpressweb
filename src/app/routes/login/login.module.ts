@@ -1,4 +1,3 @@
-import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +31,6 @@ import { LayoutModule } from 'app/layout/layout.module';
     MatStepperModule,
     MatListModule
   ],
-  declarations: [LoginComponent, UserProfileComponent]
+  declarations: [LoginComponent]
 })
 export class LoginModule { }
