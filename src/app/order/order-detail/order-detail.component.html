@@ -48,7 +48,7 @@
             <label>清关费用</label>
             <span>{{orderDetail.tariffMoney | currency: 'CNY': true: '1.2-2'}}</span>
         </p>
-        <md-divider></md-divider>
+        <mat-divider></mat-divider>
         <p>
             <label>总计</label>
             <span>{{((orderDetail.shippingFee + orderDetail.tariffMoney + orderDetail.tip + orderDetail.valueAddFee + orderDetail.insuranceFee) - orderDetail.usedPoint) | currency: 'CNY': true: '1.2-2'}}</span>

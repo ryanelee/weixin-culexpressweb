@@ -1,6 +1,5 @@
 import { CommonService } from './common.service';
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 import * as CryptoJS from 'crypto-js';
 
 @Injectable()
