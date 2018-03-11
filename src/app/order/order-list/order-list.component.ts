@@ -39,7 +39,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
             if (scrollHeight - scrollTop <= clientHeight * 2) {
               this.initMiniRefresh()
             }
-          }, 3000);
+          }, 2000);
         }, 20);
       } else {
         this.noData = true;
@@ -80,72 +80,18 @@ export class OrderListComponent implements OnInit, AfterViewInit {
             that.loadedCount += 15;
             that.pageIndex++;
             that.getOrderList(that.pageIndex);
-            console.log('this.loadedCount:', that.loadedCount)
-            console.log('this.totalCount:', that.totalCount)
-            console.log('this.pageIndex:', that.pageIndex)
           } else {
-            console.log('pull up end!!!!!!!')
              that.miniRefresh.endUpLoading(true);
           }
         }
       })
     }))
-
-    // that.miniRefresh = new MiniRefreshTools.theme.defaults({
-    //   container: '#minirefresh',
-    //   down: {
-    //     callback: function () {
-    //       console.log('down!!')
-    //       // 下拉事件
-
-    //       // that.miniRefresh.endDownLoading();
-    //     }
-    //   },
-    //   up: {
-    //     callback: function () {
-    //       console.log('up!!')
-    //       // 上拉事件
-
-    //       // 注意，由于默认情况是开启满屏自动加载的，所以请求失败时，请务必endUpLoading(true)，防止无限请求
-    //       // that.miniRefresh.endUpLoading(true);
-    //     }
-    //   }
-    // });
   }
-
-  triggerDownLoading(isShowLoading) {
-    this.miniRefresh.triggerDownLoading(isShowLoading)
-  }
-
-  triggerUpLoading(isShowLoading) {
-    this.miniRefresh.triggerUpLoading(isShowLoading)
-  }
-
-  endDownLoading(isSuccess, successTips) {
-    this.miniRefresh.endDownLoading(isSuccess, successTips)
-  }
-
-  endUpLoading(isFinishUp) {
-    this.miniRefresh.endUpLoading(isFinishUp)
-  }
-
-  resetUpLoading() {
-    this.miniRefresh.resetUpLoading()
-  }
-
-  scrollTo(y, duration) {
-    this.miniRefresh.scrollTo(y, duration)
-  }
-
-  refreshOptions(options) {
-    this.miniRefresh.refreshOptions(options)
-  }
-
 
   getOrderList(pageIndex) {
     this.param = {
       pageInfo: {
-        pageSize: 15,
+        pageSize: 10,
         pageIndex: pageIndex
       },
       orderStatus: '',
@@ -157,7 +103,6 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         data.data.forEach((e) => {
           this.orderList.push(e);
         });
-        console.log(this.orderList)
       } else {
         this.noData = true;
       }
