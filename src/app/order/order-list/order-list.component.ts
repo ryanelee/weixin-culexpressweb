@@ -34,7 +34,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         this.orderList = data;
         setTimeout(() => {
           this._scrollPane = this._element.nativeElement;
-          setInterval(() => {
+          const interval = setInterval(() => {
             const { scrollHeight, scrollTop, clientHeight } = this._scrollPane.children[0];
             if (scrollHeight - scrollTop <= clientHeight * 2) {
               this.initMiniRefresh()
@@ -137,5 +137,10 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   }
   orderStatusClass(status) {
     return Tool.orderStatusClass(status);
+  }
+
+  detail () {
+    console.log('detail')
+    clearInterval(interval);
   }
 }

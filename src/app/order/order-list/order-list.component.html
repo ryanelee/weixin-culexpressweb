@@ -2,7 +2,7 @@
   <div class="minirefresh-scroll">
     <mat-nav-list>
       <mat-list-item *ngFor='let order of orderList' class="ol-cell">
-        <a [routerLink]="['order-detail', order.orderNumber]">
+        <a [routerLink]="['order-detail', order.orderNumber]" (click)="detail()">
           <div class="display-flex">
             <span style="flex:1" class="text-small">{{order.orderNumber}}</span>
             <span [class]="orderStatusClass(order.orderStatus)">{{orderStatus(order.orderStatus)}}</span>
