@@ -35,8 +35,8 @@ export class OrderService {
     return this._common.get('/outboundpackage/track/' + trackingNumber);
   }
 
-  getOrderList(param) {
-    return this._common.authPost('/web/order/list', param);
+  getOrderList(param, noLoading?) {
+    return this._common.authPost('/web/order/list', param, noLoading);
   }
 
   getOrderDetail(param) {

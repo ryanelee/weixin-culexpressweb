@@ -14,6 +14,7 @@ declare var MiniRefreshTools: any;
 export class OrderListComponent implements OnInit, AfterViewInit {
 
   @Output() orderList: Array<OrderList>;
+  private _temList: Array<OrderList>;
   private noData: boolean;
   private param: {};
   private totalCount: number;
@@ -22,6 +23,8 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   private pageIndex: 1;
   private miniRefresh: any;
   private _scrollPane: HTMLElement;
+  private _interval: any;
+  private _loaded: boolean;
 
   constructor(
     private _order: OrderService,
@@ -31,16 +34,18 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.getFirstList().then((data: any) => {
       if (data && data[0]) {
-        this.orderList = data;
+        this._temList = data;
+        this._loaded = true;
+        this.initMiniRefresh()
         setTimeout(() => {
           this._scrollPane = this._element.nativeElement;
-          const interval = setInterval(() => {
+          this._interval = setInterval(() => {
             const { scrollHeight, scrollTop, clientHeight } = this._scrollPane.children[0];
-            if (scrollHeight - scrollTop <= clientHeight * 2) {
+            if (this._loaded && (scrollHeight - scrollTop <= clientHeight * 2)) {
               this.initMiniRefresh()
             }
           }, 2000);
-        }, 20);
+        }, 2000);
       } else {
         this.noData = true;
       }
@@ -65,21 +70,18 @@ export class OrderListComponent implements OnInit, AfterViewInit {
     that.miniRefresh = new MiniRefreshTools.theme.defaults(Object.assign(options, {
       down: Object.assign(options.down || {}, {
         callback: () => {
-          if (that.loadedCount < that.totalCount) {
-            that.loadedCount += that.pageSize;
-            that.getOrderList(that.pageIndex);
-            that.pageIndex++;
-          } else {
-            that.miniRefresh.endDownLoading(true);
-          }
         }
       }),
       up: Object.assign(options.up || {}, {
         callback: () => {
           if (that.loadedCount < that.totalCount) {
+            if (that.pageIndex !== 1) {
+              that.getOrderList(that.pageIndex);
+            } else {
+              this.orderList = this._temList
+            }
             that.loadedCount += 15;
             that.pageIndex++;
-            that.getOrderList(that.pageIndex);
           } else {
              that.miniRefresh.endUpLoading(true);
           }
@@ -91,13 +93,15 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   getOrderList(pageIndex) {
     this.param = {
       pageInfo: {
-        pageSize: 10,
+        pageSize: 15,
         pageIndex: pageIndex
       },
       orderStatus: '',
       searchKeyName: 'orderNumber'
     }
+    this._loaded = false
     this._order.getOrderList(this.param).subscribe((data: any) => {
+      this._loaded = true
       this.totalCount = data.pageInfo.totalCount;
       if (data.data && data.data[0]) {
         data.data.forEach((e) => {
@@ -112,7 +116,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   getFirstList () {
     this.param = {
       pageInfo: {
-        pageSize: 15,
+        pageSize: 20,
         pageIndex: 1
       },
       orderStatus: '',
@@ -141,6 +145,6 @@ export class OrderListComponent implements OnInit, AfterViewInit {
 
   detail () {
     console.log('detail')
-    clearInterval(interval);
+    clearInterval(this._interval);
   }
 }
