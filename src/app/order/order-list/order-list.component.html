@@ -4,7 +4,8 @@
       <mat-list-item *ngFor='let order of orderList' class="ol-cell">
         <a [routerLink]="['order-detail', order.orderNumber]" (click)="detail()">
           <div class="display-flex">
-            <span style="flex:1" class="text-small">{{order.orderNumber}}</span>
+            <span style="flex:1" class="text-small">{{order.orderNumber}} {{order.orderDate | date: "short"}}</span>
+            <!-- <span class="text-small">{{order.orderDate | date: "short"}}</span> -->
             <span [class]="orderStatusClass(order.orderStatus)">{{orderStatus(order.orderStatus)}}</span>
           </div>
           <!-- <mat-divider></mat-divider> -->

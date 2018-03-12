@@ -1,8 +1,10 @@
 
 import { Component, OnInit, Input, Output, AfterViewInit, ElementRef} from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { OrderService } from 'app/core/service/order.service';
 import { OrderList } from 'app/models/orderList';
 import { Tool } from 'app/core/service/tool';
+
 declare var IScroll: any;
 declare var MiniRefreshTools: any;
 
@@ -22,6 +24,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   private pageIndex: 1;
   private miniRefresh: any;
   private _scrollPane: HTMLElement;
+  private interval: any;
 
   constructor(
     private _order: OrderService,
@@ -77,7 +80,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
       up: Object.assign(options.up || {}, {
         callback: () => {
           if (that.loadedCount < that.totalCount) {
-            that.loadedCount += 15;
+            that.loadedCount += 10;
             that.pageIndex++;
             that.getOrderList(that.pageIndex);
           } else {
@@ -112,7 +115,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   getFirstList () {
     this.param = {
       pageInfo: {
-        pageSize: 15,
+        pageSize: 10,
         pageIndex: 1
       },
       orderStatus: '',
@@ -141,6 +144,6 @@ export class OrderListComponent implements OnInit, AfterViewInit {
 
   detail () {
     console.log('detail')
-    clearInterval(interval);
+    clearInterval(this.interval);
   }
 }
