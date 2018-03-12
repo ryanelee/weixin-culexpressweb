@@ -1,8 +1,10 @@
 
 import { Component, OnInit, Input, Output, AfterViewInit, ElementRef} from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { OrderService } from 'app/core/service/order.service';
 import { OrderList } from 'app/models/orderList';
 import { Tool } from 'app/core/service/tool';
+
 declare var IScroll: any;
 declare var MiniRefreshTools: any;
 
