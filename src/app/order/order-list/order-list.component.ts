@@ -4,6 +4,8 @@ import { DatePipe } from '@angular/common';
 import { OrderService } from 'app/core/service/order.service';
 import { OrderList } from 'app/models/orderList';
 import { Tool } from 'app/core/service/tool';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/observable';
 
 declare var IScroll: any;
 declare var MiniRefreshTools: any;
@@ -15,6 +17,7 @@ declare var MiniRefreshTools: any;
 })
 export class OrderListComponent implements OnInit, AfterViewInit {
 
+  private customerNunber: Observable<string>;
   @Output() orderList: Array<OrderList>;
   private _temList: Array<OrderList>;
   private noData: boolean;
@@ -30,8 +33,11 @@ export class OrderListComponent implements OnInit, AfterViewInit {
 
   constructor(
     private _order: OrderService,
-    private _element: ElementRef
-  ) { }
+    private _element: ElementRef,
+    private _route: ActivatedRoute
+  ) {
+    _route.params.subscribe( params => this.customerNunber = params['customerNumber']);
+  }
 
   ngOnInit() {
     this.getFirstList().then((data: any) => {
@@ -82,7 +88,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
             } else {
               this.orderList = this._temList
             }
-            that.loadedCount += 15;
+            that.loadedCount += 10;
             that.pageIndex++;
           } else {
              that.miniRefresh.endUpLoading(true);
@@ -95,9 +101,10 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   getOrderList(pageIndex) {
     this.param = {
       pageInfo: {
-        pageSize: 15,
+        pageSize: 10,
         pageIndex: pageIndex
       },
+      customerNumber: this.customerNunber,
       orderStatus: '',
       searchKeyName: 'orderNumber'
     }
@@ -118,9 +125,10 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   getFirstList () {
     this.param = {
       pageInfo: {
-        pageSize: 20,
+        pageSize: 10,
         pageIndex: 1
       },
+      customerNumber: this.customerNunber,
       orderStatus: '',
       searchKeyName: 'orderNumber'
     }
@@ -146,7 +154,6 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   }
 
   detail () {
-    console.log('detail')
     clearInterval(this._interval);
   }
 }

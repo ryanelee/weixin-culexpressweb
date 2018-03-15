@@ -36,7 +36,7 @@ export class OrderService {
   }
 
   getOrderList(param, noLoading?) {
-    return this._common.authPost('/web/order/list', param, noLoading);
+    return this._common.authPost('/order/list', param, noLoading);
   }
 
   getOrderDetail(param) {
