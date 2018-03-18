@@ -72,6 +72,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
     that.miniRefresh = new MiniRefreshTools.theme.defaults(Object.assign(options, {
       down: Object.assign(options.down || {}, {
         callback: () => {
+          that.miniRefresh.endUpLoading(true);
         }
       }),
       up: Object.assign(options.up || {}, {
@@ -146,7 +147,6 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   }
 
   detail () {
-    console.log('detail')
     clearInterval(this._interval);
   }
 }
