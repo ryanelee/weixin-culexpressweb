@@ -24,12 +24,13 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   private param: {};
   private totalCount: number;
   private loadedCount: number;
-  private pageSize: 15;
+  private pageSize: 10;
   private pageIndex: 1;
   private miniRefresh: any;
   private _scrollPane: HTMLElement;
   private _interval: any;
   private _loaded: boolean;
+  private _allLoaded: boolean;
 
   constructor(
     private _order: OrderService,
@@ -44,12 +45,13 @@ export class OrderListComponent implements OnInit, AfterViewInit {
       if (data && data[0]) {
         this._temList = data;
         this._loaded = true;
+        this._allLoaded = false;
         this.initMiniRefresh()
         setTimeout(() => {
           this._scrollPane = this._element.nativeElement;
           this._interval = setInterval(() => {
             const { scrollHeight, scrollTop, clientHeight } = this._scrollPane.children[0];
-            if (this._loaded && (scrollHeight - scrollTop <= clientHeight * 2)) {
+            if (this._loaded && !this._allLoaded && (scrollHeight - scrollTop <= clientHeight * 2)) {
               this.initMiniRefresh()
             }
           }, 2000);
@@ -64,7 +66,6 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   }
 
   initMiniRefresh() {
-    const that = this
     const options = {
       container: '#minirefresh',
       down: {},
@@ -75,24 +76,24 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         }
       }
     }
-    that.miniRefresh = new MiniRefreshTools.theme.defaults(Object.assign(options, {
+    this.miniRefresh = new MiniRefreshTools.theme.defaults(Object.assign(options, {
       down: Object.assign(options.down || {}, {
         callback: () => {
-          that.miniRefresh.endUpLoading(true);
+          this.miniRefresh.endDownLoading(true);
         }
       }),
       up: Object.assign(options.up || {}, {
         callback: () => {
-          if (that.loadedCount < that.totalCount) {
-            if (that.pageIndex !== 1) {
-              that.getOrderList(that.pageIndex);
-            } else {
-              this.orderList = this._temList
-            }
-            that.loadedCount += 10;
-            that.pageIndex++;
+          if (this.pageIndex !== 1) {
+            this.getOrderList(this.pageIndex);
           } else {
-             that.miniRefresh.endUpLoading(true);
+            this.orderList = this._temList
+          }
+          this.loadedCount += this.pageSize;
+          this.pageIndex++;
+          this.miniRefresh.endUpLoading(this.loadedCount >= this.totalCount);
+          if (this.loadedCount >= this.totalCount) {
+            this._allLoaded = true;
           }
         }
       })
@@ -126,7 +127,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   getFirstList () {
     this.param = {
       pageInfo: {
-        pageSize: 10,
+        pageSize: 15,
         pageIndex: 1
       },
       customerNumber: this.customerNunber,
@@ -141,7 +142,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         if (data.data) {
           resolve(data.data)
         } else {
-          reject('error')
+          reject('error');
         }
       })
     })
