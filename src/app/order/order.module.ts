@@ -10,7 +10,8 @@ import {
   MatCheckboxModule,
   MatSnackBarModule,
   MatDividerModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule
 } from '@angular/material';
 
 
@@ -37,7 +38,8 @@ import { LayoutModule } from 'app/layout/layout.module';
     MatCheckboxModule,
     MatSnackBarModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   declarations: [
     OrderListComponent,

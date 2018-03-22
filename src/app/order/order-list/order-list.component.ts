@@ -26,11 +26,13 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   private loadedCount: number;
   private pageSize: 10;
   private pageIndex: 1;
+  private orderStatus: string;
   private miniRefresh: any;
   private _scrollPane: HTMLElement;
   private _interval: any;
   private _loaded: boolean;
   private _allLoaded: boolean;
+  private _popDialog: boolean;
 
   constructor(
     private _order: OrderService,
@@ -41,14 +43,26 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this._popDialog = false;
+    this.orderStatus = '';
+    this.onInit();
+  }
+
+  ngAfterViewInit () {
+  }
+
+  onInit () {
+    this.orderList = [];
+    this.miniRefresh = null;
+    this._loaded = true;
+    this._allLoaded = false;
     this.getFirstList().then((data: any) => {
       if (data && data[0]) {
         this._temList = data;
-        this._loaded = true;
-        this._allLoaded = false;
         this.initMiniRefresh()
         setTimeout(() => {
           this._scrollPane = this._element.nativeElement;
+          console.log(this._scrollPane.children[0]);
           this._interval = setInterval(() => {
             const { scrollHeight, scrollTop, clientHeight } = this._scrollPane.children[0];
             if (this._loaded && !this._allLoaded && (scrollHeight - scrollTop <= clientHeight * 2)) {
@@ -60,9 +74,6 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         this.noData = true;
       }
     });
-  }
-
-  ngAfterViewInit () {
   }
 
   initMiniRefresh() {
@@ -77,11 +88,11 @@ export class OrderListComponent implements OnInit, AfterViewInit {
       }
     }
     this.miniRefresh = new MiniRefreshTools.theme.defaults(Object.assign(options, {
-      down: Object.assign(options.down || {}, {
-        callback: () => {
-          this.miniRefresh.endDownLoading(true);
-        }
-      }),
+      // down: Object.assign(options.down || {}, {
+      //   callback: () => {
+      //     this.miniRefresh.endDownLoading(true);
+      //   }
+      // }),
       up: Object.assign(options.up || {}, {
         callback: () => {
           if (this.pageIndex !== 1) {
@@ -89,8 +100,11 @@ export class OrderListComponent implements OnInit, AfterViewInit {
           } else {
             this.orderList = this._temList
           }
-          this.loadedCount += this.pageSize;
+          this.loadedCount += 15;
           this.pageIndex++;
+          console.log('this.loadedCount');
+          console.log(this.loadedCount);
+          console.log(this.totalCount);
           this.miniRefresh.endUpLoading(this.loadedCount >= this.totalCount);
           if (this.loadedCount >= this.totalCount) {
             this._allLoaded = true;
@@ -107,7 +121,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         pageIndex: pageIndex
       },
       customerNumber: this.customerNunber,
-      orderStatus: '',
+      orderStatus: this.orderStatus,
       searchKeyName: 'orderNumber'
     }
     this._loaded = false
@@ -131,7 +145,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         pageIndex: 1
       },
       customerNumber: this.customerNunber,
-      orderStatus: '',
+      orderStatus: this.orderStatus,
       searchKeyName: 'orderNumber'
     }
     return new Promise((resolve, reject) => {
@@ -139,6 +153,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         this.totalCount = data.pageInfo.totalCount;
         this.loadedCount = data.pageInfo.pageSize;
         this.pageIndex = data.pageInfo.pageIndex;
+        console.log(this.loadedCount);
         if (data.data) {
           resolve(data.data)
         } else {
@@ -148,7 +163,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
     })
   }
 
-  orderStatus(status) {
+  getOrderStatus(status) {
     return Tool.orderStatus(status);
   }
   orderStatusClass(status) {
@@ -157,5 +172,16 @@ export class OrderListComponent implements OnInit, AfterViewInit {
 
   detail () {
     clearInterval(this._interval);
+  }
+
+  pop () {
+    console.log('pop')
+    this._popDialog = true;
+  }
+
+  changeQueryStaus(status) {
+    this._popDialog = false;
+    this.orderStatus = status || '';
+    this.onInit();
   }
 }
