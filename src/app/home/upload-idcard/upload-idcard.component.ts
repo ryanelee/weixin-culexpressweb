@@ -10,6 +10,7 @@ import { CommonApiService } from 'app/core/service/common-api.service'
 import { trackingNumberFormatValidator } from 'app/shared/cul-trackingnumber-validator.directive';
 import { ValidateOnBlurDirective } from 'app/shared/validate-on-blur.directive';
 import { environment } from '../../../environments/environment';
+import { CommonService } from '../../core/service/common.service';
 
 let URL = `${environment.api}/customermessage/uploadImage?customerNumber=`;
 
@@ -27,10 +28,11 @@ export class UploadIdcardComponent implements OnInit {
   showBackDeleteButton = false;
   data: UploadIDCardModel = {};
   form: FormGroup;
-  public uploader: FileUploader = new FileUploader({url: URL});
+  public uploader: FileUploader = new FileUploader({ url: URL });
 
   constructor(private element: ElementRef,
-    private _service: CommonApiService) {}
+    private _service: CommonApiService,
+    private _common: CommonService) { }
 
   ngOnInit() {
     this.data.idForever = 'false';
@@ -39,7 +41,7 @@ export class UploadIdcardComponent implements OnInit {
       twOrder: new FormControl(),
       receivePersonName: new FormControl(),
       IDCard: new FormControl(),
-      IDCardExpiredDate: new FormControl({value: (new Date()), disabled: this.data.idForever === 'true' ? true : null}),
+      IDCardExpiredDate: new FormControl({ value: (new Date()), disabled: this.data.idForever === 'true' ? true : null }),
       IDForever: new FormControl(),
       IDCardFrontImage: new FormControl(),
       IDCardBackImage: new FormControl(),
@@ -58,12 +60,12 @@ export class UploadIdcardComponent implements OnInit {
   get trackingNumber() { return this.form.get('trackingNumber'); }
   get receivePersonName() { return this.form.get('receivePersonName'); }
   get IDCard() { return this.form.get('IDCard'); }
-  get IDCardFrontImage() { return this.form.get('IDCardFrontImage')};
-  get IDCardBackImage() { return this.form.get('IDCardBackImage')};
-  get IDCardExpiredDate() { return this.form.get('IDCardExpiredDate')};
-  get cellphoneNumber() { return this.form.get('cellphoneNumber')};
-  get telephoneNumber() { return this.form.get('telephoneNumber')};
-  get emailAddress() { return this.form.get('emailAddress')};
+  get IDCardFrontImage() { return this.form.get('IDCardFrontImage') };
+  get IDCardBackImage() { return this.form.get('IDCardBackImage') };
+  get IDCardExpiredDate() { return this.form.get('IDCardExpiredDate') };
+  get cellphoneNumber() { return this.form.get('cellphoneNumber') };
+  get telephoneNumber() { return this.form.get('telephoneNumber') };
+  get emailAddress() { return this.form.get('emailAddress') };
 
   onCustomerTypeChange() {
     if (this.customerType === 'taobao') {
@@ -82,8 +84,16 @@ export class UploadIdcardComponent implements OnInit {
     const image = this.element.nativeElement.querySelector('.imageFront');
 
     reader.onload = (e: any) => {
-        image.src = e.target.result;
-        this.showFrontDeleteButton = true;
+      image.src = e.target.result;
+      console.log('event.target.files[0]', event.target.files[0]);
+      const condition = {
+        imgBase64: e.target.result,
+        name: event.target.files[0].name
+      }
+      this._service.base64Upload(condition).subscribe((result: any) => {
+        this.data.idCardFrontImage = result.path;
+      })
+      this.showFrontDeleteButton = true;
     };
 
     if (event.target.files.length < 1) {
@@ -91,7 +101,7 @@ export class UploadIdcardComponent implements OnInit {
     }
     reader.readAsDataURL(event.target.files[0]);
     this.data.idCardFrontImage = event.target.files[0].path;
-    this.IDCardFrontImage.setErrors({'required': null});
+    this.IDCardFrontImage.setErrors({ 'required': null });
     // this.IDCardFrontImage.markAsDirty();
   }
 
@@ -100,8 +110,15 @@ export class UploadIdcardComponent implements OnInit {
     const image = this.element.nativeElement.querySelector('.imageBack');
 
     reader.onload = (e: any) => {
-        image.src = e.target.result;
-        this.showBackDeleteButton = true;
+      image.src = e.target.result;
+      this.showBackDeleteButton = true;
+      const condition = {
+        imgBase64: e.target.result,
+        name: event.target.files[0].name
+      }
+      this._service.base64Upload(condition).subscribe((result: any) => {
+        this.data.idCardBackImage = result.path;
+      })
     };
 
     if (event.target.files.length < 1) {
@@ -109,7 +126,7 @@ export class UploadIdcardComponent implements OnInit {
     }
     reader.readAsDataURL(event.target.files[0]);
     this.data.idCardBackImage = event.target.files[0].path;
-    this.IDCardBackImage.setErrors({'required': null});
+    this.IDCardBackImage.setErrors({ 'required': null });
     // this.IDCardBackImage.markAsTouched();
   }
 
@@ -118,7 +135,7 @@ export class UploadIdcardComponent implements OnInit {
     image.src = '';
     this.showFrontDeleteButton = false;
     this.data.idCardFrontImage = '';
-    this.IDCardFrontImage.setErrors({'required': true});
+    this.IDCardFrontImage.setErrors({ 'required': true });
     // this.IDCardFrontImage.markAsTouched();
   }
 
@@ -127,7 +144,7 @@ export class UploadIdcardComponent implements OnInit {
     image.src = '';
     this.showBackDeleteButton = false;
     this.data.idCardBackImage = '';
-    this.IDCardBackImage.setErrors({'required': true});
+    this.IDCardBackImage.setErrors({ 'required': true });
     // this.IDCardBackImage.markAsTouched();
   }
 
@@ -139,7 +156,7 @@ export class UploadIdcardComponent implements OnInit {
     }
   }
 
- verifyTrackingNumber(value: string) {
+  verifyTrackingNumber(value: string) {
     if (!value) {
       return;
     }
@@ -165,9 +182,12 @@ export class UploadIdcardComponent implements OnInit {
       }
 
       URL += data.data.customerNumber;
-      this.uploader = new FileUploader({url: URL});
+      this.uploader = new FileUploader({ url: URL });
       this.showUploader = true;
     })
+  }
+  back() {
+    window.history.back()
   }
 
   onSubmit() {
@@ -177,25 +197,55 @@ export class UploadIdcardComponent implements OnInit {
 
     // verify image
     if (!this.data.idCardFrontImage) {
-      this.IDCardFrontImage.setErrors({'required': true});
+      this.IDCardFrontImage.setErrors({ 'required': true });
     }
 
     if (!this.data.idCardBackImage) {
-      this.IDCardBackImage.setErrors({'required': true});
+      this.IDCardBackImage.setErrors({ 'required': true });
     }
-
+    this.data.urls = [];
+    this.data.urls.push(this.data.idCardBackImage);
+    this.data.urls.push(this.data.idCardFrontImage);
     if (this.customerType === 'cul') {
       this.data.authType = '1';
+      this._service.uploadIDCard(this.data).subscribe({
+        next: res => {
+          console.log(res);
+          this.isSubmittingData = false;
+          this._common.alert('提交成功');
+        },
+        error: err => {
+          this.isSubmittingData = false;
+          console.log(err);
+          this._common.alert(err);
+        }
+      });
     } else {
       this.data.authType = '2';
+      this._service.uploadTaobaoIDCard(this.data).subscribe({
+        next: res => {
+          console.log(res);
+          this.isSubmittingData = false;
+          this._common.alert('提交成功');
+        },
+        error: err => {
+          this.isSubmittingData = false;
+          console.log(err);
+          this._common.alert(err);
+        }
+      });
     }
 
-    this.uploader.queue.forEach(image => {
-      console.log(image);
-      image.onComplete = (res: string, status: number, header: any) => {
-        console.log(res, status);
-      }
-    })
+
+    // this.uploader.queue.forEach(image => {
+    //   console.log(image);
+    //   image.onComplete = (res: string, status: number, header: any) => {
+    //     console.log(res, status);
+    //   }
+    // })
+
+
+
 
     // upload images
     // const uploader$ = new Observable(observer => {

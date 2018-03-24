@@ -15,7 +15,8 @@ import {
   MatIconModule,
   MatCardModule,
   MatProgressSpinnerModule,
-  MatDividerModule
+  MatDividerModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 import { HomeComponent } from 'app/home/home.component';
@@ -55,7 +56,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     MatCardModule,
     FileUploadModule,
     MatProgressSpinnerModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSnackBarModule
   ],
   declarations: [
     HomeComponent,
