@@ -4,7 +4,7 @@
   <div class="minirefresh-scroll">
     <div class="tab-cell">
       <div class="tab-cell-block">
-        <a (click)="changeQueryStaus()" [class]="orderStatus === '' ? 'is-select' : ''">所有状态</a>
+        <a (click)="changeQueryStaus('')" [class]="orderStatus === '' ? 'is-select' : ''">所有状态</a>
       </div>
       <div class="tab-cell-block" style="border-left:1px solid #efefef;">
         <a (click)="pop()" [class]="orderStatus !== '' ? 'is-select' : ''">筛选</a>

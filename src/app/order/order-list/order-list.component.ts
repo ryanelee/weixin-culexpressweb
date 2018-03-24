@@ -17,22 +17,22 @@ declare var MiniRefreshTools: any;
 })
 export class OrderListComponent implements OnInit, AfterViewInit {
 
-  private customerNunber: Observable<string>;
   @Output() orderList: Array<OrderList>;
+  @Output() totalCount: number;
+  @Output() orderStatus: string;
+  @Output() _popDialog: boolean;
+  private customerNunber: Observable<string>;
   private _temList: Array<OrderList>;
   private noData: boolean;
   private param: {};
-  private totalCount: number;
   private loadedCount: number;
   private pageSize: 10;
   private pageIndex: 1;
-  private orderStatus: string;
   private miniRefresh: any;
   private _scrollPane: HTMLElement;
   private _interval: any;
   private _loaded: boolean;
   private _allLoaded: boolean;
-  private _popDialog: boolean;
 
   constructor(
     private _order: OrderService,
