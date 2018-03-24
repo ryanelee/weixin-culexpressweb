@@ -9,7 +9,7 @@ export interface UploadIDCardModel {
     idCard?: string;
     idCardFrontImage?: string;
     idCardBackImage?: string;
-    urls?: [{path: string}];
+    urls?: Array<string>;
     deadline?: Date;
     idForever?: string;
     note?: string

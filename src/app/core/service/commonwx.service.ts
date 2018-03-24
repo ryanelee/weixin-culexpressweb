@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs/Observable';
-import { Http, Response } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
-
+import { AuthService } from './auth.service';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 declare var wx: any;
 declare var $: any;
@@ -14,7 +14,7 @@ declare var $: any;
 export class CommonwxService {
 
   public SpinnerShow: BehaviorSubject<Boolean> = new BehaviorSubject(false);
-  constructor(private http: Http, private _authHttp: AuthHttp) {
+  constructor(private http: Http, private _authHttp: AuthHttp, private _auth: AuthService) {
     // wx.config({
     //     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
     //     appId: 'wxbea82c7ca7971d97', // 必填，公众号的唯一标识
@@ -94,11 +94,16 @@ export class CommonwxService {
   authPost(url, data) {
     this.show();
     const observable = new Observable(observer => {
-      return this.http.post(environment.wechatApi + url, this.createReqObject(data)).subscribe({
+      const token: string = this._auth.getJwtToken();
+      const headers = new Headers();
+      headers.append('Token', token);
+      const options = new RequestOptions({ headers: headers });
+      return this.http.post(environment.wechatApi + url, this.createReqObject(data), options).subscribe({
         next: result => {
           this.hidden();
           // this.SpinnerShow.next(false);
           const _data = result.json();
+          console.log('_data', _data);
           if (_data.code === '000') {
             observer.next(_data.data);
           }

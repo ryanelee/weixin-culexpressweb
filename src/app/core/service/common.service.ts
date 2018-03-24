@@ -15,6 +15,7 @@ declare var $: any;
 export class CommonService {
 
   public SpinnerShow: BehaviorSubject<Boolean> = new BehaviorSubject(false);
+  public AlertShow: BehaviorSubject<Object> = new BehaviorSubject({ message: '' });
   constructor(private http: Http, private _authHttp: AuthHttp, private _auth: AuthService) { }
 
   createReqObject(to, data) {
@@ -32,11 +33,18 @@ export class CommonService {
   show() {
     this.SpinnerShow.next(true);
   }
+  getAlertShow() {
+    return this.AlertShow;
+  }
   hidden() {
     this.SpinnerShow.next(false);
   }
   getSpinnerShow() {
     return this.SpinnerShow;
+  }
+
+  alert(message, action?) {
+    return this.AlertShow.next({ message, action });
   }
   post(url, params, flag?) {
     if (flag) {
