@@ -100,8 +100,8 @@
         </p>
     </div>
     <div>
-        <div *ngFor="let pkg of orderDetail.outboundPackages">
-            <div class="od-tracking display-flex" [routerLink]="['/order/tracking', pkg.trackingNumber]">
+        <div *ngFor="let pkg of orderDetail.outboundPackages" [routerLink]="['/order/tracking', pkg.trackingNumber]">
+            <div class="od-tracking display-flex">
                 <a>查看包裹轨迹</a>
                 <label [class]="pkgStatusClass(pkg.status)">{{pkgStatus(pkg.status)}}</label>
                 <i class="material-icons" style="color: #999999;">navigate_next</i>

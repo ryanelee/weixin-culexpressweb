@@ -100,8 +100,11 @@ export class CommonService {
 
 
 
-  authPost(url, data) {
-    this.show();
+  authPost(url, data, noLoading?) {
+    if (noLoading) {
+    } else {
+      this.show();
+    }
     const observable = new Observable(observer => {
       const token: string = this._auth.getJwtToken();
       const headers = new Headers();

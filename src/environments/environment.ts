@@ -6,10 +6,5 @@
 export const environment = {
   production: false,
   api: 'http://localhost:8000/api',
-  wechatApi: 'http://localhost:8080',
-  // api: 'http://api.culexpress.com/api',
-  wxConfig: {
-    appId: 'wxbea82c7ca7971d97',
-    appSecret: '63514d00948cb51f5cbb0952340ce0c1'
-  }
+  wechatApi: 'http://localhost:8080'
 };

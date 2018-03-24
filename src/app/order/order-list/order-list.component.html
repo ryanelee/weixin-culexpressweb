@@ -1,19 +1,68 @@
+
+
 <div id="minirefresh" class="minirefresh-wrap">
   <div class="minirefresh-scroll">
+    <div class="tab-cell">
+      <div class="tab-cell-block">
+        <a (click)="changeQueryStaus()" [class]="orderStatus === '' ? 'is-select' : ''">所有状态</a>
+      </div>
+      <div class="tab-cell-block" style="border-left:1px solid #efefef;">
+        <a (click)="pop()" [class]="orderStatus !== '' ? 'is-select' : ''">筛选</a>
+      </div>
+    </div>
+    <div class="zm-dialog" *ngIf="_popDialog">
+      <div class="box">
+        <div class="cell">
+          <a (click)="changeQueryStaus('Arrived')" [class]="orderStatus === 'Arrived' ? 'is-select' : ''">已送达</a>
+        </div>
+        <div class="cell">
+          <a (click)="changeQueryStaus('Shipped')" [class]="orderStatus === 'Shipped' ? 'is-select' : ''">已出库</a>
+        </div>
+        <div class="cell">
+          <a (click)="changeQueryStaus('PartialShipped')" [class]="orderStatus === 'PartialShipped' ? 'is-select' : ''">部分出库</a>
+        </div>
+        <div class="cell">
+          <a (click)="changeQueryStaus('Processing')"[class]="orderStatus === 'Processing' ? 'is-select' : ''">处理中</a>
+        </div>
+        <div class="cell">
+          <a (click)="changeQueryStaus('WaybillUpdated')" [class]="orderStatus === 'WaybillUpdated' ? 'is-select' : ''">运单更新</a>
+        </div>
+        <div class="cell">
+          <a (click)="changeQueryStaus('Void')" [class]="orderStatus === 'Void' ? 'is-select' : ''">已取消</a>
+        </div>
+        <div class="cell">
+          <a (click)="changeQueryStaus('Arrears')" [class]="orderStatus === 'Arrears' ? 'is-select' : ''">运费不足</a>
+        </div>
+        <div class="cell">
+          <a (click)="changeQueryStaus('Paid')" [class]="orderStatus === 'Paid' ? 'is-select' : ''">已支付</a>
+        </div>
+        <div class="cell">
+          <a (click)="changeQueryStaus('Unpaid')" [class]="orderStatus === 'Unpaid' ? 'is-select' : ''">待支付</a>
+        </div>
+      </div>
+      
+    </div>
     <mat-nav-list>
       <mat-list-item *ngFor='let order of orderList' class="ol-cell">
-        <a [routerLink]="['order-detail', order.orderNumber]">
+        <a [routerLink]="['order-detail', order.orderNumber]" (click)="detail()">
           <div class="display-flex">
-            <span style="flex:1" class="text-small">{{order.orderNumber}}</span>
-            <span [class]="orderStatusClass(order.orderStatus)">{{orderStatus(order.orderStatus)}}</span>
+            <span style="flex:1" class="text-small">{{order.orderNumber}} </span>
+            <!-- <span class="text-small">{{order.orderDate | date: "short"}}</span> -->
+            <span [class]="orderStatusClass(order.orderStatus)">{{getOrderStatus(order.orderStatus)}}</span>
           </div>
-          <mat-divider></mat-divider>
           <div class="display-flex">
             <span style="flex:1;overflow: hidden;height: 20px;"> {{order.declareGoodsName}}</span>
             <span class="text-small">包裹 x{{order.outboundPackages.length}}</span>
           </div>
+          <div class="display-flex">
+            <span style="flex:1" class="text-small"> {{order.orderDate | date: "short"}}</span>
+            <span class="text-small"> 运费 {{order.totalCount | currency: 'CNY': true: '1.2-2'}}</span>
+          </div>
         </a>
       </mat-list-item>
+      <div *ngIf="totalCount <= 0" class="zm-nodata">
+        <label>没有数据</label>
+      </div>
     </mat-nav-list>
   </div>
 </div>
