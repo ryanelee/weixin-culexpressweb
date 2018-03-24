@@ -45,6 +45,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this._popDialog = false;
     this.orderStatus = '';
+    console.log('****ngOnInit*****');
     this.onInit();
   }
 
@@ -53,20 +54,21 @@ export class OrderListComponent implements OnInit, AfterViewInit {
 
   onInit () {
     this.orderList = [];
+    this._temList = [];
     this.miniRefresh = null;
     this._loaded = true;
     this._allLoaded = false;
     this.getFirstList().then((data: any) => {
       if (data && data[0]) {
         this._temList = data;
-        this.initMiniRefresh()
+        // this.initMiniRefresh()
         setTimeout(() => {
           this._scrollPane = this._element.nativeElement;
-          console.log(this._scrollPane.children[0]);
           this._interval = setInterval(() => {
             const { scrollHeight, scrollTop, clientHeight } = this._scrollPane.children[0];
-            if (this._loaded && !this._allLoaded && (scrollHeight - scrollTop <= clientHeight * 2)) {
+            if (this._loaded && !this._allLoaded && this.loadedCount < this.totalCount && (scrollHeight - scrollTop <= clientHeight * 2)) {
               this.initMiniRefresh()
+              clearInterval(this._interval);
             }
           }, 2000);
         }, 2000);
@@ -77,6 +79,8 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   }
 
   initMiniRefresh() {
+    this.miniRefresh = null
+    console.log('****initMiniRefresh****');
     const options = {
       container: '#minirefresh',
       down: {},
@@ -95,20 +99,26 @@ export class OrderListComponent implements OnInit, AfterViewInit {
       // }),
       up: Object.assign(options.up || {}, {
         callback: () => {
-          if (this.pageIndex !== 1) {
-            this.getOrderList(this.pageIndex);
-          } else {
-            this.orderList = this._temList
+          if (this._loaded && this.loadedCount < this.totalCount) {
+            if (this.pageIndex !== 1) {
+              this.getOrderList(this.pageIndex);
+              this.loadedCount += 10;
+              this.pageIndex++;
+            } else {
+              this.pageIndex++;
+              this.orderList = this._temList
+            }
+            // console.log('this.loadedCount');
+            // console.log(this.loadedCount);
+            // console.log(this.totalCount);
+            if (this.loadedCount >= this.totalCount) {
+              console.log('endloading!!!!')
+              this._allLoaded = true;
+              // this.miniRefresh.endUpLoading(true);
+            }
           }
-          this.loadedCount += 15;
-          this.pageIndex++;
-          console.log('this.loadedCount');
-          console.log(this.loadedCount);
-          console.log(this.totalCount);
           this.miniRefresh.endUpLoading(this.loadedCount >= this.totalCount);
-          if (this.loadedCount >= this.totalCount) {
-            this._allLoaded = true;
-          }
+          console.log(this.miniRefresh);
         }
       })
     }))
@@ -175,13 +185,13 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   }
 
   pop () {
-    console.log('pop')
     this._popDialog = true;
   }
 
   changeQueryStaus(status) {
     this._popDialog = false;
     this.orderStatus = status || '';
+    console.log('****changeQueryStaus*****');
     this.onInit();
   }
 }

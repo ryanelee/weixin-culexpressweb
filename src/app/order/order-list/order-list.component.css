@@ -21,7 +21,9 @@
     border-bottom: 1px solid #efefef;
     position: sticky;
     background: #ffffff;
-    height: 40px;
+    padding: 10px 0px;
+    align-content: center;
+    align-items: center;
 }
 
 .tab-cell .tab-cell-block {
@@ -29,7 +31,6 @@
     flex: .5;
     float: left;
     text-align: center;
-    padding: 10px;
 }
 
 .zm-dialog {
@@ -43,18 +44,24 @@
 .zm-dialog .box {
     width: 96%;
     background: #ffffff;
-    padding: 20px 2%;
+    padding: 0px 2%;
 }
 .zm-dialog .cell{
    padding: 5px;
-   border-bottom: 1px solid #efefef;
+   border-bottom: 1px solid #efefef82;
    color: #666666;
+}
+.zm-dialog .is-select{
+   color: #6e89c5;
 }
 
 .zm-nodata {
     text-align: center;
     padding: 30px;
     color: #666666;
+}
+ .mat-list .mat-list-item, .mat-list .mat-list-option, .mat-nav-list .mat-list-item, .mat-nav-list .mat-list-option, .mat-selection-list .mat-list-item, .mat-selection-list .mat-list-option{
+    height: 80px;
 }
 
 
