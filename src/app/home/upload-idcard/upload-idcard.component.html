@@ -1,13 +1,9 @@
-<div class="container">
+<div class="ui-container">
   <div class="loading-shade" *ngIf="isSubmittingData === true">
     <mat-spinner></mat-spinner>
   </div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-  <div class="disclaimer">
-    <p>海关清关入境包裹，提交身份证信息说明</p>
-    <span>- 根据最新《中华人民共和国海关对进出境快件监管办法》规定，入境到中国大陆的个人包裹经海关查验需向海关提供收件人身份证影印件等相关信息。</span><br>
-    <span>- 中美速递承诺所有信息均进行加密存储，直接提交给海关清关时进行查验，绝不用做其它途径。</span>
-  </div>
+  
   <div class="option">
     <mat-radio-group [(ngModel)]="customerType" formControlName="customerType" (change)="onCustomerTypeChange()">
       <mat-radio-button  value="cul">Cul客户</mat-radio-button>
@@ -103,8 +99,8 @@
       </div>
     </div>
 
-    是否永久:
-    <mat-radio-group formControlName="IDForever" [(ngModel)]="data.idForever" (change)="onIDForeverChange()">
+    <label style="color:#777;">是否永久:</label>
+    <mat-radio-group formControlName="IDForever" [(ngModel)]="data.idForever" (change)="onIDForeverChange()" style="color:#777;">
       <mat-radio-button value="true">是</mat-radio-button>
       <mat-radio-button value="false">否</mat-radio-button>
     </mat-radio-group>
@@ -152,11 +148,17 @@
     </mat-form-field>
 
     <div class="button-row">
-      <button mat-raised-button type="submit" color="primary" [disabled]="form.pristine">提交</button>
-      <button mat-raised-button (click) = 'back()'>返回</button>
+      <button mat-raised-button type="submit" color="primary" [disabled]="form.pristine" >提交</button>
     </div>
   </div>
 </form>
+
+<div class="disclaimer">
+  <p>海关清关入境包裹，提交身份证信息说明</p>
+  <span>- 根据最新《中华人民共和国海关对进出境快件监管办法》规定，入境到中国大陆的个人包裹经海关查验需向海关提供收件人身份证影印件等相关信息。</span>
+  <br>
+  <span>- 中美速递承诺所有信息均进行加密存储，直接提交给海关清关时进行查验，绝不用做其它途径。</span>
+</div>
 </div>
 
 
