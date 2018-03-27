@@ -40,12 +40,16 @@
 
 <div class="opl-page">
   <mat-nav-list>
-    <mat-list-item class="opl-cell" [routerLink]="['/order', user.customerNumber]">
+    <mat-list-item class="opl-cell" [routerLink]="['/order/list', user.customerNumber]">
       <a>我的订单</a>
       <i class="material-icons">navigate_next</i>
     </mat-list-item>
     <mat-list-item class="opl-cell" [routerLink]="['/order/tracking']">
       <a>运单查询</a>
+      <i class="material-icons">navigate_next</i>
+    </mat-list-item>
+    <mat-list-item class="opl-cell" [routerLink]="['/order/forecast']">
+      <a>货物预报</a>
       <i class="material-icons">navigate_next</i>
     </mat-list-item>
   </mat-nav-list>

@@ -24,6 +24,7 @@ import { OrderNoTrackingComponent } from 'app/order/order-tracking/order-no-trac
 import { OrderPackageListComponent } from './order-tracking/order-package-list/order-package-list.component';
 import { OrderComponent } from './order.component';
 import { LayoutModule } from 'app/layout/layout.module';
+import { OrderForecastComponent } from './order-forecast/order-forecast.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,8 @@ import { LayoutModule } from 'app/layout/layout.module';
     OrderTrackingDetailComponent,
     OrderNoTrackingComponent,
     OrderPackageListComponent,
-    OrderComponent]
+    OrderComponent,
+    OrderForecastComponent
+  ]
 })
 export class OrderModule { }

@@ -14,7 +14,7 @@ const routes: Routes = [
         loadChildren: './routes/login/login.module#LoginModule'
     },
     {
-        path: 'order/:customerNumber',
+        path: 'order',
         canLoad: [AuthGuardService],
         loadChildren: './order/order.module#OrderModule'
     },
