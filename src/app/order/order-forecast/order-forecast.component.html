@@ -1,1 +1,17 @@
-2323
+<div class="tab-cell-block">
+    货物预报
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <mat-form-field>
+    <input matInput placeholder="收货仓库" [(ngModel)]="data.retrieveWarehouseNumber">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Favorite food">
+      <mat-option *ngFor="let item of warehouses"   [(ngModel)]="data.warehouseNumber" [value]="item.warehouseNumber">
+        {{ item.warehouseName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  </form>

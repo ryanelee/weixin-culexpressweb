@@ -5,6 +5,7 @@ import { Order } from 'app/models/order';
 import { TrackingHistory } from 'app/models/trackingHistory';
 import { OrderService } from 'app/core/service/order.service';
 import { Tool } from 'app/core/service/tool';
+import { Warehouse } from '../../models/warehouse';
 
 @Component({
     selector: 'app-order-forecast',
@@ -12,56 +13,15 @@ import { Tool } from 'app/core/service/tool';
     styleUrls: ['./order-forecast.component.css']
 })
 export class OrderForecastComponent implements OnInit {
-    @Output() orderDetail: Order = {};
-    @Output() trackingHistory: TrackingHistory;
-    orderNumber: string;
-    noData: boolean;
-    show = false;
-
+    warehouses: Array<Warehouse> = [];
     constructor(
         private _route: ActivatedRoute,
         private _order: OrderService
-    ) {
-        this._route.params.subscribe(
-            params => {
-                this.orderNumber = params['orderNumber'];
-            }
-        );
-    }
-
-    ngOnInit() {
-        this._order.getOrderDetail(this.orderNumber).subscribe((order: any) => {
-            console.log('order', order);
-            this.show = true;
-            if (!order.err) {
-                this.orderDetail = order;
-                this.orderDetail.orderStatus = Tool.orderStatus(order.orderStatus);
-                console.log(this.orderDetail);
-                // this.orderDetail.totalFee = this.orderDetail.toNumber +
-                // this.orderDetail.tariffMoney + this.orderDetail.tip + orderDetail.valueAddFee
-                //  + this.orderDetail.insuranceFee - this.orderDetail.usedPoint;
-            }
+    ) { }
+    ngOnInit(): void {
+        this._order.getWarehouses().subscribe((result) => {
+            console.log('result', result);
         })
-    }
 
-    pkgStatus(status) {
-        return Tool.pkgStatus(status);
     }
-
-    pkgStatusClass(status) {
-        return Tool.pkgStatusClass(status);
-    }
-
-    getPkgTracking(trackingNumber) {
-        this._order.getOrderTrackingList(trackingNumber).subscribe((data: any) => {
-            if (data.data && data.data[0]) {
-                this.trackingHistory = data;
-                this.trackingHistory.trackingNumber = trackingNumber
-                console.log('this.trackingHistory', this.trackingHistory);
-            } else {
-                this.noData = true;
-            }
-        })
-    }
-
 }

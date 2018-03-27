@@ -1,16 +1,28 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
+  MatExpansionPanel,
+  MatTab,
   MatStepperModule,
+  MatExpansionModule,
+  MatTabsModule,
+  MatGridListModule,
+  MatRadioModule,
   MatFormFieldModule,
-  MatButtonModule,
   MatInputModule,
-  MatCheckboxModule,
-  MatSnackBarModule,
-  MatDividerModule,
+  MatTooltipModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatButtonModule,
+  MatIconModule,
+  MatCardModule,
   MatListModule,
+  MatProgressSpinnerModule,
+  MatDividerModule,
+  MatSnackBarModule,
+  MatCheckboxModule,
   MatDialogModule
 } from '@angular/material';
 
@@ -31,16 +43,30 @@ import { OrderForecastComponent } from './order-forecast/order-forecast.componen
     CommonModule,
     LayoutModule,
     FormsModule,
-    MatInputModule,
+    ReactiveFormsModule,
     OrderRoutingModule,
     MatStepperModule,
+    MatExpansionModule,
+    MatTabsModule,
+    MatGridListModule,
+    MatRadioModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
-    MatCheckboxModule,
-    MatSnackBarModule,
-    MatDividerModule,
+    MatIconModule,
+    MatCardModule,
     MatListModule,
-    MatDialogModule
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    MatSnackBarModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatExpansionModule,
+    MatTabsModule
   ],
   declarations: [
     OrderListComponent,

@@ -43,6 +43,11 @@ export class OrderService {
     return this._common.authGet('/order/' + param);
   }
 
+
+  getWarehouses() {
+    return this._common.authGet('/warehouse');
+  }
+
 }
 
 
