@@ -13,18 +13,18 @@
       <mat-form-field>
         <input matInput placeholder="Cul包裹编号" [(ngModel)]="data.trackingNumber" 
           formControlName="trackingNumber" (blur)="verifyTrackingNumber(data.trackingNumber)" required>
-        <div *ngIf="trackingNumber.invalid && (trackingNumber.dirty || trackingNumber.touched)">
-          <mat-error *ngIf="trackingNumber.errors.required">
-            请输入Cul包裹编号
-          </mat-error>
-          <mat-error *ngIf="!trackingNumber.errors.required && trackingNumber.errors.format">
-            无效格式,请输入有效的Cul包裹编号,比如:CUL123456789
-          </mat-error>
-          <mat-error *ngIf="!trackingNumber.errors.required && !trackingNumber.errors.format && trackingNumber.errors.invalid">
-            CUL包裹编号不存在
-          </mat-error>
-        </div>
       </mat-form-field>
+      <div *ngIf="trackingNumber.invalid && (trackingNumber.dirty || trackingNumber.touched)">
+        <mat-error *ngIf="trackingNumber.errors.required">
+          请输入Cul包裹编号
+        </mat-error>
+        <mat-error *ngIf="!trackingNumber.errors.required && trackingNumber.errors.format">
+          无效格式,请输入有效的Cul包裹编号,比如:CUL123456789
+        </mat-error>
+        <mat-error *ngIf="!trackingNumber.errors.required && !trackingNumber.errors.format && trackingNumber.errors.invalid">
+          CUL包裹编号不存在
+        </mat-error>
+      </div>
     </div>
     <div class="taobao-option" *ngIf="customerType === 'taobao'">
       <mat-form-field>
@@ -36,25 +36,25 @@
   <div class="upload-content">
     <mat-form-field>
       <input matInput placeholder="收货人" formControlName="receivePersonName" [(ngModel)]="data.receivePersonName" required>
-      <div *ngIf="receivePersonName.invalid && (receivePersonName.dirty || receivePersonName.touched)">
-        <mat-error *ngIf="receivePersonName.errors.required">
-          请输入收货人全名
-        </mat-error>
-      </div>
     </mat-form-field>
+    <div *ngIf="receivePersonName.invalid && (receivePersonName.dirty || receivePersonName.touched)">
+      <mat-error *ngIf="receivePersonName.errors.required">
+        请输入收货人全名
+      </mat-error>
+    </div>
     <div class="IDCard">
       <mat-form-field>
         <input matInput #IDNumber placeholder="身份证号码[与收货人姓名对应]" formControlName="IDCard" [(ngModel)]="data.idCard" required minlength="15" maxlength="18">
-        <div *ngIf="IDCard.invalid && (IDCard.dirty || IDCard.touched)">
-          <mat-error *ngIf="IDCard.errors.required">
-            请输入身份证号码
-          </mat-error>
-          <mat-error *ngIf="!IDCard.errors.required && (IDCard.errors.minlength || IDCard.errors.maxlength)">
-            身份证号码必须为15或18位数字
-          </mat-error>
-        </div>
         <!-- <mat-hint align="start">身份证号码为15或18位数字.请确保身份证持有人与收货人姓名对应!</mat-hint> -->
       </mat-form-field>
+      <div *ngIf="IDCard.invalid && (IDCard.dirty || IDCard.touched)">
+        <mat-error *ngIf="IDCard.errors.required">
+          请输入身份证号码
+        </mat-error>
+        <mat-error *ngIf="!IDCard.errors.required && (IDCard.errors.minlength || IDCard.errors.maxlength)">
+          身份证号码必须为15或18位数字
+        </mat-error>
+      </div>
     </div>
     <br>
     <div class="IDCard-image" *ngIf="showUploader || customerType==='taobao'">
@@ -108,23 +108,23 @@
     <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="身份证有效截止日期"
         formControlName="IDCardExpiredDate" [(ngModel)]="data.deadline" required>
-      <div *ngIf="IDCardExpiredDate.invalid && (IDCardExpiredDate.dirty || IDCardExpiredDate.touched)">
-        <mat-error *ngIf="data.idForever==='no' && IDCardExpiredDate.errors.required">
-          请指定身份证有效截止日期或者选择永久不过期
-        </mat-error>
-      </div>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker [disabled]="data.idForever==='true'?true:null"></mat-datepicker>
     </mat-form-field>
+    <div *ngIf="IDCardExpiredDate.invalid && (IDCardExpiredDate.dirty || IDCardExpiredDate.touched)">
+      <mat-error *ngIf="data.idForever==='no' && IDCardExpiredDate.errors.required">
+        请指定身份证有效截止日期或者选择永久不过期
+      </mat-error>
+    </div>
 
     <mat-form-field>
       <input matInput placeholder="手机号码" formControlName="cellphoneNumber" [(ngModel)]="data.celphoneNumber" required>
-      <div *ngIf="cellphoneNumber.invalid && (cellphoneNumber.dirty || cellphoneNumber.touched)">
-        <mat-error *ngIf="cellphoneNumber.errors.required">
-          请输入手机号码
-        </mat-error>
-      </div>
     </mat-form-field>
+    <div *ngIf="cellphoneNumber.invalid && (cellphoneNumber.dirty || cellphoneNumber.touched)">
+      <mat-error *ngIf="cellphoneNumber.errors.required">
+        请输入手机号码
+      </mat-error>
+    </div>
 
     <mat-form-field>
       <input matInput placeholder="备用号码" formControlName="telephoneNumber" [(ngModel)]="data.telephoneNumber">
@@ -132,15 +132,15 @@
 
     <mat-form-field>
       <input matInput placeholder="电子邮箱" formControlName="emailAddress" [(ngModel)]="data.emailAddress" email required>
-      <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)">
-        <mat-error *ngIf="emailAddress.errors.required">
-          请输入电子邮箱地址
-        </mat-error>
-        <mat-error *ngIf="!emailAddress.errors.required && emailAddress.errors.email">
-          请输入有效的电子邮箱地址格式,比如:123@sohu.com
-        </mat-error>
-      </div>
     </mat-form-field>
+    <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)">
+      <mat-error *ngIf="emailAddress.errors.required">
+        请输入电子邮箱地址
+      </mat-error>
+      <mat-error *ngIf="!emailAddress.errors.required && emailAddress.errors.email">
+        请输入有效的电子邮箱地址格式,比如:123@sohu.com
+      </mat-error>
+    </div>
 
     <mat-form-field>
       <textarea matInput placeholder="备注信息" formControlName="note" [(ngModel)]="data.note" matTextareaAutosize 
