@@ -23,7 +23,8 @@ import {
   MatDividerModule,
   MatSnackBarModule,
   MatCheckboxModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule
 } from '@angular/material';
 
 
@@ -66,7 +67,8 @@ import { OrderForecastComponent } from './order-forecast/order-forecast.componen
     MatDialogModule,
     MatStepperModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSelectModule
   ],
   declarations: [
     OrderListComponent,
