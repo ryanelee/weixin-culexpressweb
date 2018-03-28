@@ -2,7 +2,7 @@ export interface UploadIDCardModel {
     authType?: string;
     twOrder?: string;
     trackingNumber?: string;
-    celphoneNumber?: string;
+    cellphoneNumber?: string;
     telephoneNumber?: string;
     receivePersonName?: string;
     emailAddress?: string;

@@ -118,7 +118,7 @@
     </div>
 
     <mat-form-field>
-      <input matInput placeholder="手机号码" formControlName="cellphoneNumber" [(ngModel)]="data.celphoneNumber" required>
+      <input matInput placeholder="手机号码" formControlName="cellphoneNumber" [(ngModel)]="data.cellphoneNumber" required>
     </mat-form-field>
     <div *ngIf="cellphoneNumber.invalid && (cellphoneNumber.dirty || cellphoneNumber.touched)">
       <mat-error *ngIf="cellphoneNumber.errors.required">
