@@ -1,0 +1,25 @@
+.zm-form .mat-form-field{
+    display: block;
+}
+.zm-form .mat-input-wrappe .mat-form-field-flex .mat-form-field-infix {
+    display: flex !important;
+    align-items: center;
+}
+.zm-form .mat-input-element {
+    width: inherit;
+    max-width: inherit;
+}
+.of-filed-label {
+    flex: .4;
+    min-width: 90px;
+}
+
+.button-row button{
+    width: 100%;
+    margin: 10px 0px 20px 0px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #6e89c5 !important;
+}

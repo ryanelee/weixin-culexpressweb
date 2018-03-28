@@ -1,17 +1,70 @@
 <div class="tab-cell-block">
-    货物预报
-  </div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <p>货物预报</p>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="zm-form">
   <mat-form-field>
-    <input matInput placeholder="收货仓库" [(ngModel)]="data.retrieveWarehouseNumber">
+    <div class="display-flex">
+      <div class="of-filed-label"><label>收获仓库</label></div>
+      <input matInput placeholder="收货仓库" [(ngModel)]="data.retrieveWarehouseNumber">
+    </div>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Favorite food">
-      <mat-option *ngFor="let item of warehouses"   [(ngModel)]="data.warehouseNumber" [value]="item.warehouseNumber">
-        {{ item.warehouseName }}
-      </mat-option>
-    </mat-select>
+    <div class="display-flex">
+      <div class="of-filed-label">
+        <label>收获仓库</label>
+      </div>
+      <mat-select placeholder="Favorite food">
+        <mat-option *ngFor="let item of warehouses"   [(ngModel)]="data.warehouseNumber" [value]="item.warehouseNumber">
+          {{ item.warehouseName }}
+        </mat-option>
+      </mat-select>
+    </div>
   </mat-form-field>
+
+  <mat-form-field>
+    <div class="display-flex">
+      <div class="of-filed-label">
+        <label>快递名称</label>
+      </div>
+      <input matInput placeholder="快递名称" [(ngModel)]="data.retrieveWarehouseNumber">
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="display-flex">
+      <div class="of-filed-label">
+        <label>运单号码</label>
+      </div>
+      <input matInput placeholder="运单号码" [(ngModel)]="data.retrieveWarehouseNumber">
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="display-flex">
+      <div class="of-filed-label">
+        <label>运单内容</label>
+      </div>
+      <input matInput placeholder="运单内容" [(ngModel)]="data.retrieveWarehouseNumber">
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="display-flex">
+      <div class="of-filed-label">
+        <label>备注信息</label>
+      </div>
+      <input matInput placeholder="运单备注信息" [(ngModel)]="data.retrieveWarehouseNumber">
+    </div>
+  </mat-form-field>
+
+  <div class="button-row">
+    <button mat-raised-button type="submit" color="primary" [disabled]="form.pristine">提交</button>
+  </div>
+
+  <div>
+    <label style="color:#666666; font-size:14px;">注意：在网上购物的时候,一定记得写上系统给您分配,由4~5个字母组成的收件标示,地址后面也要加上客户编号. 以防止在没有做货物预告或者包裹面单破损的情况下,我们仓库收到包裹会根据客户的收件标示和客户编号确认客户信息号.</label>
+  </div>
 
   </form>
+</div>
