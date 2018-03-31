@@ -4,13 +4,6 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="zm-form">
   <mat-form-field>
     <div class="display-flex">
-      <div class="of-filed-label"><label>收获仓库</label></div>
-      <input matInput placeholder="收货仓库" [(ngModel)]="data.retrieveWarehouseNumber">
-    </div>
-  </mat-form-field>
-
-  <mat-form-field>
-    <div class="display-flex">
       <div class="of-filed-label">
         <label>收获仓库</label>
       </div>
@@ -27,16 +20,19 @@
       <div class="of-filed-label">
         <label>快递名称</label>
       </div>
-      <input matInput placeholder="快递名称" [(ngModel)]="data.retrieveWarehouseNumber">
+      <mat-select placeholder="Favorite food">
+        <mat-option *ngFor="let selectedshippingCarrier of shippingCarriers"   [(ngModel)]="data.selectedshippingCarrier" [value]="item.selectedshippingCarrier">
+          {{ item.warehouseName }}
+        </mat-option>
+      </mat-select>
     </div>
   </mat-form-field>
-
   <mat-form-field>
     <div class="display-flex">
       <div class="of-filed-label">
         <label>运单号码</label>
       </div>
-      <input matInput placeholder="运单号码" [(ngModel)]="data.retrieveWarehouseNumber">
+      <input matInput placeholder="运单号码" [(ngModel)]="data.trackingNumber">
     </div>
   </mat-form-field>
 
@@ -45,7 +41,17 @@
       <div class="of-filed-label">
         <label>运单内容</label>
       </div>
-      <input matInput placeholder="运单内容" [(ngModel)]="data.retrieveWarehouseNumber">
+      <input matInput placeholder="运单内容" [(ngModel)]="data.packageDescription">
+    </div>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <div class="display-flex">
+      <div class="of-filed-label">
+        <label>包裹重量</label>
+      </div>
+      <input matInput placeholder="包裹重量" [(ngModel)]="data.packageWeight">
     </div>
   </mat-form-field>
 
@@ -54,12 +60,12 @@
       <div class="of-filed-label">
         <label>备注信息</label>
       </div>
-      <input matInput placeholder="运单备注信息" [(ngModel)]="data.retrieveWarehouseNumber">
+      <input matInput placeholder="运单备注信息" [(ngModel)]="data.packageNote">
     </div>
   </mat-form-field>
 
   <div class="button-row">
-    <button mat-raised-button type="submit" color="primary" [disabled]="form.pristine">提交</button>
+    <button mat-raised-button type="submit" color="primary" >提交</button>
   </div>
 
   <div>
