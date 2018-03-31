@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card class="user-pro">
   <mat-card-header>
     <!-- <div mat-card-avatar class="example-header-image" style="background-image: url('{{user.headimgurl}}');"> -->
     <!-- <img src="{{user.headimgurl}}" /> -->
@@ -8,37 +8,32 @@
     <mat-card-subtitle>注册邮箱:{{user.emailAddress}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p>
+    <div style="margin: 10px 0px;">
        <span>客户编号:{{user.customerNumber}}</span>
        <span>收件标示:{{user.receiveIdentity}}</span>
-    </p>
-    <p>
-        <span>
-            <i class="material-icons md-18">shopping_cart</i>
-            包裹总数: {{user.totalPackageCount}}
-            未入库: {{user.unreceivedPackageCount}}
-            已入库: {{user.receivedPackageCount}}
-        </span>
-    </p>
-    <p>
-        <span>
-            <i class="material-icons md-18">account_balance_wallet</i>
-            账户余额: {{user.accountBalance | currency: 'CNY': true: '1.2-2'}}
-            积分: {{user.myPoint}}
-        </span>
-    </p>
-    <p>
-      <span>
-          <i class="material-icons md-18">stars</i>
-          连续签到: {{user.point || 0}} 天
-      </span>
-  </p>
+    </div>
+    <div class="display-flex">
+      <i class="material-icons md-18">shopping_cart</i>
+      <div>
+          包裹总数: {{user.totalPackageCount}} 未入库: {{user.unreceivedPackageCount}} 已入库: {{user.receivedPackageCount}}
+      </div>
+    </div>
+    <div class="display-flex">
+      <i class="material-icons md-18">account_balance_wallet</i>
+      <div>
+        账户余额: {{user.accountBalance | currency: 'CNY': true: '1.2-2'}} 积分: {{user.myPoint}}
+      </div>
+    </div>
+    <div class="display-flex">
+      <i class="material-icons md-18">stars</i>
+      <div>连续签到: {{user.point || 0}} 天</div>
+    </div>
   </mat-card-content>
   <!-- <img mat-card-image src="{{user.headimgurl}}" alt="Photo of a Shiba Inu"> -->
 </mat-card>
 
 
-<div class="opl-page">
+<div class="up-page">
   <mat-nav-list>
     <mat-list-item class="opl-cell" [routerLink]="['/order/list', user.customerNumber]">
       <a>我的订单</a>

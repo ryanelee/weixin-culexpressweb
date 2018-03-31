@@ -12,6 +12,7 @@
 .of-filed-label {
     flex: .4;
     min-width: 90px;
+    color: #666666;
 }
 
 .button-row button{
