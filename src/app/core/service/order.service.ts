@@ -1,7 +1,25 @@
 import { CommonService } from './common.service';
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
-
+const shippingCarriers = [{
+  id: 1,
+  name: 'DHL'
+}, {
+  id: 2,
+  name: 'EMS'
+}, {
+  id: 3,
+  name: 'FEDEX'
+}, {
+  id: 4,
+  name: 'UPS'
+}, {
+  id: 5,
+  name: 'USPS'
+}, {
+  id: 6,
+  name: '其他快递'
+}];
 @Injectable()
 export class OrderService {
   constructor(private _common: CommonService) { }
@@ -39,6 +57,10 @@ export class OrderService {
     return this._common.authPost('/order/list', param, noLoading);
   }
 
+  inboundpackage(param) {
+    return this._common.authPost('/inboundpackage', param);
+  }
+
   getOrderDetail(param) {
     return this._common.authGet('/order/' + param);
   }
@@ -46,6 +68,10 @@ export class OrderService {
 
   getWarehouses() {
     return this._common.authGet('/warehouse');
+  }
+
+  getShippingCarriers() {
+    return shippingCarriers;
   }
 
 }

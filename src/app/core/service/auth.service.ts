@@ -26,7 +26,7 @@ export class AuthService {
   }
 
 
-  getUser(): void {
+  getUser(): User {
     return this.storage.get('user');
   }
 

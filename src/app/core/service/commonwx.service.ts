@@ -62,7 +62,7 @@ export class CommonwxService {
         error: message => {
           this.hidden();
           observer.next({
-            err: message.json().message,
+            err: message.json().message
           });
         }
       })
