@@ -6,7 +6,7 @@
     <mat-form-field>
       <div class="display-flex">
         <div class="of-filed-label">
-          <label>收获仓库</label>
+          <label>收获仓库<span>*</span></label>
         </div>
         <mat-select placeholder="" [(ngModel)]="data.warehouseNumber">
           <mat-option *ngFor="let item of warehouses" [value]="item.warehouseNumber">
@@ -19,7 +19,7 @@
     <mat-form-field>
       <div class="display-flex">
         <div class="of-filed-label">
-          <label>快递名称</label>
+          <label>快递名称<span>*</span></label>
         </div>
         <mat-select placeholder="" [(ngModel)]="data.carrierName" >
           <mat-option *ngFor="let item of shippingCarriers"   [value]="item.name">
@@ -31,7 +31,7 @@
     <mat-form-field>
       <div class="display-flex">
         <div class="of-filed-label">
-          <label>运单号码</label>
+          <label>运单号码<span>*</span></label>
         </div>
         <input matInput placeholder="" [(ngModel)]="data.trackingNumber">
       </div>
@@ -40,21 +40,21 @@
     <mat-form-field>
       <div class="display-flex">
         <div class="of-filed-label">
-          <label>运单内容</label>
+          <label>运单内容<span>*</span></label>
         </div>
         <input matInput placeholder="" [(ngModel)]="data.packageDescription">
       </div>
     </mat-form-field>
 
 
-    <mat-form-field>
+    <!-- <mat-form-field>
       <div class="display-flex">
         <div class="of-filed-label">
           <label>包裹重量</label>
         </div>
         <input matInput placeholder="" [(ngModel)]="data.packageWeight">
       </div>
-    </mat-form-field>
+    </mat-form-field> -->
 
     <mat-form-field>
       <div class="display-flex">

@@ -13,7 +13,13 @@
     flex: .4;
     min-width: 90px;
 }
-
+label {
+    color:cornflowerblue;
+    font-size: 13px;
+}
+.of-filed-label label span {
+    color:red;
+}
 .button-row button{
     width: 100%;
     margin: 10px 0px 20px 0px;

@@ -117,7 +117,8 @@ export class CommonService {
         },
         error: message => {
           this.hidden();
-          console.log('message.json()', message)
+          console.log('message.json()', message.json())
+          this.alert(message.json().message);
           // observer.next({
           //   err: message.json().message,
           // });

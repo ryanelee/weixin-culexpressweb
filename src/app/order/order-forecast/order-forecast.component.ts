@@ -9,6 +9,7 @@ import { Warehouse } from '../../models/warehouse';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../../core/service/auth.service';
 import { User } from '../../models/user';
+import { CommonService } from '../../core/service/common.service';
 
 @Component({
     selector: 'app-order-forecast',
@@ -27,6 +28,7 @@ export class OrderForecastComponent implements OnInit {
         private _route: ActivatedRoute,
         private _order: OrderService,
         private _auth: AuthService,
+        private _common: CommonService,
     ) { }
     ngOnInit(): void {
         this.user = this._auth.getUser();
@@ -37,8 +39,11 @@ export class OrderForecastComponent implements OnInit {
         })
     }
     submitOrder() {
+        if (!this.data.warehouseNumber || !this.data.carrierName || !this.data.trackingNumber || !this.data.packageDescription) {
+           return this._common.alert('提示', '请填写必填项');
+        }
         this._order.inboundpackage(this.data).subscribe((result) => {
-            console.log('123456', result);
+            this._common.alert('提示', '提交成功');
         })
     }
 }
