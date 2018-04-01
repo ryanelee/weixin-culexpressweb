@@ -5,6 +5,7 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
   
   <div class="option">
+    选择类型:
     <mat-radio-group [(ngModel)]="customerType" formControlName="customerType" (change)="onCustomerTypeChange()">
       <mat-radio-button  value="cul">Cul客户</mat-radio-button>
       <mat-radio-button value="taobao">淘宝微信客户</mat-radio-button>

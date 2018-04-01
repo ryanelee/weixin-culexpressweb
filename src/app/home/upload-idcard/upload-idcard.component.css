@@ -27,12 +27,12 @@
 .option mat-radio-group{
     display: flex;
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-top: 15px;
 }
 .option mat-radio-button {
-    margin: 5px 0px;
-    flex: .5;
+    margin-left: 5px;
+    /* flex: .5; */
 }
 .cul-option {
     margin-top: 10px;
