@@ -44,8 +44,8 @@ export class OrderListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this._popDialog = false;
-    this.orderStatus = '';
-    console.log('****ngOnInit*****');
+    this.orderStatus = 'Unpaid';
+    // console.log('****ngOnInit*****');
     this.onInit();
   }
 
@@ -61,6 +61,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
     this.getFirstList().then((data: any) => {
       if (data && data[0]) {
         this._temList = data;
+        this.orderList = data;
         // this.initMiniRefresh()
         setTimeout(() => {
           this._scrollPane = this._element.nativeElement;
@@ -80,7 +81,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
 
   initMiniRefresh() {
     this.miniRefresh = null
-    console.log('****initMiniRefresh****');
+    // console.log('****initMiniRefresh****');
     const options = {
       container: '#minirefresh',
       down: {},
@@ -112,13 +113,13 @@ export class OrderListComponent implements OnInit, AfterViewInit {
             // console.log(this.loadedCount);
             // console.log(this.totalCount);
             if (this.loadedCount >= this.totalCount) {
-              console.log('endloading!!!!')
+              // console.log('endloading!!!!')
               this._allLoaded = true;
               // this.miniRefresh.endUpLoading(true);
             }
           }
           this.miniRefresh.endUpLoading(this.loadedCount >= this.totalCount);
-          console.log(this.miniRefresh);
+          // console.log(this.miniRefresh);
         }
       })
     }))
@@ -191,7 +192,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   changeQueryStaus(status) {
     this._popDialog = false;
     this.orderStatus = status || '';
-    console.log('****changeQueryStaus*****');
+    // console.log('****changeQueryStaus*****');
     this.onInit();
   }
 }
