@@ -54,7 +54,7 @@ export class OrderTrackingComponent implements OnInit {
       this._order.getTrackingListByOrderNumber(trackingNumber).subscribe((data: any) => {
         if (data._body.indexOf('CUL') > 0) {
           this.trackingNumberList = data._body.replace(/\[|\"|\]/g, '').split(',');
-          console.log(this.trackingNumberList);
+          // console.log(this.trackingNumberList);
         } else {
           this.noData = true;
         }
@@ -65,7 +65,7 @@ export class OrderTrackingComponent implements OnInit {
       if (data._body) {
         this.trackingHistory = JSON.parse(data._body);
         this.trackingHistory.trackingNumber = trackingNumber
-        console.log('this.trackingHistory', this.trackingHistory);
+        // console.log('this.trackingHistory', this.trackingHistory);
       } else {
         this.noData = true;
       }

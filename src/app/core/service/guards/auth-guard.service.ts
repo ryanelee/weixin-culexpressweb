@@ -33,7 +33,7 @@ export class AuthGuardService implements CanLoad, CanActivate {
   }
 
   canLoad(route: Route): boolean {
-    console.log('route', route);
+    // console.log('route', route);
     const url = `/${route.path}`;
     return this.checkLogin(url);
   }

@@ -13,7 +13,7 @@ export class SpinnerComponent implements OnInit {
 
   ngOnInit() {
     this._common.getSpinnerShow().subscribe((data: boolean) => {
-      console.log('data', data)
+      // console.log('data', data)
       this.isSpinnerShow = data;
     })
     // this._order

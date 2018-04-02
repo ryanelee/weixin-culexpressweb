@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._common.getAlertShow().subscribe((data: any) => {
-      console.log('234...');
+      // console.log('234...');
       this.snackBar.open(data.message, data.action, {
         duration: 2000,
       });

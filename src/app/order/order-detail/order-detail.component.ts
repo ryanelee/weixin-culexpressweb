@@ -31,12 +31,12 @@ export class OrderDetailComponent implements OnInit {
 
     ngOnInit() {
         this._order.getOrderDetail(this.orderNumber).subscribe((order: any) => {
-            console.log('order', order);
+            // console.log('order', order);
             this.show = true;
             if (!order.err) {
                 this.orderDetail = order;
                 this.orderDetail.orderStatus = Tool.orderStatus(order.orderStatus);
-                console.log(this.orderDetail);
+                // console.log(this.orderDetail);
                 // this.orderDetail.totalFee = this.orderDetail.toNumber +
                 // this.orderDetail.tariffMoney + this.orderDetail.tip + orderDetail.valueAddFee
                 //  + this.orderDetail.insuranceFee - this.orderDetail.usedPoint;
@@ -57,7 +57,7 @@ export class OrderDetailComponent implements OnInit {
             if (data.data && data.data[0]) {
                 this.trackingHistory = data;
                 this.trackingHistory.trackingNumber = trackingNumber
-                console.log('this.trackingHistory', this.trackingHistory);
+                // console.log('this.trackingHistory', this.trackingHistory);
             } else {
                 this.noData = true;
             }

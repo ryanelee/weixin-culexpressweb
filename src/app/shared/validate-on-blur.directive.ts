@@ -8,12 +8,12 @@ export class ValidateOnBlurDirective {
     constructor(public formControl: NgControl) { }
     @HostListener('focus', ['$event.target'])
       onFocus(target) {
-        console.log('Focus called');
+        // console.log('Focus called');
         this.formControl.control.markAsUntouched();
       }
     @HostListener('blur', ['$event.target'])
     onBlur(target) {
-      console.log('Focus out called');
+      // console.log('Focus out called');
       this.formControl.control.markAsTouched();
     }
 
