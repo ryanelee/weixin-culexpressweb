@@ -103,7 +103,7 @@ export class CommonwxService {
           this.hidden();
           // this.SpinnerShow.next(false);
           const _data = result.json();
-          console.log('_data', _data);
+          // console.log('_data', _data);
           if (_data.code === '000') {
             observer.next(_data.data);
           }
@@ -114,7 +114,7 @@ export class CommonwxService {
         },
         error: message => {
           this.hidden();
-          console.log('message.json()', message)
+          // console.log('message.json()', message)
           // observer.next({
           //   err: message.json().message,
           // });
@@ -141,7 +141,7 @@ export class CommonwxService {
         },
         error: message => {
           this.hidden();
-          console.log('message.json()', message)
+          // console.log('message.json()', message)
           // observer.next({
           //   err: message.json().message,
           // });

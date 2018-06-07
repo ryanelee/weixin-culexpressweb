@@ -92,39 +92,42 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         }
       }
     }
-    this.miniRefresh = new MiniRefreshTools.theme.defaults(Object.assign(options, {
-      // down: Object.assign(options.down || {}, {
-      //   callback: () => {
-      //     this.miniRefresh.endDownLoading(true);
-      //   }
-      // }),
-      up: Object.assign(options.up || {}, {
-        callback: () => {
-          if (this._loaded && this.loadedCount < this.totalCount) {
-            if (this.pageIndex !== 1) {
-              this.getOrderList(this.pageIndex);
-              this.loadedCount += 10;
-              this.pageIndex++;
-            } else {
-              this.pageIndex++;
-              this.orderList = this._temList
+
+    try {
+      this.miniRefresh = new MiniRefreshTools.theme.defaults(Object.assign(options, {
+        // down: Object.assign(options.down || {}, {
+        //   callback: () => {
+        //     this.miniRefresh.endDownLoading(true);
+        //   }
+        // }),
+        up: Object.assign(options.up || {}, {
+          callback: () => {
+            if (this._loaded && this.loadedCount < this.totalCount) {
+              if (this.pageIndex !== 1) {
+                this.getOrderList(this.pageIndex);
+                this.loadedCount += 10;
+                this.pageIndex++;
+              } else {
+                this.pageIndex++;
+                this.orderList = this._temList
+              }
+              // console.log('this.loadedCount');
+              // console.log(this.loadedCount);
+              // console.log(this.totalCount);
+              if (this.loadedCount >= this.totalCount) {
+                // console.log('endloading!!!!')
+                this._allLoaded = true;
+                // this.miniRefresh.endUpLoading(true);
+              }
             }
-            // console.log('this.loadedCount');
-            // console.log(this.loadedCount);
-            // console.log(this.totalCount);
-            if (this.loadedCount >= this.totalCount) {
-              // console.log('endloading!!!!')
-              this._allLoaded = true;
-              this.miniRefresh.endloading = true
-              this.miniRefresh.endUpLoading(true);
-            }
+            this.miniRefresh.endUpLoading(this.loadedCount >= this.totalCount);
+            // console.log(this.miniRefresh);
           }
-          // this.miniRefresh.endloading = true
-          // this.miniRefresh.endUpLoading(this.loadedCount >= this.totalCount);
-          console.log(this.miniRefresh);
-        }
-      })
-    }))
+        })
+      }))
+    } catch (error) {
+      // console.log(error);
+    }
   }
 
   getOrderList(pageIndex) {
@@ -166,7 +169,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
         this.totalCount = data.pageInfo.totalCount;
         this.loadedCount = data.pageInfo.pageSize;
         this.pageIndex = data.pageInfo.pageIndex;
-        console.log(this.loadedCount);
+        // console.log(this.loadedCount);
         if (data.data) {
           resolve(data.data)
         } else {
