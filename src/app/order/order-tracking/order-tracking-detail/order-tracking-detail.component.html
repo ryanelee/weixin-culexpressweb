@@ -3,7 +3,7 @@
       <div class="otd-info">
         <img src="/assets/images/icon-left-baoguo.png">
         <div>
-          <p>已出库</p>
+          <p>{{getPkgStatus(trackingHistory.status)}}</p>
           <span>cul包裹号:{{trackingHistory.trackingNumber}}</span><br>
           <span>已运送:{{trackingHistory.usedTimeString}}</span>
         </div>

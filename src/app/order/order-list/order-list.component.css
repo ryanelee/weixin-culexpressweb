@@ -64,6 +64,10 @@
     height: 80px;
 }
 
+.all-load .minirefresh-theme-default .minirefresh-upwrap {
+    display: none;
+}
+
 
 
 

@@ -1,5 +1,6 @@
 import { TrackingHistory } from 'app/models/trackingHistory';
 import { Component, OnInit, Input, Output } from '@angular/core';
+import { Tool } from 'app/core/service/tool';
 
 @Component({
   selector: 'app-order-tracking-detail',
@@ -15,5 +16,9 @@ export class OrderTrackingDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  getPkgStatus(status) {
+    return Tool.pkgStatus(status);
   }
 }

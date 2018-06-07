@@ -21,6 +21,7 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   @Output() totalCount: number;
   @Output() orderStatus: string;
   @Output() _popDialog: boolean;
+  @Output() _allLoaded: boolean;
   private customerNunber: Observable<string>;
   private _temList: Array<OrderList>;
   private noData: boolean;
@@ -32,7 +33,6 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   private _scrollPane: HTMLElement;
   private _interval: any;
   private _loaded: boolean;
-  private _allLoaded: boolean;
 
   constructor(
     private _order: OrderService,
@@ -115,11 +115,13 @@ export class OrderListComponent implements OnInit, AfterViewInit {
             if (this.loadedCount >= this.totalCount) {
               // console.log('endloading!!!!')
               this._allLoaded = true;
-              // this.miniRefresh.endUpLoading(true);
+              this.miniRefresh.endloading = true
+              this.miniRefresh.endUpLoading(true);
             }
           }
-          this.miniRefresh.endUpLoading(this.loadedCount >= this.totalCount);
-          // console.log(this.miniRefresh);
+          // this.miniRefresh.endloading = true
+          // this.miniRefresh.endUpLoading(this.loadedCount >= this.totalCount);
+          console.log(this.miniRefresh);
         }
       })
     }))
@@ -192,7 +194,6 @@ export class OrderListComponent implements OnInit, AfterViewInit {
   changeQueryStaus(status) {
     this._popDialog = false;
     this.orderStatus = status || '';
-    // console.log('****changeQueryStaus*****');
     this.onInit();
   }
 }
